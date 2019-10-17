@@ -1,0 +1,16 @@
+syntax = "proto3";
+package pb;
+
+import "Chat.proto";
+
+//聊天记录
+message CtsChatHistory {
+    int64 roomId = 1;
+    int64 userId = 2;
+}
+
+message StcChatHistory {
+    int32 result = 1;
+    repeated Chat history = 2;
+}
+
