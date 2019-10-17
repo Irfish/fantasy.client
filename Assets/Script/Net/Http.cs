@@ -31,7 +31,7 @@ public class Http:SingletonMono<Http>
         yield return m_WebRequest.SendWebRequest();
         if (m_WebRequest.isNetworkError)
         {
-            AppDebug.Log("http do post errot:");
+            AppDebug.Log("http do post error:"+ m_WebRequest.error);
         }
         else
         {
