@@ -12,7 +12,7 @@ public class Http:SingletonMono<Http>
     ///相应回调
     /// </summary>
     /// <param name="buffer"></param>
-    public delegate void ResponseCallBack(byte[] data);
+    public delegate void ResponseCallBack(string data);
     private UnityWebRequest m_WebRequest;
 
     /// <summary>
@@ -36,8 +36,7 @@ public class Http:SingletonMono<Http>
         else
         {
             AppDebug.Log(m_WebRequest.downloadHandler.text);
-            byte[] result = m_WebRequest.downloadHandler.data;
-            callBack(result);
+            callBack(m_WebRequest.downloadHandler.text);
         }
     }
     /// /// <summary>
@@ -61,8 +60,7 @@ public class Http:SingletonMono<Http>
         else
         {
             AppDebug.Log(m_WebRequest.downloadHandler.text);
-            byte[] result = m_WebRequest.downloadHandler.data;
-            callBack(result);
+            callBack(m_WebRequest.downloadHandler.text);
         }
     }
 
