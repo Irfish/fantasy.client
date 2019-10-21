@@ -10,14 +10,18 @@ public class StringTools:Singleton<StringTools>
     public StringTools Add(string s)
     {
         str.Append(s);
+
         return this;
     }
 
     public override void Dispose()
     {
         str.Clear();
+
         str = null;
+
         base.Dispose();
+
     }
 
     public override string ToString()

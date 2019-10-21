@@ -27,18 +27,6 @@ public class NetWorkMessageTools : Singleton<NetWorkMessageTools>
         return newData;
     }
 
-    public void DecodeMessage(byte[] inData, out int id, out byte[] outData)
-    {
-        id = 0;
-        outData = null;
-        using (AppMemoryStream ms = new AppMemoryStream(inData))
-        {
-            id = ms.ReadUShort();
-            ms.Read(outData, 0, outData.Length);
-        }
-        return;
-    }
-
     public void SendMessage(IMessage obj)
     {
 

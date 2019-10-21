@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
+public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour 
 {
     private static T instance;
 
@@ -13,10 +13,15 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
             if (instance==null)
             {
                 GameObject go = new GameObject(typeof(T).Name);
+
                 DontDestroyOnLoad(go);
+
                 instance = go.GetOrCreateComponent<T>();
+
             }
+
             return instance;
+
         }
     }
 

@@ -13,6 +13,7 @@ public class Http:SingletonMono<Http>
     /// </summary>
     /// <param name="buffer"></param>
     public delegate void ResponseCallBack(string data);
+
     private UnityWebRequest m_WebRequest;
 
     /// <summary>
@@ -23,20 +24,26 @@ public class Http:SingletonMono<Http>
     public void SendPost(string url, WWWForm form, ResponseCallBack callBack)
     {
         Uri uri = new Uri(url);
+
         m_WebRequest = UnityWebRequest.Post(uri, form);
+
         StartCoroutine(DoPost(callBack));
+
     }
     private IEnumerator DoPost(ResponseCallBack callBack)
     {
         yield return m_WebRequest.SendWebRequest();
+
         if (m_WebRequest.isNetworkError)
         {
-            AppDebug.Log("http do post error:"+ m_WebRequest.error);
+            AppDebug.Log("HTTP do post error:" + m_WebRequest.error);
         }
         else
         {
-            AppDebug.Log(m_WebRequest.downloadHandler.text);
+            AppDebug.Log("HTTP post return: " + m_WebRequest.downloadHandler.text);
+
             callBack(m_WebRequest.downloadHandler.text);
+
         }
     }
     /// /// <summary>
@@ -47,20 +54,26 @@ public class Http:SingletonMono<Http>
     public void SendGet(string url, ResponseCallBack callBack)
     {
         Uri uri = new Uri(url);
+
         m_WebRequest = UnityWebRequest.Get(uri);
+
         StartCoroutine(DoGet(callBack));
+
     }
     private IEnumerator DoGet(ResponseCallBack callBack)
     {
         yield return m_WebRequest.SendWebRequest();
+
         if (m_WebRequest.isNetworkError)
         {
-            AppDebug.Log("http do get errot:");
+            AppDebug.Log("HTTP do get error:");
         }
         else
         {
-            AppDebug.Log(m_WebRequest.downloadHandler.text);
+            AppDebug.Log("HTTP get return: "+m_WebRequest.downloadHandler.text);
+
             callBack(m_WebRequest.downloadHandler.text);
+
         }
     }
 

@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System;
-using BestHTTP;
 using BestHTTP.WebSocket;
-
 
 public class WebSocketClient : SingletonMono<WebSocketClient>
 {
@@ -25,11 +21,17 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     protected override void OnAwake()
     {
         base.OnAwake();
-        m_Ws = new WebSocket(new Uri(AppDefine.wsAddr));
+
+        m_Ws = new WebSocket(new Uri(AppDefine.WSAddr));
+
         m_Ws.StartPingThread = true;
+
         m_Ws.OnOpen += OnOpen;
+
         m_Ws.OnBinary += OnBinary;
+
         m_Ws.OnError += OnError;
+
         m_Ws.OnClosed += OnClosed;
     }
 
@@ -41,7 +43,8 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     protected override void BeforeOnDestroy()
     {
         base.BeforeOnDestroy();
-        if (m_Ws!=null && m_Ws.IsOpen)
+
+        if (m_Ws != null && m_Ws.IsOpen)
         {
             m_Ws.Close();
         }
@@ -50,7 +53,9 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     protected override void OnUpdate()
     {
         base.OnUpdate();
+
         if (m_connected == false) return;
+
         while (true)
         {
             if (m_ReceiveCount <= 5)//没帧值取五条
@@ -60,16 +65,10 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
                 if (m_ReceiveQueue.Count > 0)
                 {
                     byte[] data = m_ReceiveQueue.Dequeue();
-                    byte[] body = new byte[data.Length - 2];
-                    ushort protoCode = 0;
-                    using (AppMemoryStream ms = new AppMemoryStream(data))
-                    {
-                        protoCode = ms.ReadUShort();
-                        ms.Read(body, 0, body.Length);
-                        AppDebug.Log("ws: received message");
-                        //派发事件
-                        SocketEvent.Instance.Dispatch(protoCode, body);
-                    }
+
+                    AppDebug.Log("websocket recieved a message:");
+
+                    Parser.DecodeMessage(data);
                 }
                 else
                 {
@@ -79,6 +78,7 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
             else
             {
                 m_ReceiveCount = 0;
+
                 break;
             }
         }
@@ -87,52 +87,71 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     public void WsConnect()
     {
         if (m_Ws != null && m_Ws.IsOpen) return;
+
         m_Ws.Open();
+
     }
 
     private void OnOpen(WebSocket ws)
     {
         AppDebug.Log("ws:OnOpen ");
+
         m_CheckSendQueneAction = CheckSendQueue;
+
         m_connected = true;
+
     }
 
     private void OnBinary(WebSocket ws, byte[] data)
     {
         AppDebug.Log("ws:OnBinary ");
+
         lock (m_ReceiveQueue)
         {
             m_ReceiveQueue.Enqueue(data);
         }
     }
 
-    private void OnError(WebSocket ws ,Exception e)
+    private void OnError(WebSocket ws, Exception e)
     {
         if (e == null) return;
-        AppDebug.Log("ws:OnBinary "+e.ToString());
+
+        AppDebug.Log("ws:OnBinary " + e.ToString());
+
     }
 
-    private void OnClosed(WebSocket ws,UInt16 code,string msg)
+    private void OnClosed(WebSocket ws, UInt16 code, string msg)
     {
         AppDebug.Log("ws:OnClosed ");
+
         m_connected = false;
+
         m_SendQueue.Clear();
+
         m_ReceiveQueue.Clear();
 
         m_SendQueue = null;
+
         m_ReceiveQueue = null;
+
         m_Ws = null;
+
         m_CheckSendQueneAction = null;
+
     }
 
     public void SendMessage(int messageId, byte[] data)
     {
-        byte[] msg = NetWorkMessageTools.Instance.EncodeMassage(messageId, data);
+        byte[] msg = Parser.EncodeMassage(messageId, data);
+
         lock (m_SendQueue)
         {
             m_SendQueue.Enqueue(msg);
+
             if (m_CheckSendQueneAction == null) return;
+
             m_CheckSendQueneAction.BeginInvoke(null, null);
+
         }
     }
 
@@ -146,5 +165,5 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
             }
         }
     }
-   
+
 }
