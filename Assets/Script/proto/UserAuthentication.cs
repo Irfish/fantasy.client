@@ -26,7 +26,7 @@ namespace Pb {
             "aGVudGljYXRpb24SDgoGdXNlcklkGAEgASgFEg0KBXRva2VuGAIgASgMEhcK",
             "D3Rva2VuRXhwaXJlVGltZRgDIAEoAyJKChVTdGNVc2VyQXV0aGVudGljYXRp",
             "b24SDgoGc3RhdHVzGAEgASgIEg4KBnJlc3VsdBgCIAEoCRIRCglzZXNzaW9u",
-            "SWQYAyABKAViBnByb3RvMw=="));
+            "SWQYAyABKANiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -269,9 +269,9 @@ namespace Pb {
 
     /// <summary>Field number for the "sessionId" field.</summary>
     public const int SessionIdFieldNumber = 3;
-    private int sessionId_;
+    private long sessionId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int SessionId {
+    public long SessionId {
       get { return sessionId_; }
       set {
         sessionId_ = value;
@@ -302,7 +302,7 @@ namespace Pb {
       int hash = 1;
       if (Status != false) hash ^= Status.GetHashCode();
       if (Result.Length != 0) hash ^= Result.GetHashCode();
-      if (SessionId != 0) hash ^= SessionId.GetHashCode();
+      if (SessionId != 0L) hash ^= SessionId.GetHashCode();
       return hash;
     }
 
@@ -321,9 +321,9 @@ namespace Pb {
         output.WriteRawTag(18);
         output.WriteString(Result);
       }
-      if (SessionId != 0) {
+      if (SessionId != 0L) {
         output.WriteRawTag(24);
-        output.WriteInt32(SessionId);
+        output.WriteInt64(SessionId);
       }
     }
 
@@ -336,8 +336,8 @@ namespace Pb {
       if (Result.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Result);
       }
-      if (SessionId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(SessionId);
+      if (SessionId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(SessionId);
       }
       return size;
     }
@@ -353,7 +353,7 @@ namespace Pb {
       if (other.Result.Length != 0) {
         Result = other.Result;
       }
-      if (other.SessionId != 0) {
+      if (other.SessionId != 0L) {
         SessionId = other.SessionId;
       }
     }
@@ -375,7 +375,7 @@ namespace Pb {
             break;
           }
           case 24: {
-            SessionId = input.ReadInt32();
+            SessionId = input.ReadInt64();
             break;
           }
         }
