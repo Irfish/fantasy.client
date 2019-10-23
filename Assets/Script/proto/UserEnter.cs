@@ -22,19 +22,20 @@ namespace Pb {
     static UserEnterReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChB1c2VyX2VudGVyLnByb3RvEgJwYiIeCgxDdHNVc2VyRW50ZXISDgoGdXNl",
-            "cklkGAEgASgDImsKDFN0Y1VzZXJFbnRlchIOCgZ1c2VySWQYASABKAMSDAoE",
-            "bmFtZRgCIAEoCRIOCgZyb29tSWQYAyABKAMSDwoHY2hhaXJJZBgEIAEoBRIM",
-            "CgRnb2xkGAUgASgDEg4KBmhlYWRJZBgGIAEoAyIvCgxDdHNVc2VyTGVhdmUS",
-            "DgoGdXNlcklkGAEgASgDEg8KB2NoYWlySWQYAiABKAUiPwoMU3RjVXNlckxl",
-            "YXZlEg4KBnVzZXJJZBgBIAEoAxIOCgZyb29tSWQYAyABKAMSDwoHY2hhaXJJ",
-            "ZBgEIAEoBWIGcHJvdG8z"));
+            "ChB1c2VyX2VudGVyLnByb3RvEgJwYiIuCgxDdHNVc2VyRW50ZXISDgoGdXNl",
+            "cklkGAEgASgDEg4KBnJvb21JZBgCIAEoAyJrCgxTdGNVc2VyRW50ZXISDgoG",
+            "dXNlcklkGAEgASgDEgwKBG5hbWUYAiABKAkSDgoGcm9vbUlkGAMgASgDEg8K",
+            "B2NoYWlySWQYBCABKAUSDAoEZ29sZBgFIAEoAxIOCgZoZWFkSWQYBiABKAMi",
+            "PwoMQ3RzVXNlckxlYXZlEg4KBnVzZXJJZBgBIAEoAxIPCgdjaGFpcklkGAIg",
+            "ASgFEg4KBnJvb21JZBgDIAEoAyI/CgxTdGNVc2VyTGVhdmUSDgoGdXNlcklk",
+            "GAEgASgDEg4KBnJvb21JZBgDIAEoAxIPCgdjaGFpcklkGAQgASgFYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Pb.CtsUserEnter), global::Pb.CtsUserEnter.Parser, new[]{ "UserId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Pb.CtsUserEnter), global::Pb.CtsUserEnter.Parser, new[]{ "UserId", "RoomId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Pb.StcUserEnter), global::Pb.StcUserEnter.Parser, new[]{ "UserId", "Name", "RoomId", "ChairId", "Gold", "HeadId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Pb.CtsUserLeave), global::Pb.CtsUserLeave.Parser, new[]{ "UserId", "ChairId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Pb.CtsUserLeave), global::Pb.CtsUserLeave.Parser, new[]{ "UserId", "ChairId", "RoomId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Pb.StcUserLeave), global::Pb.StcUserLeave.Parser, new[]{ "UserId", "RoomId", "ChairId" }, null, null, null)
           }));
     }
@@ -67,6 +68,7 @@ namespace Pb {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public CtsUserEnter(CtsUserEnter other) : this() {
       userId_ = other.userId_;
+      roomId_ = other.roomId_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -85,6 +87,17 @@ namespace Pb {
       }
     }
 
+    /// <summary>Field number for the "roomId" field.</summary>
+    public const int RoomIdFieldNumber = 2;
+    private long roomId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long RoomId {
+      get { return roomId_; }
+      set {
+        roomId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CtsUserEnter);
@@ -99,6 +112,7 @@ namespace Pb {
         return true;
       }
       if (UserId != other.UserId) return false;
+      if (RoomId != other.RoomId) return false;
       return true;
     }
 
@@ -106,6 +120,7 @@ namespace Pb {
     public override int GetHashCode() {
       int hash = 1;
       if (UserId != 0L) hash ^= UserId.GetHashCode();
+      if (RoomId != 0L) hash ^= RoomId.GetHashCode();
       return hash;
     }
 
@@ -120,6 +135,10 @@ namespace Pb {
         output.WriteRawTag(8);
         output.WriteInt64(UserId);
       }
+      if (RoomId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(RoomId);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -127,6 +146,9 @@ namespace Pb {
       int size = 0;
       if (UserId != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(UserId);
+      }
+      if (RoomId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(RoomId);
       }
       return size;
     }
@@ -138,6 +160,9 @@ namespace Pb {
       }
       if (other.UserId != 0L) {
         UserId = other.UserId;
+      }
+      if (other.RoomId != 0L) {
+        RoomId = other.RoomId;
       }
     }
 
@@ -151,6 +176,10 @@ namespace Pb {
             break;
           case 8: {
             UserId = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            RoomId = input.ReadInt64();
             break;
           }
         }
@@ -442,6 +471,7 @@ namespace Pb {
     public CtsUserLeave(CtsUserLeave other) : this() {
       userId_ = other.userId_;
       chairId_ = other.chairId_;
+      roomId_ = other.roomId_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -471,6 +501,17 @@ namespace Pb {
       }
     }
 
+    /// <summary>Field number for the "roomId" field.</summary>
+    public const int RoomIdFieldNumber = 3;
+    private long roomId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long RoomId {
+      get { return roomId_; }
+      set {
+        roomId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CtsUserLeave);
@@ -486,6 +527,7 @@ namespace Pb {
       }
       if (UserId != other.UserId) return false;
       if (ChairId != other.ChairId) return false;
+      if (RoomId != other.RoomId) return false;
       return true;
     }
 
@@ -494,6 +536,7 @@ namespace Pb {
       int hash = 1;
       if (UserId != 0L) hash ^= UserId.GetHashCode();
       if (ChairId != 0) hash ^= ChairId.GetHashCode();
+      if (RoomId != 0L) hash ^= RoomId.GetHashCode();
       return hash;
     }
 
@@ -512,6 +555,10 @@ namespace Pb {
         output.WriteRawTag(16);
         output.WriteInt32(ChairId);
       }
+      if (RoomId != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(RoomId);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -522,6 +569,9 @@ namespace Pb {
       }
       if (ChairId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ChairId);
+      }
+      if (RoomId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(RoomId);
       }
       return size;
     }
@@ -536,6 +586,9 @@ namespace Pb {
       }
       if (other.ChairId != 0) {
         ChairId = other.ChairId;
+      }
+      if (other.RoomId != 0L) {
+        RoomId = other.RoomId;
       }
     }
 
@@ -553,6 +606,10 @@ namespace Pb {
           }
           case 16: {
             ChairId = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            RoomId = input.ReadInt64();
             break;
           }
         }

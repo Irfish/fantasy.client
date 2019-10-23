@@ -12,23 +12,22 @@ namespace Pb
         private static List<int> m_protoId = new List<int>
         {
             0,
-            //UserAuthentication
             1,
             2,
-           
             3,
             4,
-
             5,
             6,
-
             7,
             8,
+            9,
         };
 
         private static List<Type> m_protoType = new List<Type>
         {
             typeof(Message),
+
+            typeof(StcErrorNotice),
 
             typeof(CtsUserAuthentication),
             typeof(StcUserAuthentication),
@@ -47,6 +46,8 @@ namespace Pb
         private static readonly Dictionary<RuntimeTypeHandle, MessageParser> Parsers = new Dictionary<RuntimeTypeHandle, MessageParser>()
         {
             {typeof(Message).TypeHandle,Message.Parser },
+
+            {typeof(StcErrorNotice).TypeHandle,StcErrorNotice.Parser },
 
             {typeof(CtsUserAuthentication).TypeHandle,CtsUserAuthentication.Parser },
             {typeof(StcUserAuthentication).TypeHandle,StcUserAuthentication.Parser },

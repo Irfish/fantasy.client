@@ -14,6 +14,10 @@ public class Player
 
     private int m_SessionId;
 
+    private long m_RoomId;
+
+    private int m_ChairId;
+
     public string Name
     {
         get {
@@ -63,6 +67,30 @@ public class Player
         }
         set {
             m_TokenExpireTime = value;
+        }
+    }
+
+    public long RoomId
+    {
+        get
+        {
+            return m_RoomId;
+        }
+        set
+        {
+            m_RoomId = value;
+        }
+    }
+
+    public int ChairId
+    {
+        get
+        {
+            return m_ChairId;
+        }
+        set
+        {
+            m_ChairId = value;
         }
     }
 

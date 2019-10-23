@@ -10,11 +10,19 @@ public class Test001 : MonoBehaviour
 {
     void Start()
     {
+        SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcCreateRoom)), OnStcCreateRoom);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcUserEnter)), OnStcUserEnter);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcUserLeave)), OnStcUserLeave);
-        SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcCreateRoom)), OnStcCreateRoom);
+        SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcErrorNotice)), OnErrorNotice);
 
         UserManager.Instance.LoginByAccount("1003","123456");
+    }
+
+    private void OnErrorNotice(object data)
+    {
+        StcErrorNotice stc = data as StcErrorNotice;
+
+        AppDebug.Log("error notice: " + stc.Info);
     }
 
     private void OnStcUserLeave(object data)
@@ -28,12 +36,19 @@ public class Test001 : MonoBehaviour
     {
         StcCreateRoom stc = data as StcCreateRoom;
 
-        AppDebug.Log("create room:"+stc.RoomId.ToString());
+        UserManager.Instance.GetPlayer().RoomId = stc.RoomId;
+
+        AppDebug.Log("create room:" + stc.RoomId.ToString());
+
     }
 
     private void OnStcUserEnter(object data)
     {
         StcUserEnter stc = data as StcUserEnter;
+
+        UserManager.Instance.GetPlayer().RoomId = stc.RoomId;
+
+        UserManager.Instance.GetPlayer().ChairId = stc.ChairId;
 
         AppDebug.Log("user enter:"+stc.RoomId.ToString());
 
@@ -44,7 +59,9 @@ public class Test001 : MonoBehaviour
         CtsUserEnter u = new CtsUserEnter();
 
         u.UserId = 1003;
-        
+
+        u.RoomId = UserManager.Instance.GetPlayer().RoomId;
+
         NetworkManager.Instance.SendToGame(u);
 
     }
@@ -54,6 +71,10 @@ public class Test001 : MonoBehaviour
         CtsUserLeave u = new CtsUserLeave();
 
         u.UserId = 1003;
+
+        u.RoomId = UserManager.Instance.GetPlayer().RoomId;
+
+        u.ChairId = UserManager.Instance.GetPlayer().ChairId;
 
         NetworkManager.Instance.SendToGame(u);
 
