@@ -12,34 +12,54 @@ namespace Pb
         private static List<int> m_protoId = new List<int>
         {
             0,
-            //UserEnter
+            //UserAuthentication
             1,
             2,
-            //UserAuthentication
+           
             3,
             4,
+
+            5,
+            6,
+
+            7,
+            8,
         };
 
         private static List<Type> m_protoType = new List<Type>
         {
             typeof(Message),
+
+            typeof(CtsUserAuthentication),
+            typeof(StcUserAuthentication),
             //1 2
             typeof(CtsUserEnter),
             typeof(StcUserEnter),
-            //3 4
-            typeof(CtsUserAuthentication),
-            typeof(StcUserAuthentication),
+
+            typeof(CtsUserLeave),
+            typeof(StcUserLeave),
+
+            typeof(CtsCreateRoom),
+            typeof(StcCreateRoom),
+
         };
 
         private static readonly Dictionary<RuntimeTypeHandle, MessageParser> Parsers = new Dictionary<RuntimeTypeHandle, MessageParser>()
         {
             {typeof(Message).TypeHandle,Message.Parser },
 
+            {typeof(CtsUserAuthentication).TypeHandle,CtsUserAuthentication.Parser },
+            {typeof(StcUserAuthentication).TypeHandle,StcUserAuthentication.Parser },
+
             {typeof(CtsUserEnter).TypeHandle,CtsUserEnter.Parser },
             {typeof(StcUserEnter).TypeHandle,StcUserEnter.Parser },
 
-            {typeof(CtsUserAuthentication).TypeHandle,CtsUserAuthentication.Parser },
-            {typeof(StcUserAuthentication).TypeHandle,StcUserAuthentication.Parser },
+            {typeof(CtsUserLeave).TypeHandle,CtsUserLeave.Parser },
+            {typeof(StcUserLeave).TypeHandle,StcUserLeave.Parser },
+
+            {typeof(CtsCreateRoom).TypeHandle,CtsCreateRoom.Parser },
+            {typeof(StcCreateRoom).TypeHandle,StcCreateRoom.Parser },
+
         };
 
 
