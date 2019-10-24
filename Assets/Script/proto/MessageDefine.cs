@@ -21,6 +21,9 @@ namespace Pb
             7,
             8,
             9,
+            10,
+            11,
+            12,
         };
 
         private static List<Type> m_protoType = new List<Type>
@@ -41,6 +44,11 @@ namespace Pb
             typeof(CtsCreateRoom),
             typeof(StcCreateRoom),
 
+            typeof(CtsPlayPiece),
+            typeof(StcPlayPiece),
+
+            typeof(StcGameResult),
+
         };
 
         private static readonly Dictionary<RuntimeTypeHandle, MessageParser> Parsers = new Dictionary<RuntimeTypeHandle, MessageParser>()
@@ -60,6 +68,12 @@ namespace Pb
 
             {typeof(CtsCreateRoom).TypeHandle,CtsCreateRoom.Parser },
             {typeof(StcCreateRoom).TypeHandle,StcCreateRoom.Parser },
+
+            {typeof(CtsPlayPiece).TypeHandle,CtsPlayPiece.Parser },
+            {typeof(StcPlayPiece).TypeHandle,StcPlayPiece.Parser },
+
+            {typeof(StcGameResult).TypeHandle,StcGameResult.Parser },
+
 
         };
 
