@@ -48,6 +48,8 @@ public class NetworkManager : Singleton<NetworkManager>
             return;
         }
 
+        header.SessionId = p.SessionId;
+
         header.UserId = p.UserId;
 
         header.Token = p.Token;

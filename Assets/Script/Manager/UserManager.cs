@@ -121,6 +121,8 @@ public class UserManager : Singleton<UserManager>
     {
         StcUserAuthentication stc = obj as StcUserAuthentication;
 
+        m_Player.SessionId = stc.SessionId;
+
         AppDebug.Log("认证成功！"+"seesionId:"+stc.SessionId+" result:"+ stc.Result);
 
     }

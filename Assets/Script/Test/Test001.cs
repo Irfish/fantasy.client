@@ -14,11 +14,19 @@ public class Test001 : MonoBehaviour
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcUserEnter)), OnStcUserEnter);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcUserLeave)), OnStcUserLeave);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcErrorNotice)), OnErrorNotice);
-
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcPlayPiece)), OnStcPlayPiece);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcGameResult)), OnStcGameResult);
+        SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcUserReady)), OnStcUserReady);
 
         UserManager.Instance.LoginByAccount("1003","123456");
+    }
+
+    private void OnStcUserReady(object data)
+    {
+         StcUserReady stc = data as StcUserReady;
+
+         AppDebug.Log("user ready: " + stc.ChairId.ToString());
+
     }
 
     private void OnStcGameResult(object data)
@@ -137,6 +145,8 @@ public class Test001 : MonoBehaviour
         cts.ChairId = UserManager.Instance.GetPlayer().ChairId;
 
         cts.RoomId = UserManager.Instance.GetPlayer().RoomId;
+
+        cts.Status = true;
 
         NetworkManager.Instance.SendToGame(cts);
 

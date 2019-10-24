@@ -12,7 +12,7 @@ public class Player
 
     private int m_TokenExpireTime;
 
-    private int m_SessionId;
+    private long m_SessionId;
 
     private long m_RoomId;
 
@@ -50,7 +50,7 @@ public class Player
         }
     }
 
-    public int SessionId
+    public long SessionId
     {
         get {
             return m_SessionId;
