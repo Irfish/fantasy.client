@@ -46,7 +46,7 @@ public class Test001 : MonoBehaviour
     {
         StcUserLeave stc = data as StcUserLeave;
 
-        AppDebug.Log("user leave: "+stc.RoomId.ToString());
+        AppDebug.Log("user leave: "+stc.RoomId.ToString()+" "+stc.ChairId.ToString());
     }
 
     private void OnStcCreateRoom(object data)
@@ -67,44 +67,44 @@ public class Test001 : MonoBehaviour
 
         UserManager.Instance.GetPlayer().ChairId = stc.ChairId;
 
-        AppDebug.Log("user enter:"+stc.RoomId.ToString());
+        AppDebug.Log("user enter:"+stc.RoomId.ToString()+" "+stc.ChairId.ToString());
 
     }
 
     public void ClickButtonUserEnter()
     {
-        CtsUserEnter u = new CtsUserEnter();
+        CtsUserEnter cts = new CtsUserEnter();
 
-        u.UserId = 1003;
+        cts.UserId = 1003;
 
-        u.RoomId = UserManager.Instance.GetPlayer().RoomId;
+        cts.RoomId = UserManager.Instance.GetPlayer().RoomId;
 
-        NetworkManager.Instance.SendToGame(u);
+        NetworkManager.Instance.SendToGame(cts);
         piece_x = 0;
         piece_y = 0;
     }
 
     public void ClickButtonUserLeave()
     {
-        CtsUserLeave u = new CtsUserLeave();
+        CtsUserLeave cts = new CtsUserLeave();
 
-        u.UserId = 1003;
+        cts.UserId = 1003;
 
-        u.RoomId = UserManager.Instance.GetPlayer().RoomId;
+        cts.RoomId = UserManager.Instance.GetPlayer().RoomId;
 
-        u.ChairId = UserManager.Instance.GetPlayer().ChairId;
+        cts.ChairId = UserManager.Instance.GetPlayer().ChairId;
 
-        NetworkManager.Instance.SendToGame(u);
+        NetworkManager.Instance.SendToGame(cts);
 
     }
 
     public void ClickButtonCreateRoom()
     {
-        CtsCreateRoom u = new CtsCreateRoom();
+        CtsCreateRoom cts = new CtsCreateRoom();
 
-        u.UserId = 1003;
+        cts.UserId = 1003;
 
-        NetworkManager.Instance.SendToGame(u);
+        NetworkManager.Instance.SendToGame(cts);
 
     }
     private int piece_x=0;
@@ -112,21 +112,33 @@ public class Test001 : MonoBehaviour
 
     public void ClickButtonPlayPiece()
     {
-        CtsPlayPiece u = new CtsPlayPiece();
+        CtsPlayPiece cts = new CtsPlayPiece();
 
-        u.ChairId = UserManager.Instance.GetPlayer().ChairId;
+        cts.ChairId = UserManager.Instance.GetPlayer().ChairId;
 
-        u.RoomId= UserManager.Instance.GetPlayer().RoomId;
+        cts.RoomId= UserManager.Instance.GetPlayer().RoomId;
 
-        u.X = piece_x;
+        cts.X = piece_x;
 
-        u.Y = piece_y;
+        cts.Y = piece_y;
 
-        NetworkManager.Instance.SendToGame(u);
+        NetworkManager.Instance.SendToGame(cts);
 
         piece_x++;
 
         piece_y++;
+
+    }
+
+    public void ClickButtonUserReady()
+    {
+        CtsUserReady cts = new CtsUserReady();
+
+        cts.ChairId = UserManager.Instance.GetPlayer().ChairId;
+
+        cts.RoomId = UserManager.Instance.GetPlayer().RoomId;
+
+        NetworkManager.Instance.SendToGame(cts);
 
     }
 

@@ -24,6 +24,8 @@ namespace Pb
             10,
             11,
             12,
+            13,
+            14,
         };
 
         private static List<Type> m_protoType = new List<Type>
@@ -48,6 +50,9 @@ namespace Pb
             typeof(StcPlayPiece),
 
             typeof(StcGameResult),
+
+            typeof(CtsUserReady),
+            typeof(StcUserReady),
 
         };
 
@@ -74,6 +79,8 @@ namespace Pb
 
             {typeof(StcGameResult).TypeHandle,StcGameResult.Parser },
 
+            {typeof(CtsUserReady).TypeHandle,CtsUserReady.Parser },
+            {typeof(StcUserReady).TypeHandle,StcUserReady.Parser },
 
         };
 
