@@ -449,35 +449,5 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6113307633631482326, guid: 9909c3a0da42c79409b6af1678b71fd0,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113307633631482326, guid: 9909c3a0da42c79409b6af1678b71fd0,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.91515166
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113307633631482326, guid: 9909c3a0da42c79409b6af1678b71fd0,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.9137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113307633631482327, guid: 9909c3a0da42c79409b6af1678b71fd0,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113307634347160267, guid: 9909c3a0da42c79409b6af1678b71fd0,
-        type: 3}
-      propertyPath: m_FontData.m_AlignByGeometry
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6113307634347160267, guid: 9909c3a0da42c79409b6af1678b71fd0,
-        type: 3}
-      propertyPath: m_Text
-      value: "\u624B\u673A\u53F7"
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9909c3a0da42c79409b6af1678b71fd0, type: 3}

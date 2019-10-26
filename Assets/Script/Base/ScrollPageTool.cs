@@ -29,6 +29,11 @@ public class ScrollPageTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 
     private bool isRegistEvent = false;
 
+    public void Start()
+    {
+        InitManager(3*200*200, new Vector2(200,200));
+    }
+
     public bool SetButtonStatus
     {
         set
