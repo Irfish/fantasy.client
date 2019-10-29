@@ -1,83 +1,85 @@
 ﻿using System;
 using Pb;
-using Google.Protobuf;
-
-public class Parser
+using Protobuf=Google.Protobuf;
+namespace fantasy.net
 {
-
-    public static byte[] EncodeMassage(int id, byte[] data)
+    public class Parser
     {
 
-        byte[] newBuffer = null; //id + data
-
-        using (AppMemoryStream ms = new AppMemoryStream())
+        public static byte[] EncodeMassage(int id, byte[] data)
         {
-            ms.WriteUShort((ushort)id);
 
-            ms.Write(data, 0, data.Length);
+            byte[] newBuffer = null; //id + data
 
-            newBuffer = ms.ToArray();
+            using (AppMemoryStream ms = new AppMemoryStream())
+            {
+                ms.WriteUShort((ushort)id);
+
+                ms.Write(data, 0, data.Length);
+
+                newBuffer = ms.ToArray();
+            }
+
+            byte[] newData = null; //newBuffer.length + id + data
+
+            using (AppMemoryStream ms = new AppMemoryStream())
+            {
+                ms.WriteUShort((ushort)(newBuffer.Length));
+
+                ms.Write(newBuffer, 0, newBuffer.Length);
+
+                newData = ms.ToArray();
+            }
+
+            return newData;
         }
 
-        byte[] newData = null; //newBuffer.length + id + data
-
-        using (AppMemoryStream ms = new AppMemoryStream())
+        public static void DecodeMessage(byte[] data)
         {
-            ms.WriteUShort((ushort)(newBuffer.Length));
+            //解析收到的数据messge
+            byte[] body = new byte[data.Length - 2];
 
-            ms.Write(newBuffer, 0, newBuffer.Length);
+            ushort protoCode = 0;
 
-            newData = ms.ToArray();
-        }
+            using (AppMemoryStream ms = new AppMemoryStream(data))
+            {
+                protoCode = ms.ReadUShort();
 
-        return newData;
-    }
+                ms.Read(body, 0, body.Length);
+            }
 
-    public static void DecodeMessage(byte[] data)
-    {
-        //解析收到的数据messge
-        byte[] body = new byte[data.Length - 2];
+            Type protoType = MessageDefine.GetProtoTypeByProtoId(protoCode);
 
-        ushort protoCode = 0;
+            Protobuf.MessageParser messageParser = MessageDefine.GetMessageParser(protoType.TypeHandle);
 
-        using (AppMemoryStream ms = new AppMemoryStream(data))
-        {
-            protoCode = ms.ReadUShort();
+            object toc = messageParser.ParseFrom(body);
 
-            ms.Read(body, 0, body.Length);
-        }
+            Pb.Message msg = toc as Pb.Message;
 
-        Type protoType = MessageDefine.GetProtoTypeByProtoId(protoCode);
+            byte[] msgBody = msg.Body.ToByteArray();
 
-        MessageParser messageParser = MessageDefine.GetMessageParser(protoType.TypeHandle);
+            //解析messgeBody
+            ushort msgId = 0;
 
-        object toc = messageParser.ParseFrom(body);
+            byte[] msgData = new byte[msgBody.Length - 2];
 
-        Message msg = toc as Message;
+            using (AppMemoryStream ms1 = new AppMemoryStream(msgBody))
+            {
+                msgId = ms1.ReadUShort();
 
-        byte[] msgBody = msg.Body.ToByteArray();
+                ms1.Read(msgData, 0, msgData.Length);
+            }
 
-        //解析messgeBody
-        ushort msgId = 0;
+            {
+                Type msgType = MessageDefine.GetProtoTypeByProtoId(msgId);
 
-        byte[] msgData = new byte[msgBody.Length - 2];
+                Protobuf.MessageParser messageParser1 = MessageDefine.GetMessageParser(msgType.TypeHandle);
 
-        using (AppMemoryStream ms1 = new AppMemoryStream(msgBody))
-        {
-            msgId = ms1.ReadUShort();
+                object toc1 = messageParser1.ParseFrom(msgData);
 
-            ms1.Read(msgData, 0, msgData.Length);
-        }
-
-        {
-            Type msgType = MessageDefine.GetProtoTypeByProtoId(msgId);
-
-            MessageParser messageParser1 = MessageDefine.GetMessageParser(msgType.TypeHandle);
-
-            object toc1 = messageParser1.ParseFrom(msgData);
-
-            //派发事件
-            SocketEvent.Instance.Dispatch(msgId, toc1);
+                //派发事件
+                SocketEvent.Instance.Dispatch(msgId, toc1);
+            }
         }
     }
 }

@@ -1,68 +1,72 @@
 ﻿using System.Collections.Generic;
-
-
-public class Event : Singleton<Event>
+namespace fantasy.e
 {
-    //网络消息回调
-    public delegate void OnMessageHandler(byte[] buffer);
 
-    private Dictionary<string, List<OnMessageHandler>> dic = new Dictionary<string, List<OnMessageHandler>>();
 
-    public void AddListener(string key, OnMessageHandler handler)
+
+    public class Event : Singleton<Event>
     {
-        List<OnMessageHandler> listHandler = null;
+        //网络消息回调
+        public delegate void OnMessageHandler(byte[] buffer);
 
-        if (dic.TryGetValue(key, out listHandler))
+        private Dictionary<string, List<OnMessageHandler>> dic = new Dictionary<string, List<OnMessageHandler>>();
+
+        public void AddListener(string key, OnMessageHandler handler)
         {
-            dic[key].Add(handler);
-        }
-        else
-        {
-            listHandler = new List<OnMessageHandler>();
+            List<OnMessageHandler> listHandler = null;
 
-            listHandler.Add(handler);
-
-            dic[key] = listHandler;
-
-        }
-    }
-
-    public void RemoveListener(string key, OnMessageHandler handler)
-    {
-        if (dic.ContainsKey(key))
-        {
-            List<OnMessageHandler> listHandler = dic[key];
-
-            listHandler.Remove(handler);
-
-            if (listHandler.Count == 0)
+            if (dic.TryGetValue(key, out listHandler))
             {
-                dic.Remove(key);
+                dic[key].Add(handler);
+            }
+            else
+            {
+                listHandler = new List<OnMessageHandler>();
+
+                listHandler.Add(handler);
+
+                dic[key] = listHandler;
+
             }
         }
-    }
 
-    public void Dispatch(string key, byte[] data)
-    {
-        List<OnMessageHandler> listHandler = null;
-
-        if (dic.TryGetValue(key, out listHandler))
+        public void RemoveListener(string key, OnMessageHandler handler)
         {
-            for (int i = 0; i < listHandler.Count; i++)
+            if (dic.ContainsKey(key))
             {
-                listHandler[i]?.Invoke(data);
+                List<OnMessageHandler> listHandler = dic[key];
+
+                listHandler.Remove(handler);
+
+                if (listHandler.Count == 0)
+                {
+                    dic.Remove(key);
+                }
             }
         }
+
+        public void Dispatch(string key, byte[] data)
+        {
+            List<OnMessageHandler> listHandler = null;
+
+            if (dic.TryGetValue(key, out listHandler))
+            {
+                for (int i = 0; i < listHandler.Count; i++)
+                {
+                    listHandler[i]?.Invoke(data);
+                }
+            }
+        }
+
+        public override void Dispose()
+        {
+            dic.Clear();
+
+            dic = null;
+
+            base.Dispose();
+
+        }
+
     }
-
-    public override void Dispose()
-    {
-        dic.Clear();
-
-        dic = null;
-
-        base.Dispose();
-
-    }
-
 }

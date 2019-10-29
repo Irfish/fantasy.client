@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Google.Protobuf;
+﻿using Google.Protobuf;
 using Pb;
-
 public class NetWorkMessageTools : Singleton<NetWorkMessageTools>
 {
     public byte[] EncodeMassage(int id, byte[] data)
@@ -36,7 +32,7 @@ public class NetWorkMessageTools : Singleton<NetWorkMessageTools>
             return;
         }
         
-        Message msg = new Message();
+        Pb.Message msg = new Pb.Message();
         
         //set header
         msg.Header = new Header();
@@ -57,7 +53,7 @@ public class NetWorkMessageTools : Singleton<NetWorkMessageTools>
 
         //发送消息
         int protoId = MessageDefine.GetProtoIdByProtoType(msg.GetType());
-        SocketClient.Instance.SendMessage(protoId, msg.ToByteArray());
+        fantasy.net.SocketClient.Instance.SendMessage(protoId, msg.ToByteArray());
     }
     
 }

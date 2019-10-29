@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LitJson;
-using System;
-using Google.Protobuf;
 using Pb;
+using fantasy.manager;
 
 public class Test001 : MonoBehaviour
 {

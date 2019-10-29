@@ -1,81 +1,81 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Net;
 using System;
-using System.IO;
 using UnityEngine.Networking;
 
-public class Http:SingletonMono<Http>
+namespace fantasy.net
 {
-    /// <summary>
-    ///相应回调
-    /// </summary>
-    /// <param name="buffer"></param>
-    public delegate void ResponseCallBack(string data);
-
-    private UnityWebRequest m_WebRequest;
-
-    /// <summary>
-    /// 发送post请求
-    /// </summary>
-    /// <param name="url"></param>
-    /// <param name="callBack"></param>
-    public void SendPost(string url, WWWForm form, ResponseCallBack callBack)
+    public class Http : SingletonMono<Http>
     {
-        Uri uri = new Uri(url);
+        /// <summary>
+        ///相应回调
+        /// </summary>
+        /// <param name="buffer"></param>
+        public delegate void ResponseCallBack(string data);
 
-        m_WebRequest = UnityWebRequest.Post(uri, form);
+        private UnityWebRequest m_WebRequest;
 
-        StartCoroutine(DoPost(callBack));
-
-    }
-    private IEnumerator DoPost(ResponseCallBack callBack)
-    {
-        yield return m_WebRequest.SendWebRequest();
-
-        if (m_WebRequest.isNetworkError)
+        /// <summary>
+        /// 发送post请求
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="callBack"></param>
+        public void SendPost(string url, WWWForm form, ResponseCallBack callBack)
         {
-            AppDebug.Log("HTTP do post error:" + m_WebRequest.error);
-        }
-        else
-        {
-            AppDebug.Log("HTTP post return: " + m_WebRequest.downloadHandler.text);
+            Uri uri = new Uri(url);
 
-            callBack(m_WebRequest.downloadHandler.text);
+            m_WebRequest = UnityWebRequest.Post(uri, form);
+
+            StartCoroutine(DoPost(callBack));
 
         }
-    }
-    /// /// <summary>
-    /// 发送get请求
-    /// </summary>
-    /// <param name="callBack"></param>
-    /// <returns></returns>
-    public void SendGet(string url, ResponseCallBack callBack)
-    {
-        Uri uri = new Uri(url);
-
-        m_WebRequest = UnityWebRequest.Get(uri);
-
-        StartCoroutine(DoGet(callBack));
-
-    }
-    private IEnumerator DoGet(ResponseCallBack callBack)
-    {
-        yield return m_WebRequest.SendWebRequest();
-
-        if (m_WebRequest.isNetworkError)
+        private IEnumerator DoPost(ResponseCallBack callBack)
         {
-            AppDebug.Log("HTTP do get error:");
+            yield return m_WebRequest.SendWebRequest();
+
+            if (m_WebRequest.isNetworkError)
+            {
+                AppDebug.Log("HTTP do post error:" + m_WebRequest.error);
+            }
+            else
+            {
+                AppDebug.Log("HTTP post return: " + m_WebRequest.downloadHandler.text);
+
+                callBack(m_WebRequest.downloadHandler.text);
+
+            }
         }
-        else
+        /// /// <summary>
+        /// 发送get请求
+        /// </summary>
+        /// <param name="callBack"></param>
+        /// <returns></returns>
+        public void SendGet(string url, ResponseCallBack callBack)
         {
-            AppDebug.Log("HTTP get return: "+m_WebRequest.downloadHandler.text);
+            Uri uri = new Uri(url);
 
-            callBack(m_WebRequest.downloadHandler.text);
+            m_WebRequest = UnityWebRequest.Get(uri);
+
+            StartCoroutine(DoGet(callBack));
 
         }
-    }
+        private IEnumerator DoGet(ResponseCallBack callBack)
+        {
+            yield return m_WebRequest.SendWebRequest();
 
+            if (m_WebRequest.isNetworkError)
+            {
+                AppDebug.Log("HTTP do get error:");
+            }
+            else
+            {
+                AppDebug.Log("HTTP get return: " + m_WebRequest.downloadHandler.text);
+
+                callBack(m_WebRequest.downloadHandler.text);
+
+            }
+        }
+
+    }
 }
 
