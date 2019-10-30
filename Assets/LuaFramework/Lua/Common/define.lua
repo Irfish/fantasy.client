@@ -1,12 +1,14 @@
 
 CtrlNames = {
 	Prompt = "PromptCtrl",
-	Message = "MessageCtrl"
+	Message = "MessageCtrl",
+	Login = "LoginCtrl"
 }
 
 PanelNames = {
 	"PromptPanel",	
 	"MessagePanel",
+	"LoginPanel",
 }
 
 --协议类型--
@@ -16,19 +18,16 @@ ProtocalType = {
 	PBC = 2,
 	SPROTO = 3,
 }
---当前使用的协议类型--
+--当前使用的协议类型
 TestProtoType = ProtocalType.BINARY;
 
+GameObject = UnityEngine.GameObject;
 Util = LuaFramework.Util;
 AppConst = LuaFramework.AppConst;
-LuaHelper = LuaFramework.LuaHelper;
 ByteBuffer = LuaFramework.ByteBuffer;
 
+LuaHelper = LuaFramework.LuaHelper;
 resMgr = LuaHelper.GetResManager();
 panelMgr = LuaHelper.GetPanelManager();
 soundMgr = LuaHelper.GetSoundManager();
 networkMgr = LuaHelper.GetNetManager();
-
-WWWForm=UnityEngine.WWWForm;
-UnityWebRequest = UnityEngine.Networking.UnityWebRequest;
-GameObject = UnityEngine.GameObject;
