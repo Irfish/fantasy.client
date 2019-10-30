@@ -28,6 +28,9 @@ public class LuaFramework_UtilWrap
 		L.RegFunction("CheckRuntimeFile", CheckRuntimeFile);
 		L.RegFunction("CallMethod", CallMethod);
 		L.RegFunction("CheckEnvironment", CheckEnvironment);
+		L.RegFunction("HttpGet", HttpGet);
+		L.RegFunction("HttpPost", HttpPost);
+		L.RegFunction("GetWwwFrom", GetWwwFrom);
 		L.RegFunction("New", _CreateLuaFramework_Util);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("DataPath", get_DataPath, null);
@@ -435,6 +438,59 @@ public class LuaFramework_UtilWrap
 			ToLua.CheckArgsCount(L, 0);
 			bool o = LuaFramework.Util.CheckEnvironment();
 			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HttpGet(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			string arg0 = ToLua.CheckString(L, 1);
+			string arg1 = ToLua.CheckString(L, 2);
+			string arg2 = ToLua.CheckString(L, 3);
+			LuaFramework.Util.HttpGet(arg0, arg1, arg2);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HttpPost(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 4);
+			string arg0 = ToLua.CheckString(L, 1);
+			UnityEngine.WWWForm arg1 = (UnityEngine.WWWForm)ToLua.CheckObject<UnityEngine.WWWForm>(L, 2);
+			string arg2 = ToLua.CheckString(L, 3);
+			string arg3 = ToLua.CheckString(L, 4);
+			LuaFramework.Util.HttpPost(arg0, arg1, arg2, arg3);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetWwwFrom(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			UnityEngine.WWWForm o = LuaFramework.Util.GetWwwFrom();
+			ToLua.PushObject(L, o);
 			return 1;
 		}
 		catch (Exception e)

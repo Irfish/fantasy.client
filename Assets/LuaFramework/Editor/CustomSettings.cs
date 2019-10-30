@@ -8,7 +8,7 @@ using UnityEditor;
 using BindType = ToLuaMenu.BindType;
 using UnityEngine.UI;
 using System.Reflection;
-
+using fantasy.test;
 
 public static class CustomSettings
 {
@@ -158,9 +158,9 @@ public static class CustomSettings
 #else
         _GT(typeof(BlendWeights)),
 #endif
-        _GT(typeof(RenderTexture)), 
-		_GT(typeof(Resources)),      
-		_GT(typeof(LuaProfiler)),
+        _GT(typeof(RenderTexture)),
+        _GT(typeof(Resources)),
+        _GT(typeof(LuaProfiler)),
           
         //for LuaFramework
         _GT(typeof(RectTransform)),
@@ -179,8 +179,11 @@ public static class CustomSettings
         _GT(typeof(TimerManager)),
         _GT(typeof(ThreadManager)),
         _GT(typeof(NetworkManager)),
-        _GT(typeof(ResourceManager)),		  
+        _GT(typeof(ResourceManager)),
+        _GT(typeof(InputField)),
+        
     };
+    
 
     public static List<Type> dynamicList = new List<Type>()
     {

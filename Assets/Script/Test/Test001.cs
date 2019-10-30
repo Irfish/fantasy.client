@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pb;
 using fantasy.manager;
+using UnityEngine.UI;
 
 public class Test001 : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Test001 : MonoBehaviour
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcPlayPiece)), OnStcPlayPiece);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcGameResult)), OnStcGameResult);
         SocketEvent.Instance.AddListener((ushort)MessageDefine.GetProtoIdByProtoType(typeof(StcUserReady)), OnStcUserReady);
+
+        gameObject.GetComponent<InputField>();
 
         UserManager.Instance.LoginByAccount("1003","123456");
     }

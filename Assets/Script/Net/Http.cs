@@ -29,6 +29,17 @@ namespace fantasy.net
             StartCoroutine(DoPost(callBack));
 
         }
+
+        public void SendPost(string url, WWWForm form, string module,string func )
+        {
+            Uri uri = new Uri(url);
+
+            UnityWebRequest webRequest = UnityWebRequest.Post(uri, form);
+
+            StartCoroutine(DoPost(webRequest, module, func));
+
+        }
+
         private IEnumerator DoPost(ResponseCallBack callBack)
         {
             yield return m_WebRequest.SendWebRequest();
@@ -45,6 +56,24 @@ namespace fantasy.net
 
             }
         }
+
+        private IEnumerator DoPost(UnityWebRequest webRequest,string module,string func)
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.isNetworkError)
+            {
+                AppDebug.Log("HTTP do post error:" + webRequest.error);
+            }
+            else
+            {
+                AppDebug.Log("HTTP post return: " + webRequest.downloadHandler.text);
+
+                LuaFramework.Util.CallMethod(module, func, webRequest.downloadHandler.text);
+
+            }
+        }
+
         /// /// <summary>
         /// 发送get请求
         /// </summary>
@@ -59,7 +88,18 @@ namespace fantasy.net
             StartCoroutine(DoGet(callBack));
 
         }
-        private IEnumerator DoGet(ResponseCallBack callBack)
+
+        public void SendGet(string url,string module,string func)
+        {
+            Uri uri = new Uri(url);
+
+            UnityWebRequest webRequest = UnityWebRequest.Get(uri);
+
+            StartCoroutine(DoGet(webRequest, module, func));
+
+        }
+
+        private IEnumerator DoGet(ResponseCallBack callBack, string func = "")
         {
             yield return m_WebRequest.SendWebRequest();
 
@@ -72,6 +112,24 @@ namespace fantasy.net
                 AppDebug.Log("HTTP get return: " + m_WebRequest.downloadHandler.text);
 
                 callBack(m_WebRequest.downloadHandler.text);
+
+            }
+        }
+
+
+        private IEnumerator DoGet(UnityWebRequest webRequest, string module,string func)
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.isNetworkError)
+            {
+                AppDebug.Log("HTTP do get error:");
+            }
+            else
+            {
+                AppDebug.Log("HTTP get return: " + webRequest.downloadHandler.text);
+
+                LuaFramework.Util.CallMethod(module, func, webRequest.downloadHandler.text);
 
             }
         }

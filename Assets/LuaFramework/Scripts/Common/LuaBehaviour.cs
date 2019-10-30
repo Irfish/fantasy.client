@@ -39,6 +39,16 @@ namespace LuaFramework {
             );
         }
 
+        public void AddToggle(GameObject go ,LuaFunction luafunc) {
+            if (go == null || luafunc == null) return;
+            go.GetComponent<Toggle>().onValueChanged.AddListener(
+                delegate (bool select) {
+                    luafunc.Call(go, select);
+                }
+           );
+        }
+
+
         /// <summary>
         /// 删除单击事件
         /// </summary>
