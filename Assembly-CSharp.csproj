@@ -1163,7 +1163,6 @@
     <None Include="Assets\Plugin\Best HTTP (Pro)\ReleaseNotes.txt" />
     <None Include="Assets\LuaFramework\ToLua\Injection\InjectionBridgeEditorInfo.xml" />
     <None Include="Assets\LuaFramework\ToLua\readme.txt" />
-    <None Include="Assets\StreamingAssets\files.txt" />
     <None Include="Assets\LuaFramework\ToLua\Injection\LuaInjectionSkipPaths.txt" />
     <None Include="Assets\LuaFramework\ToLua\Injection\InjectionBlackList.txt" />
     <None Include="Assets\Plugin\Best HTTP (Pro)\link.xml" />
