@@ -98,30 +98,29 @@ namespace LuaFramework {
         void OnDownloadFile(List<object> evParams) {
             string url = evParams[0].ToString();    
             currDownFile = evParams[1].ToString();
-
             using (WebClient client = new WebClient()) {
                 sw.Start();
                 client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                 client.DownloadFileAsync(new System.Uri(url), currDownFile);
+                AppDebug.Log("OnDownloadFile:" + currDownFile);
             }
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) {
-            //UnityEngine.Debug.Log(e.ProgressPercentage);
-            /*
-            UnityEngine.Debug.Log(string.Format("{0} MB's / {1} MB's",
-                (e.BytesReceived / 1024d / 1024d).ToString("0.00"),
-                (e.TotalBytesToReceive / 1024d / 1024d).ToString("0.00")));
-            */
-            //float value = (float)e.ProgressPercentage / 100f;
+          
+           //UnityEngine.Debug.Log(e.ProgressPercentage);
+           /*
+           UnityEngine.Debug.Log(string.Format("{0} MB's / {1} MB's",
+               (e.BytesReceived / 1024d / 1024d).ToString("0.00"),
+               (e.TotalBytesToReceive / 1024d / 1024d).ToString("0.00")));
+           */
+           //float value = (float)e.ProgressPercentage / 100f;
             string value = string.Format("{0} kb/s", (e.BytesReceived / 1024d / sw.Elapsed.TotalSeconds).ToString("0.00"));
-            AppDebug.Log("ProgressChanged:"+ value);
             NotiData data = new NotiData(NotiConst.UPDATE_PROGRESS, value);
+            facade.SendMessageCommand(data.evName, data.evParam); //通知View层
             if (m_SyncEvent != null) m_SyncEvent(data);
-
             if (e.ProgressPercentage == 100 && e.BytesReceived == e.TotalBytesToReceive) {
                 sw.Reset();
-
                 data = new NotiData(NotiConst.UPDATE_DOWNLOAD, currDownFile);
                 if (m_SyncEvent != null) m_SyncEvent(data);
             }

@@ -133,7 +133,9 @@ namespace LuaFramework {
             File.WriteAllBytes(dataPath + "files.txt", www.bytes);
             string filesText = www.text;
             string[] files = filesText.Split('\n');
-
+            List<string> downLoadList = new List<string>();
+            float currUp = 0f;
+            float allCan = 0f;
             for (int i = 0; i < files.Length; i++) {
                 if (string.IsNullOrEmpty(files[i])) continue;
                 string[] keyValue = files[i].Split('|');
@@ -151,10 +153,14 @@ namespace LuaFramework {
                     canUpdate = !remoteMd5.Equals(localMd5);
                     if (canUpdate) File.Delete(localfile);
                 }
-                if (canUpdate) {   //本地缺少文件
-                    Debug.Log(fileUrl);
-                    message = "downloading>>" + fileUrl;
-                    facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
+                if (canUpdate)
+                {   //本地缺少文件
+                    File.Delete(localfile);
+                    downLoadList.Add(fileUrl);
+                    allCan++;
+                    //Debug.Log(fileUrl);
+                    //message = "downloading>>" + fileUrl;
+                    //facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
                     /*
                     www = new WWW(fileUrl); yield return www;
                     if (www.error != null) {
@@ -164,15 +170,45 @@ namespace LuaFramework {
                     File.WriteAllBytes(localfile, www.bytes);
                      */
                     //这里都是资源文件，用线程下载
-                    BeginDownload(fileUrl, localfile);
-                    while (!(IsDownOK(localfile))) { yield return new WaitForEndOfFrame(); }
+                    //BeginDownload(fileUrl, localfile);
+                    //while (!(IsDownOK(localfile))) { yield return new WaitForEndOfFrame(); }
+                }
+                else {
+                    Debug.Log("can not update:"+fileUrl);
+                    //downLoadList.Add(fileUrl);
+                    //allCan++;
                 }
             }
-            yield return new WaitForEndOfFrame();
-
+           // yield return new WaitForEndOfFrame();
+            {
+                int leng = downLoadList.Count;
+                for (int i = 0; i < leng; i++)
+                {
+                    string[] keyValue = downLoadList[i].Split('?');
+                    string f = keyValue[0].Replace(AppConst.WebUrl, "");
+                    string localfile = (dataPath + f).Trim();
+                    //Debug.Log("路径：" + localfile);
+                    //Debug.Log("正在更新：" + downLoadList[i]);
+                    message = "正在更新:" + downLoadList[i];
+                    facade.SendMessageCommand(NotiConst.UPDATE_DOWNLOAD, message);
+                    WWW wwwd = new WWW(downLoadList[i]);
+                    yield return wwwd;
+                    if (wwwd.error != null)
+                    {
+                        OnUpdateFailed(downLoadList[i]);   //
+                        yield break;
+                    }
+                    File.WriteAllBytes(localfile, wwwd.bytes);
+                    currUp++;
+                    float msg = currUp / allCan;
+                    facade.SendMessageCommand(NotiConst.UPDATE_PROGRESS, msg.ToString());
+                    string jindu = "更新" + (int)(msg * 100) + "%";
+                    facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, jindu);
+                }
+ 
+            }
             message = "更新完成!!";
             facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
-
             OnResourceInited();
         }
 
