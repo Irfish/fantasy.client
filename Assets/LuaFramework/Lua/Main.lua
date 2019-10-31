@@ -1,14 +1,22 @@
+require 'Common/define'
 --主入口函数。从这里开始lua逻辑
-function Main()					
-	print("logic start")	
+Main = {}
+local this = Main
+function MainInit()
+    print('logic start')
 end
 
 --场景切换通知
-function OnLevelWasLoaded(level)
-	collectgarbage("collect")
-	Time.timeSinceLevelLoad = 0
+function Main.OnLevelWasLoaded(currentSenceName, lastSencenName)
+    collectgarbage('collect')
+    Time.timeSinceLevelLoad = 0
+    logWarn('OnLevelWasLoaded ' .. lastSencenName .. '->' .. currentSenceName)
+    if currentSenceName == 'Scene_main' then
+        CtrlManager.OpendCtrl(CtrlNames.Lobby)
+    end
+    scenceMgr:CloseLoading()
 end
 
-function OnApplicationQuit()
+function Main.OnApplicationQuit()
+    logWarn('OnApplicationQuit')
 end
-

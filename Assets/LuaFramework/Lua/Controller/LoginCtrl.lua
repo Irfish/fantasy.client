@@ -35,14 +35,15 @@ function LoginCtrl.OnClickLogin(go)
 end
 
 function LoginCtrl.HttpLoginCallBack(data)
-    local res = json.decode(data)
-    if res.status then
-        AppConst.SocketPort = res.gw[2]
-        AppConst.SocketAddress = res.gw[1]
-        networkMgr:SendConnect()
-    else
-        logError('Http_Login_CallBack:' .. res.err)
-    end
+    -- local res = json.decode(data)
+    -- if res.status then
+    --     AppConst.SocketPort = res.gw[2]
+    --     AppConst.SocketAddress = res.gw[1]
+    --     networkMgr:SendConnect()
+    -- else
+    --     logError('Http_Login_CallBack:' .. res.err)
+    -- end
+    scenceMgr:LoadSence("Scene_main")
 end
 
 function LoginCtrl.OnClickRegister(go)

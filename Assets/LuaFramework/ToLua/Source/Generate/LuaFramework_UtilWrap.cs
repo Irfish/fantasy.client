@@ -34,6 +34,7 @@ public class LuaFramework_UtilWrap
 		L.RegFunction("New", _CreateLuaFramework_Util);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("DataPath", get_DataPath, null);
+		L.RegVar("DataPath1", get_DataPath1, null);
 		L.RegVar("NetAvailable", get_NetAvailable, null);
 		L.RegVar("IsWifi", get_IsWifi, null);
 		L.EndClass();
@@ -505,6 +506,20 @@ public class LuaFramework_UtilWrap
 		try
 		{
 			LuaDLL.lua_pushstring(L, LuaFramework.Util.DataPath);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_DataPath1(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, LuaFramework.Util.DataPath1);
 			return 1;
 		}
 		catch (Exception e)

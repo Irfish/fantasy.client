@@ -103,6 +103,7 @@
     <Compile Include="Assets\LuaFramework\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Manager\Interface\ITimerBehaviour.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Manager\LuaManager.cs" />
+    <Compile Include="Assets\LuaFramework\Scripts\Manager\MScenceManager.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Manager\NetworkManager.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Manager\ObjectPoolManager.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Manager\PanelManager.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_LuaBehaviourWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_LuaHelperWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_LuaManagerWrap.cs" />
+    <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_MScenceManagerWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_NetworkManagerWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_PanelManagerWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_ResourceManagerWrap.cs" />
@@ -274,6 +276,7 @@
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Networking_UnityWebRequestWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_ParticleSystemWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_PhysicsWrap.cs" />
+    <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_PlayerPrefsWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_PlayModeWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_QueueModeWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_RectTransformWrap.cs" />

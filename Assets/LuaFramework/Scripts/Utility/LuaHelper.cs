@@ -50,6 +50,10 @@ namespace LuaFramework {
             return AppFacade.Instance.GetManager<SoundManager>(ManagerName.Sound);
         }
 
+        public static MScenceManager GetMScenceManager()
+        {
+            return AppFacade.Instance.GetManager<MScenceManager>(ManagerName.MScence);
+        }
 
         /// <summary>
         /// pbc/pblua函数回调

@@ -180,8 +180,9 @@ public static class CustomSettings
         _GT(typeof(ThreadManager)),
         _GT(typeof(NetworkManager)),
         _GT(typeof(ResourceManager)),
+        _GT(typeof(MScenceManager)),
         _GT(typeof(InputField)),
-        
+        _GT(typeof(PlayerPrefs)),
     };
     
 

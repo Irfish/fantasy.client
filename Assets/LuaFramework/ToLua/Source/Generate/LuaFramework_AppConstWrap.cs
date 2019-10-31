@@ -11,7 +11,7 @@ public class LuaFramework_AppConstWrap
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegConstant("DebugMode", 1);
 		L.RegConstant("ExampleMode", 1);
-		L.RegConstant("UpdateMode", 0);
+		L.RegConstant("UpdateMode", 1);
 		L.RegConstant("LuaByteMode", 0);
 		L.RegConstant("LuaBundleMode", 0);
 		L.RegConstant("TimerInterval", 1);
@@ -23,9 +23,12 @@ public class LuaFramework_AppConstWrap
 		L.RegVar("AssetDir", get_AssetDir, null);
 		L.RegVar("WebUrl", get_WebUrl, null);
 		L.RegVar("HttpURL", get_HttpURL, null);
-		L.RegVar("UserId", get_UserId, set_UserId);
 		L.RegVar("SocketPort", get_SocketPort, set_SocketPort);
 		L.RegVar("SocketAddress", get_SocketAddress, set_SocketAddress);
+		L.RegVar("UserId", get_UserId, set_UserId);
+		L.RegVar("Token", get_Token, set_Token);
+		L.RegVar("ServerTime", get_ServerTime, set_ServerTime);
+		L.RegVar("TokenExpireTime", get_TokenExpireTime, set_TokenExpireTime);
 		L.RegVar("FrameworkRoot", get_FrameworkRoot, null);
 		L.EndClass();
 	}
@@ -153,20 +156,6 @@ public class LuaFramework_AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_UserId(IntPtr L)
-	{
-		try
-		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.UserId);
-			return 1;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_SocketPort(IntPtr L)
 	{
 		try
@@ -195,11 +184,11 @@ public class LuaFramework_AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_FrameworkRoot(IntPtr L)
+	static int get_UserId(IntPtr L)
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.FrameworkRoot);
+			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.UserId);
 			return 1;
 		}
 		catch (Exception e)
@@ -209,13 +198,54 @@ public class LuaFramework_AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_UserId(IntPtr L)
+	static int get_Token(IntPtr L)
 	{
 		try
 		{
-			string arg0 = ToLua.CheckString(L, 2);
-			LuaFramework.AppConst.UserId = arg0;
-			return 0;
+			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.Token);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_ServerTime(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.tolua_pushint64(L, LuaFramework.AppConst.ServerTime);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_TokenExpireTime(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.tolua_pushint64(L, LuaFramework.AppConst.TokenExpireTime);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FrameworkRoot(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.FrameworkRoot);
+			return 1;
 		}
 		catch (Exception e)
 		{
@@ -245,6 +275,66 @@ public class LuaFramework_AppConstWrap
 		{
 			string arg0 = ToLua.CheckString(L, 2);
 			LuaFramework.AppConst.SocketAddress = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_UserId(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			LuaFramework.AppConst.UserId = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_Token(IntPtr L)
+	{
+		try
+		{
+			string arg0 = ToLua.CheckString(L, 2);
+			LuaFramework.AppConst.Token = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_ServerTime(IntPtr L)
+	{
+		try
+		{
+			long arg0 = LuaDLL.tolua_checkint64(L, 2);
+			LuaFramework.AppConst.ServerTime = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_TokenExpireTime(IntPtr L)
+	{
+		try
+		{
+			long arg0 = LuaDLL.tolua_checkint64(L, 2);
+			LuaFramework.AppConst.TokenExpireTime = arg0;
 			return 0;
 		}
 		catch (Exception e)

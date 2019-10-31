@@ -157,6 +157,8 @@ public class Packager {
         if (!Directory.Exists(resPath)) Directory.CreateDirectory(resPath);
 
         AddBuildMap("login" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/Login");
+        AddBuildMap("lobby" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/Lobby");
+
 
         AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");
         AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Message");

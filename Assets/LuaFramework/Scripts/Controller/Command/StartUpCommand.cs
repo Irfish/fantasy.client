@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using LuaFramework;
+using System;
 
 public class StartUpCommand : ControllerCommand {
 
     public override void Execute(IMessageLua message) {
         if (!Util.CheckEnvironment()) return;
-
-        GameObject gameMgr = GameObject.Find("GlobalGenerator");
-        if (gameMgr != null) {
+        GameObject gameMgr = GameObject.Find("UILoading");
+        if (gameMgr != null)
+        {
             AppView appView = gameMgr.AddComponent<AppView>();
         }
         //-----------------关联命令-----------------------
         AppFacade.Instance.RegisterCommand(NotiConst.DISPATCH_MESSAGE, typeof(SocketCommand));
-
         //-----------------初始化管理器-----------------------
+        AppFacade.Instance.AddManager<MScenceManager>(ManagerName.MScence);
         AppFacade.Instance.AddManager<LuaManager>(ManagerName.Lua);
         AppFacade.Instance.AddManager<PanelManager>(ManagerName.Panel);
         AppFacade.Instance.AddManager<SoundManager>(ManagerName.Sound);
@@ -24,5 +25,6 @@ public class StartUpCommand : ControllerCommand {
         AppFacade.Instance.AddManager<ThreadManager>(ManagerName.Thread);
         AppFacade.Instance.AddManager<ObjectPoolManager>(ManagerName.ObjectPool);
         AppFacade.Instance.AddManager<GameManager>(ManagerName.Game);
+
     }
 }

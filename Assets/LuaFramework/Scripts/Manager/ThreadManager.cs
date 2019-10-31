@@ -114,8 +114,8 @@ namespace LuaFramework {
                 (e.TotalBytesToReceive / 1024d / 1024d).ToString("0.00")));
             */
             //float value = (float)e.ProgressPercentage / 100f;
-
             string value = string.Format("{0} kb/s", (e.BytesReceived / 1024d / sw.Elapsed.TotalSeconds).ToString("0.00"));
+            AppDebug.Log("ProgressChanged:"+ value);
             NotiData data = new NotiData(NotiConst.UPDATE_PROGRESS, value);
             if (m_SyncEvent != null) m_SyncEvent(data);
 

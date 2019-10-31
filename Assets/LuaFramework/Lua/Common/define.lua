@@ -1,14 +1,12 @@
 
 CtrlNames = {
-	Prompt = "PromptCtrl",
-	Message = "MessageCtrl",
-	Login = "LoginCtrl"
+	Login = "LoginCtrl",
+	Lobby = "LobbyCtrl"
 }
 
 PanelNames = {
-	"PromptPanel",	
-	"MessagePanel",
 	"LoginPanel",
+	"LobbyPanel"
 }
 
 --协议类型--
@@ -31,3 +29,4 @@ resMgr = LuaHelper.GetResManager();
 panelMgr = LuaHelper.GetPanelManager();
 soundMgr = LuaHelper.GetSoundManager();
 networkMgr = LuaHelper.GetNetManager();
+scenceMgr =  LuaHelper.GetMScenceManager();

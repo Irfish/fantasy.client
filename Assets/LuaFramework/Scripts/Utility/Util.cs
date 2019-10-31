@@ -188,16 +188,51 @@ namespace LuaFramework {
         /// <summary>
         /// 取得数据存放目录
         /// </summary>
-        public static string DataPath {
-            get {
+        public static string DataPath
+        {
+            get
+            {
                 string game = AppConst.AppName.ToLower();
-                if (Application.isMobilePlatform) {
+                if (Application.isMobilePlatform)
+                {
                     return Application.persistentDataPath + "/" + game + "/";
                 }
-                if (AppConst.DebugMode) {
+                if (AppConst.DebugMode)
+                {
                     return Application.dataPath + "/" + AppConst.AssetDir + "/";
                 }
-                if (Application.platform == RuntimePlatform.OSXEditor) {
+                if (Application.platform == RuntimePlatform.OSXEditor)
+                {
+                    int i = Application.dataPath.LastIndexOf('/');
+                    return Application.dataPath.Substring(0, i + 1) + game + "/";
+                }
+                return "c:/" + game + "/";
+            }
+        }
+
+        public static string DataPath1
+        {
+            get
+            {
+                string game = AppConst.AppName.ToLower();
+                if (AppConst.DebugMode && !Application.isEditor)
+                {
+                    return AppContentPath() + "Resources/";
+                }
+                if (Application.isMobilePlatform)
+                {
+                    return Application.persistentDataPath + "/" + game + "/";
+                }
+                if (Application.platform == RuntimePlatform.WindowsPlayer)
+                {
+                    return Application.streamingAssetsPath + "/";
+                }
+                if (AppConst.DebugMode && Application.isEditor)
+                {
+                    return Application.dataPath + "/Resources/";
+                }
+                if (Application.platform == RuntimePlatform.OSXEditor)
+                {
                     int i = Application.dataPath.LastIndexOf('/');
                     return Application.dataPath.Substring(0, i + 1) + game + "/";
                 }

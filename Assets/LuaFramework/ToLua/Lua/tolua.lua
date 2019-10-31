@@ -8,8 +8,8 @@ if jit then
 		jit.opt.start(3)				
 	end		
 	
-	print("ver"..jit.version_num.." jit: ", jit.status())
-	print(string.format("os: %s, arch: %s", jit.os, jit.arch))
+	--print("ver"..jit.version_num.." jit: ", jit.status())
+	--print(string.format("os: %s, arch: %s", jit.os, jit.arch))
 end
 
 if DebugServerIp then  
