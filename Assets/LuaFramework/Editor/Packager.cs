@@ -158,6 +158,7 @@ public class Packager {
 
         AddBuildMap("login" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/Login");
         AddBuildMap("lobby" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/Lobby");
+        AddBuildMap("scence_player" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/ScencePlayer");
 
 
         AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");

@@ -119,7 +119,7 @@ namespace LuaFramework {
             string url = AppConst.WebUrl;
             string message = string.Empty;
             string random = DateTime.Now.ToString("yyyymmddhhmmss");
-            string listUrl = url + "files.txt?v=" + random;
+            string listUrl = url + "?f=files.txt&v=" + random;
             Debug.LogWarning("LoadUpdate---->>>" + listUrl);
 
             WWW www = new WWW(listUrl); yield return www;
@@ -145,7 +145,7 @@ namespace LuaFramework {
                 if (!Directory.Exists(path)) {
                     Directory.CreateDirectory(path);
                 }
-                string fileUrl = url + f + "?v=" + random;
+                string fileUrl = url +"?f="+ f + "&v=" + random;
                 bool canUpdate = !File.Exists(localfile);
                 if (!canUpdate) {
                     string remoteMd5 = keyValue[1].Trim();
@@ -187,15 +187,13 @@ namespace LuaFramework {
                     string[] keyValue = downLoadList[i].Split('?');
                     string f = keyValue[0].Replace(AppConst.WebUrl, "");
                     string localfile = (dataPath + f).Trim();
-                    //Debug.Log("路径：" + localfile);
-                    //Debug.Log("正在更新：" + downLoadList[i]);
                     message = "正在更新:" + downLoadList[i];
                     facade.SendMessageCommand(NotiConst.UPDATE_DOWNLOAD, message);
                     WWW wwwd = new WWW(downLoadList[i]);
                     yield return wwwd;
                     if (wwwd.error != null)
                     {
-                        OnUpdateFailed(downLoadList[i]);   //
+                        OnUpdateFailed(downLoadList[i]);   
                         yield break;
                     }
                     File.WriteAllBytes(localfile, wwwd.bytes);

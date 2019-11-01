@@ -1,15 +1,16 @@
 require 'Common/define'
 require 'Controller/LoginCtrl'
 require 'Controller/LobbyCtrl'
-
+require 'Controller/ScencePlayerCtrl'
 
 CtrlManager = {}
 local this = CtrlManager
-local ctrlList = {} --控制器列表  --
+local ctrlList = {} --控制器列表    --
 
 function CtrlManager.Init()
-	ctrlList[CtrlNames.Login] = LoginCtrl.New()
-	ctrlList[CtrlNames.Lobby] = LobbyCtrl.New()
+    ctrlList[CtrlNames.Login] = LoginCtrl.New()
+    ctrlList[CtrlNames.Lobby] = LobbyCtrl.New()
+    ctrlList[CtrlNames.ScencePlayer] = ScencePlayerCtrl.New()
     return this
 end
 
@@ -24,22 +25,22 @@ end
 function CtrlManager.CloseCtrl()
 end
 
---添加控制器  --
+--添加控制器    --
 function CtrlManager.AddCtrl(ctrlName, ctrlObj)
     ctrlList[ctrlName] = ctrlObj
 end
 
---获取控制器  --
+--获取控制器    --
 function CtrlManager.GetCtrl(ctrlName)
     return ctrlList[ctrlName]
 end
 
---移除控制器  --
+--移除控制器    --
 function CtrlManager.RemoveCtrl(ctrlName)
     ctrlList[ctrlName] = nil
 end
 
---关闭控制器  --
+--关闭控制器    --
 function CtrlManager.Close()
     logWarn('CtrlManager.Close---->>>')
 end

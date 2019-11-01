@@ -10,9 +10,9 @@ namespace LuaFramework
 {
     public class MScenceManager : Manager
     {
-        public string currentSenceName = string.Empty;
+        public string currentSenceName = "Scene_UI";
 
-        public string lastSencenName = string.Empty;
+        public string lastSencenName = "Scene_UI";
 
         private AppView uiloading;
 
@@ -76,6 +76,11 @@ namespace LuaFramework
             async = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
 
             yield return async;
+
+            if (lastSencenName!= "Scene_UI")
+            {
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(lastSencenName));
+            }
 
             Util.CallMethod("Main", "OnLevelWasLoaded", currentSenceName, lastSencenName);
 
