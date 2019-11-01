@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 9138907541448775662}
   - component: {fileID: 9138907541448775660}
   m_Layer: 0
-  m_Name: SencePlayerPanel
+  m_Name: ScencePlayerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -80}
+  m_AnchoredPosition: {x: -660, y: 300}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &9138907542538601786

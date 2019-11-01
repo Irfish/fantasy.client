@@ -7,7 +7,7 @@ local ScencePlayer
 local transform
 local gameObject
 
---构建函数    
+--构建函数
 function ScencePlayerCtrl.New()
     return this
 end
@@ -16,14 +16,13 @@ function ScencePlayerCtrl.Awake()
     panelMgr:CreatePanel('ScencePlayer', this.OnCreate)
 end
 
---启动事件    
+--启动事件
 function ScencePlayerCtrl.OnCreate(obj)
     gameObject = obj
     ScencePlayer = gameObject:GetComponent('LuaBehaviour')
 end
 
-
---关闭事件     
+--关闭事件
 function ScencePlayerCtrl.Close()
-    panelMgr:ClosePanel(CtrlNames.ScencePlayer)
+    panelMgr:ClosePanel('ScencePlayer')
 end

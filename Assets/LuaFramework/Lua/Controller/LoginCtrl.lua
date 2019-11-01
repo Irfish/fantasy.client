@@ -7,7 +7,7 @@ local Login
 local transform
 local gameObject
 
---构建函数    
+--构建函数
 function LoginCtrl.New()
     return this
 end
@@ -16,7 +16,7 @@ function LoginCtrl.Awake()
     panelMgr:CreatePanel('Login', this.OnCreate)
 end
 
---启动事件    
+--启动事件
 function LoginCtrl.OnCreate(obj)
     gameObject = obj
     Login = gameObject:GetComponent('LuaBehaviour')
@@ -43,13 +43,13 @@ function LoginCtrl.HttpLoginCallBack(data)
     -- else
     --     logError('Http_Login_CallBack:' .. res.err)
     -- end
-    scenceMgr:LoadSence("Scene_main")
+    scenceMgr:LoadSence('Scene_main')
 end
 
 function LoginCtrl.OnClickRegister(go)
 end
 
---关闭事件     
+--关闭事件
 function LoginCtrl.Close()
-    panelMgr:ClosePanel(CtrlNames.Login)
+    panelMgr:ClosePanel('Login')
 end

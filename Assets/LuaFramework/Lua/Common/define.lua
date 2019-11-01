@@ -7,10 +7,10 @@ CtrlNames = {
 PanelNames = {
     'LoginPanel',
     'LobbyPanel',
-    'ScencePlayer'
+    'ScencePlayerPanel'
 }
 
---协议类型  --
+--协议类型
 ProtocalType = {
     BINARY = 0,
     PB_LUA = 1,

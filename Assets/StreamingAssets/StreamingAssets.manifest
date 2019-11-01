@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 686708945
+CRC: 1083875046
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -69,7 +69,7 @@ AssetBundleManifest:
       Name: lobby.unity3d
       Dependencies: {}
     Info_22:
-      Name: scence_player.unity3d
+      Name: scenceplayer.unity3d
       Dependencies: {}
     Info_23:
       Name: prompt.unity3d
