@@ -366,13 +366,13 @@ namespace LuaFramework {
         }
 
         public static void HttpGet(string url,string module,string func) {
-            fantasy.net.Http.Instance.SendGet(AppDefine.HttpURL + url, module, func);
+            fantasy.net.Http.Instance.SendGet(AppConst.HttpURL + url, module, func);
         }
 
         public static void HttpPost(string url, WWWForm form, string module, string func)
         {
             WWWForm f = new WWWForm();
-            fantasy.net.Http.Instance.SendPost(AppDefine.HttpURL + url, form, module, func);
+            fantasy.net.Http.Instance.SendPost(AppConst.HttpURL + url, form, module, func);
         }
 
         public static WWWForm GetWwwFrom() {

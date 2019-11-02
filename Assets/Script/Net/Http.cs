@@ -63,7 +63,7 @@ namespace fantasy.net
 
             if (webRequest.isNetworkError)
             {
-                AppDebug.Log("HTTP do post error:" + webRequest.error);
+                AppDebug.Log("HTTP do post "+ webRequest.url + " error:" + webRequest.error);
             }
             else
             {
