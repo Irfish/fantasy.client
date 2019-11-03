@@ -43,7 +43,7 @@ function LoginCtrl.HttpLoginCallBack(data)
     -- else
     --     logError('Http_Login_CallBack:' .. res.err)
     -- end
-    scenceMgr:LoadSence('Scene_main')
+    scenceMgr:LoadSence(ScenceName.Lobby)
 end
 
 function LoginCtrl.OnClickRegister(go)

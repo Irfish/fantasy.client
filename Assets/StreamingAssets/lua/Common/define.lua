@@ -1,13 +1,21 @@
 CtrlNames = {
     Login = 'LoginCtrl',
     Lobby = 'LobbyCtrl',
-    ScencePlayer = 'ScencePlayerCtrl'
+    ScencePlayer = 'ScencePlayerCtrl',
+    ScencePiece= 'ScencePieceCtrl',
 }
 
 PanelNames = {
     'LoginPanel',
     'LobbyPanel',
-    'ScencePlayerPanel'
+    'ScencePlayerPanel',
+    "ScencePiecePannel"
+}
+
+ScenceName={
+    UI="Scene_UI",
+    Lobby="Scene_Lobby",
+    Main="Scene_Main"
 }
 
 --协议类型

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 4142647123
+CRC: 2086228904
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -12,17 +12,20 @@ AssetBundleManifest:
       Name: scenceplayer.unity3d
       Dependencies: {}
     Info_3:
+      Name: scencepiece.unity3d
+      Dependencies: {}
+    Info_4:
       Name: prompt.unity3d
       Dependencies:
         Dependency_0: prompt_asset.unity3d
         Dependency_1: shared_asset.unity3d
-    Info_4:
+    Info_5:
       Name: message.unity3d
       Dependencies:
         Dependency_0: shared_asset.unity3d
-    Info_5:
+    Info_6:
       Name: prompt_asset.unity3d
       Dependencies: {}
-    Info_6:
+    Info_7:
       Name: shared_asset.unity3d
       Dependencies: {}

@@ -11,10 +11,8 @@ function Main.OnLevelWasLoaded(currentSenceName, lastSencenName)
     collectgarbage('collect')
     Time.timeSinceLevelLoad = 0
     logWarn('OnLevelWasLoaded ' .. lastSencenName .. '->' .. currentSenceName)
-    if currentSenceName == 'Scene_main' then
-        CtrlManager.OpendCtrl(CtrlNames.ScencePlayer)
-        CtrlManager.CloseCtrl(CtrlNames.Login)
-    end
+    CtrlManager.ShowScenceUI(currentSenceName)
+    CtrlManager.CloseScenceUI(lastSencenName)
     scenceMgr:CloseLoading()
 end
 

@@ -2,16 +2,54 @@ require 'Common/define'
 require 'Controller/LoginCtrl'
 require 'Controller/LobbyCtrl'
 require 'Controller/ScencePlayerCtrl'
+require 'Controller/ScencePieceCtrl'
 
 CtrlManager = {}
 local this = CtrlManager
 local ctrlList = {} --控制器列表
+local ScenceUIList={}
 
 function CtrlManager.Init()
     ctrlList[CtrlNames.Login] = LoginCtrl.New()
     ctrlList[CtrlNames.Lobby] = LobbyCtrl.New()
     ctrlList[CtrlNames.ScencePlayer] = ScencePlayerCtrl.New()
+    ctrlList[CtrlNames.ScencePiece] = ScencePieceCtrl.New()
+    this.BindUiToScence()
     return this
+end
+
+function CtrlManager.BindUiToScence()
+
+    ScenceUIList[ScenceName.UI] = {
+        CtrlNames.Login
+    }
+
+    ScenceUIList[ScenceName.Lobby] = {
+        CtrlNames.Lobby
+    }
+
+    ScenceUIList[ScenceName.Main] = {
+        CtrlNames.ScencePlayer
+    }
+
+end
+
+function CtrlManager.ShowScenceUI(scence)
+    local list = ScenceUIList[scence]
+    if #list>0 then
+        for _,v in pairs(list) do
+              this.OpendCtrl(v)  
+        end
+    end
+end
+
+function CtrlManager.CloseScenceUI(scence)
+    local list = ScenceUIList[scence]
+    if #list>0 then
+        for _,v in pairs(list) do
+              this.CloseCtrl(v)  
+        end
+    end
 end
 
 function CtrlManager.OpendCtrl(name)
