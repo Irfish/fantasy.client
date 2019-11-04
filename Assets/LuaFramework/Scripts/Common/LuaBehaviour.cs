@@ -9,9 +9,13 @@ namespace LuaFramework {
     public class LuaBehaviour : View {
         private string data = null;
         private Dictionary<string, LuaFunction> buttons = new Dictionary<string, LuaFunction>();
+        private Camera uiCamera;
+        private Canvas canvas;
 
         protected void Awake() {
             Util.CallMethod(name, "Awake", gameObject);
+            uiCamera = transform.parent.GetComponent<Camera>();
+            canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         }
 
         protected void Start() {
@@ -46,6 +50,13 @@ namespace LuaFramework {
                     luafunc.Call(go, select);
                 }
            );
+        }
+
+        public Vector2 CurrMousePosition(GameObject go)
+        {
+            Vector2 vecMouse;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out vecMouse);
+            return vecMouse;
         }
 
 

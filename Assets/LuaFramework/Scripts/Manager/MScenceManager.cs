@@ -44,6 +44,8 @@ namespace LuaFramework
 
                 uiloading.gameObject.SetActive(true);
 
+                facade.SendMessageCommand(NotiConst.UPDATE_PROGRESS, "0");
+
                 loadingShow = true;
 
             }
@@ -52,6 +54,7 @@ namespace LuaFramework
         public void CloseLoading()
         {
             StartCoroutine(hideLoading());
+
         }
 
         IEnumerator hideLoading()
@@ -72,14 +75,14 @@ namespace LuaFramework
         
         IEnumerator loadSence(string name)
         {
-
+            
             async = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
 
             yield return async;
 
             if (lastSencenName!= "Scene_UI")
-            {
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(lastSencenName));
+            {   
+                SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(lastSencenName));
             }
 
             Util.CallMethod("Main", "OnLevelWasLoaded", currentSenceName, lastSencenName);

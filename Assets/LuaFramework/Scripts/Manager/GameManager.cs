@@ -11,6 +11,7 @@ namespace LuaFramework {
     public class GameManager : Manager {
         protected static bool initialize = false;
         private List<string> downloadFiles = new List<string>();
+        private AssetBundle scenceBundle;
 
         /// <summary>
         /// 初始化游戏管理器
@@ -260,6 +261,8 @@ namespace LuaFramework {
             });
 #else
             ResManager.Initialize();
+            //将场景加载到 AssetBundle 中
+            scenceBundle = ResManager.LoadAssetBundle("scenes");
             this.OnInitialize();
 #endif
         }
@@ -326,6 +329,9 @@ namespace LuaFramework {
             }
             if (LuaManager != null) {
                 LuaManager.Close();
+            }
+            if (scenceBundle != null) {
+                scenceBundle = null;
             }
             Debug.Log("~GameManager was destroyed");
         }

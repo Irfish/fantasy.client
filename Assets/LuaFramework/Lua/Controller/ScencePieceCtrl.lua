@@ -20,6 +20,21 @@ end
 function ScencePieceCtrl.OnCreate(obj)
     gameObject = obj
     ScencePiece = gameObject:GetComponent('LuaBehaviour')
+    ScencePiece:AddClick(ScencePiecePanel.btnLobby, this.OnClickBtnLobby)
+    ScencePiece:AddClick(ScencePiecePanel.board, this.OnClickBoard)
+end
+
+function ScencePieceCtrl.OnClickBtnLobby(go)
+    scenceMgr:LoadSence(ScenceName.Lobby)
+end
+
+function ScencePieceCtrl.OnClickBoard(go)
+    local v = ScencePiece:CurrMousePosition(go)
+    log('CurrMousePosition x:' .. v.x .. ' y:' .. v.y)
+    local piece = GameObject.Instantiate(ScencePiecePanel.pieceItem)
+    piece.transform:SetParent(ScencePiecePanel.board.transform)
+    piece:GetComponent('RectTransform').anchoredPosition = v  --需要校准坐标
+    piece:SetActive(true)
 end
 
 --关闭事件

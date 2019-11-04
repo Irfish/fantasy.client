@@ -15,6 +15,7 @@ end
 
 --初始化面板
 function ScencePlayerPanel.InitPanel()
+    this.btnLobby = transform:Find('Left/BtnLobby').gameObject
 end
 
 --单击事件

@@ -30,7 +30,7 @@ namespace LuaFramework {
         public const string ExtName = ".unity3d";                   //素材扩展名
         public const string AssetDir = "StreamingAssets";           //素材目录 
         public const string WebUrl = "http://192.168.0.111:4000/hotUpdate/ui/win/";//热更新地址
-        public const string HttpURL = "http://192.168.0.111:4100";  //登录地址
+        public const string HttpURL = "http://192.168.0.130:4100";  //登录地址
         public static int SocketPort = 0;                           //Socket服务器端口
         public static string SocketAddress = string.Empty;          //Socket服务器地址
 

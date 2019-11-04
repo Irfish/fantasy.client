@@ -9,13 +9,14 @@ PanelNames = {
     'LoginPanel',
     'LobbyPanel',
     'ScencePlayerPanel',
-    "ScencePiecePannel"
+    'ScencePiecePanel',
 }
 
 ScenceName={
     UI="Scene_UI",
     Lobby="Scene_Lobby",
-    Main="Scene_Main"
+    Main="Scene_Main",
+    Piece="Scene_Piece"
 }
 
 --协议类型

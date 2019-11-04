@@ -55,7 +55,6 @@ namespace LuaFramework {
             go.transform.localScale = Vector3.one;
             go.transform.localPosition = Vector3.zero;
             go.AddComponent<LuaBehaviour>();
-
             if (func != null) func.Call(go);
             Debug.LogWarning("CreatePanel::>> " + name + " " + prefab);
 #endif

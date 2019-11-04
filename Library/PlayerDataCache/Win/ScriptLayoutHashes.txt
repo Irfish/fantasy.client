@@ -1,0 +1,27 @@
+Win
+PlayerPath?
+F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
+SceneListBegin?
+Assets/Scenes/Scene_Main.unity
+Assets/Scenes/Test.unity
+Assets/Scenes/Scene_UI.unity
+Assets/Scenes/Scene_Lobby.unity
+Assets/Scenes/Scene_Piece.unity
+SceneListEnd?
+5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
+4bc4346a71a8df53a6b106f68ef3a190 UnityEngine.UI.dll:UnityEngine.UI.CanvasScaler
+cc4274b586df3c02688bac01b88bd16c UnityEngine.UI.dll:UnityEngine.EventSystems.EventSystem
+ae83e830e7a90c0aff918c4c2e520825 UnityEngine.UI.dll:UnityEngine.UI.GraphicRaycaster
+686dc5ae0550d5cc850c0d1dcce4c018 UnityEngine.UI.dll:UnityEngine.UI.Image
+92da9881aed190e8bb74661bcd74aa2c UnityEngine.UI.dll:UnityEngine.UI.RawImage
+d650b64d9240dd458d24f24fae2a115d UnityEngine.UI.dll:UnityEngine.UI.Slider
+748dd2a2a28da4e618912da5ac45684b UnityEngine.UI.dll:UnityEngine.EventSystems.StandaloneInputModule
+fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
+4bc4346a71a8df53a6b106f68ef3a190 UnityEngine.UI.dll:UnityEngine.UI.CanvasScaler
+cc4274b586df3c02688bac01b88bd16c UnityEngine.UI.dll:UnityEngine.EventSystems.EventSystem
+ae83e830e7a90c0aff918c4c2e520825 UnityEngine.UI.dll:UnityEngine.UI.GraphicRaycaster
+748dd2a2a28da4e618912da5ac45684b UnityEngine.UI.dll:UnityEngine.EventSystems.StandaloneInputModule
+abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:LuaFramework.Main
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Test001
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AppView

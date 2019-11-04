@@ -91,6 +91,21 @@ public class Packager {
         maps.Add(build);
     }
 
+    static void AddSceneBuildMap(string bundleName,string path)
+    {
+        string[] files = { path }; //Directory.GetFiles(path, pattern);
+        if (files.Length == 0) return;
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            files[i] = files[i].Replace('\\', '/');
+        }
+        AssetBundleBuild build = new AssetBundleBuild();
+        build.assetBundleName = bundleName;
+        build.assetNames = files;
+        maps.Add(build);
+    }
+
     /// <summary>
     /// 处理Lua代码包
     /// </summary>
@@ -161,12 +176,16 @@ public class Packager {
         AddBuildMap("scenceplayer" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/ScencePlayer");
         AddBuildMap("scencepiece" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/UI/Builds/ScencePiece");
 
-
         AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");
         AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Message");
 
         AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Prompt");
         AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Shared");
+
+        AddBuildMap("scenes" + AppConst.ExtName, "*.unity", "Assets/Scenes/");
+
+        //AddSceneBuildMap("scene_lobby", "Assets/Scenes/Scene_Lobby.unity");
+
     }
 
     /// <summary>

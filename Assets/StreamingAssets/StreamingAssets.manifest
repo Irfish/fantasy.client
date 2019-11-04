@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2086228904
+CRC: 4065441550
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -28,4 +28,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_7:
       Name: shared_asset.unity3d
+      Dependencies: {}
+    Info_8:
+      Name: scenes.unity3d
       Dependencies: {}

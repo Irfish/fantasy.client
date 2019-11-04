@@ -21,13 +21,17 @@ end
 function CtrlManager.BindUiToScence()
 
     ScenceUIList[ScenceName.UI] = {
-        CtrlNames.Login
+        CtrlNames.Login        
     }
 
     ScenceUIList[ScenceName.Lobby] = {
         CtrlNames.Lobby
     }
-
+    
+    ScenceUIList[ScenceName.Piece] = {
+        CtrlNames.ScencePiece
+    }
+    
     ScenceUIList[ScenceName.Main] = {
         CtrlNames.ScencePlayer
     }

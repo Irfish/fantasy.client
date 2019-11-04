@@ -20,6 +20,11 @@ end
 function ScencePlayerCtrl.OnCreate(obj)
     gameObject = obj
     ScencePlayer = gameObject:GetComponent('LuaBehaviour')
+    ScencePlayer:AddClick(ScencePlayerPanel.btnLobby, this.OnClickBtnLobby)
+end
+
+function ScencePlayerCtrl.OnClickBtnLobby(go)
+    scenceMgr:LoadSence(ScenceName.Lobby)
 end
 
 --关闭事件
