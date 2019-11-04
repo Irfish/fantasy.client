@@ -183,6 +183,7 @@ public static class CustomSettings
         _GT(typeof(MScenceManager)),
         _GT(typeof(InputField)),
         _GT(typeof(PlayerPrefs)),
+        _GT(typeof(Image)),
     };
     
 
