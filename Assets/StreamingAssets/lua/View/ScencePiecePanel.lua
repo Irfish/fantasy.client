@@ -21,14 +21,6 @@ function ScencePiecePanel.InitPanel()
     this.board = transform:Find('Piece/Board').gameObject
 end
 
-function ScencePiecePanel.AddPiece(x, y, color)
-    -- local piece = GameObject.Instantiate(this.pieceItem)
-    -- piece:SetParent(this.board)
-    -- piece.postion.x = x
-    -- piece.postion.y = x
-end
-
-
 --单击事件
 function ScencePiecePanel.OnDestroy()
     logWarn('OnDestroy---->>>')

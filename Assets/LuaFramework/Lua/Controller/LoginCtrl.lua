@@ -26,12 +26,13 @@ end
 
 --单击事件
 function LoginCtrl.OnClickLogin(go)
-    local pwd = LoginPanel.Password:GetComponent('InputField')
-    local acc = LoginPanel.PhoneNumber:GetComponent('InputField')
-    local f = Util.GetWwwFrom()
-    f:AddField('accountId', acc.text)
-    f:AddField('password', pwd.text)
-    Util.HttpPost('/post/login', f, 'LoginCtrl', 'HttpLoginCallBack')
+    -- local pwd = LoginPanel.Password:GetComponent('InputField')
+    -- local acc = LoginPanel.PhoneNumber:GetComponent('InputField')
+    -- local f = Util.GetWwwFrom()
+    -- f:AddField('accountId', acc.text)
+    -- f:AddField('password', pwd.text)
+    -- Util.HttpPost('/post/login', f, 'LoginCtrl', 'HttpLoginCallBack')
+    scenceMgr:LoadSence(ScenceName.Lobby)
 end
 
 function LoginCtrl.HttpLoginCallBack(data)
