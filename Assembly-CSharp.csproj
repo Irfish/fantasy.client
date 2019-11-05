@@ -1242,7 +1242,9 @@
     <None Include="Assets\StreamingAssets\files.txt" />
     <None Include="Assets\EasyTouchBundle\EasyTouch\_Documentation\How to migrate from EasyTouch 4.X.txt" />
     <None Include="Assets\EasyTouchBundle\Readme.txt" />
+    <None Include="Assets\WorldScene\SceneModel\ShanGu\Shader\MogoSkybox.shader" />
     <None Include="Assets\LuaFramework\UI\Shader\Draw.shader" />
+    <None Include="Assets\WorldScene\SceneModel\ShanGu\Shader\MogoTransparentDiffuse.shader" />
     <None Include="Assets\EasyTouchBundle\EasyTouchControls\Issues in button behavior (MAC).txt" />
     <None Include="Assets\LuaFramework\ToLua\Injection\InjectionBridgeEditorInfo.xml" />
     <None Include="Assets\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
@@ -1252,19 +1254,19 @@
     <None Include="Assets\LuaFramework\ToLua\Injection\InjectionBlackList.txt" />
     <None Include="Assets\Plugin\Best HTTP (Pro)\link.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -1468,25 +1470,25 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="CString">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/CString.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/CString.dll</HintPath>
     </Reference>
     <Reference Include="Debugger">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Debugger.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Debugger.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Google.Protobuf.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/LitJson.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
