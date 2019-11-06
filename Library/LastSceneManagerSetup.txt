@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/WorldScene/SceneMap/WorldScene_XueDi.unity
+- path: Assets/Scenes/Scene_UI.unity
   isLoaded: 1
   isActive: 1
