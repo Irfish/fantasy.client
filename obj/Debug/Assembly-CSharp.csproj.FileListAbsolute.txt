@@ -1,1 +1,2 @@
 F:\unity\fantacy\server\src\github.com\Irfish\fantasy.client\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+D:\git\fantacy\server\src\github.com\Irfish\fantasy.client\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
