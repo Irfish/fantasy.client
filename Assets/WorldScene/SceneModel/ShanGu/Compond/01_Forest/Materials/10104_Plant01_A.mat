@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: 10104_Plant01_A
   m_Shader: {fileID: 4800000, guid: 18b03e5a38346f94191e1cb84b4de247, type: 3}
   m_ShaderKeywords: 

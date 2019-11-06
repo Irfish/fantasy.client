@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/WorldScene/SceneMap/WorldScene_PingYuan.unity
+- path: Assets/WorldScene/SceneMap/WorldScene_XueDi.unity
   isLoaded: 1
   isActive: 1
