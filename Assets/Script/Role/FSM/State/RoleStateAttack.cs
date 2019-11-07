@@ -8,11 +8,15 @@ using UnityEngine;
 
 public class RoleStateAttack : RoleStateAbstract {
 
-    private string[] AttackList = new string[] { RoleAnimatorName.PhyAttack1.ToString(), RoleAnimatorName.PhyAttack2.ToString(), RoleAnimatorName.PhyAttack3.ToString() };
+    private string[] AttackList = new string[] {
+        RoleAnimatorName.PhyAttack1.ToString(),
+        RoleAnimatorName.PhyAttack2.ToString(),
+        RoleAnimatorName.PhyAttack3.ToString()
+    };
 
     public RoleStateAttack(RoleFSMManager roleFSMMgr) : base(roleFSMMgr)
     {
-
+        EffectName = "Role_MainPlayer_Cike_Effect_Phy_";
     }
 
     /// <summary>
@@ -23,7 +27,9 @@ public class RoleStateAttack : RoleStateAbstract {
         base.OnEnter();
 
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToPhyAttack.ToString(), ActionType);
-        
+
+        CurrRoleFSMMgr.CurrRoleCtrl.PlayEffect(EffectName+ ActionType);
+
         if (CurrRoleFSMMgr.CurrRoleCtrl.LockEnemy != null)
         {
             CurrRoleFSMMgr.CurrRoleCtrl.transform.LookAt(new Vector3(CurrRoleFSMMgr.CurrRoleCtrl.LockEnemy.transform.position.x, CurrRoleFSMMgr.CurrRoleCtrl.transform.position.y, CurrRoleFSMMgr.CurrRoleCtrl.LockEnemy.transform.position.z));
@@ -64,5 +70,6 @@ public class RoleStateAttack : RoleStateAbstract {
 
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToPhyAttack.ToString(), 0);
 
+        CurrRoleFSMMgr.CurrRoleCtrl.StopEffect(EffectName + ActionType);
     }
 }

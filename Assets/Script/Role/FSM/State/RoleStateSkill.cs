@@ -5,11 +5,18 @@ using UnityEngine;
 public class RoleStateSkill : RoleStateAbstract
 {
 
-    private string[] skillList = new string[] { RoleAnimatorName.Skill1.ToString(), RoleAnimatorName.Skill2.ToString(), RoleAnimatorName.Skill3.ToString(), RoleAnimatorName.Skill4.ToString(), RoleAnimatorName.Skill5.ToString() };
+    private string[] skillList = new string[] {
+        RoleAnimatorName.Skill1.ToString(),
+        RoleAnimatorName.Skill2.ToString(),
+        RoleAnimatorName.Skill3.ToString(),
+        RoleAnimatorName.Skill4.ToString(),
+        RoleAnimatorName.Skill5.ToString(),
+        RoleAnimatorName.Skill6.ToString()
+    };
 
     public RoleStateSkill(RoleFSMManager roleFSMMgr) : base(roleFSMMgr)
     {
-        
+        EffectName = "Role_MainPlayer_Cike_Effect_Skill_";
     }
 
     // Start is called before the first frame update
@@ -18,6 +25,8 @@ public class RoleStateSkill : RoleStateAbstract
         base.OnEnter();
 
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToSkill.ToString(), ActionType);
+
+        CurrRoleFSMMgr.CurrRoleCtrl.PlayEffect(EffectName + ActionType);
 
     }
 
@@ -55,5 +64,7 @@ public class RoleStateSkill : RoleStateAbstract
         base.OnLeave();
 
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToSkill.ToString(), 0);
+
+        CurrRoleFSMMgr.CurrRoleCtrl.StopEffect(EffectName + ActionType);
     }
 }

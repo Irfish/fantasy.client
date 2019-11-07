@@ -14,6 +14,7 @@ public class RoleStateAbstract  {
 
     public int ActionType { get; set; }
 
+    public string EffectName { get; set; }
     /// <summary>
     /// 当前动画状态信息
     /// </summary>

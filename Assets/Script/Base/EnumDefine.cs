@@ -73,6 +73,7 @@ public enum RoleAnimatorName
     Skill3,
     Skill4,
     Skill5,
+    Skill6,
 }
 
 public enum ToAnimatorCondition

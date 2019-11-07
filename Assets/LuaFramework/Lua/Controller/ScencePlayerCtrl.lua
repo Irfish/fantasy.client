@@ -34,23 +34,23 @@ function ScencePlayerCtrl.OnClickBtnLobby(go)
 end
 --普通攻击
 function ScencePlayerCtrl.OnClickBtnRoleFight(go)
-    ScencePlayerPanel.RoleCtrl:Fight(3)
+    ScencePlayerPanel.RoleCtrl:Fight(2)
 end
 --技能1
 function ScencePlayerCtrl.OnClickBtnRoleSkill(go)
-    ScencePlayerPanel.RoleCtrl:Skill(1)
+    ScencePlayerPanel.RoleCtrl:Skill(6)
 end
 --技能2
 function ScencePlayerCtrl.OnClickBtnRoleSkil2(go)
-    ScencePlayerPanel.RoleCtrl:Skill(2)
+    ScencePlayerPanel.RoleCtrl:Skill(3)
 end
 --技能3
 function ScencePlayerCtrl.OnClickBtnRoleSkil3(go)
-    ScencePlayerPanel.RoleCtrl:Skill(3)
+    ScencePlayerPanel.RoleCtrl:Skill(4)
 end
 --技能4
 function ScencePlayerCtrl.OnClickBtnRoleSkil4(go)
-    ScencePlayerPanel.RoleCtrl:Skill(4)
+    ScencePlayerPanel.RoleCtrl:Skill(5)
 end
 
 --关闭事件

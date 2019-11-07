@@ -21,6 +21,8 @@ public class RoleCtrl : MonoBehaviour
 
     public bool isMoveing = false;
 
+    private Dictionary<string, GameObject> effectList = new Dictionary<string, GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,7 @@ public class RoleCtrl : MonoBehaviour
         }
     }
 
+    //保持站立状态
     public void ToIdle()
     {
         CurrRoleFSMMgr.ChangeState(RoleState.Idle);
@@ -79,14 +82,45 @@ public class RoleCtrl : MonoBehaviour
         isMoveing = false;
     }
 
+    //攻击动作
     public void Fight(int fight)
     {
         CurrRoleFSMMgr.ChangeState(RoleState.Attack,fight);
     }
 
+    //释放技能
     public void Skill(int skill)
     {
         CurrRoleFSMMgr.ChangeState(RoleState.Skill, skill);
+    }
+
+    //激活特效
+    public void PlayEffect(string name)
+    {
+        if (!effectList.ContainsKey(name))
+        {
+            GameObject o = transform.Find(name).gameObject;
+
+            effectList[name] = o;
+        }
+
+        GameObject obj = effectList[name];
+
+        obj.SetActive(true);
+    }
+    //禁用特效
+    public void StopEffect(string name)
+    {
+        if (!effectList.ContainsKey(name))
+        {
+            GameObject o = transform.Find(name).gameObject;
+
+            effectList[name] = o;
+        }
+
+        GameObject obj = effectList[name];
+
+        obj.SetActive(false);
     }
 
 }
