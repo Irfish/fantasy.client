@@ -1217,6 +1217,7 @@
     <Compile Include="Assets\Script\Manager\CameraManager.cs" />
     <Compile Include="Assets\Script\Manager\NetworkManager.cs" />
     <Compile Include="Assets\Script\Manager\UserManager.cs" />
+    <Compile Include="Assets\Script\Manager\WordSceneManagerXueDi.cs" />
     <Compile Include="Assets\Script\Net\Http.cs" />
     <Compile Include="Assets\Script\Net\Parser.cs" />
     <Compile Include="Assets\Script\Net\SocketClient.cs" />

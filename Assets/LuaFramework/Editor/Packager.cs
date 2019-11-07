@@ -184,6 +184,8 @@ public class Packager {
 
         AddBuildMap("scenes" + AppConst.ExtName, "*.unity", "Assets/Scenes/");
 
+        AddBuildMap("role" + AppConst.ExtName, "*.prefab", "Assets/Role/Prefab/RolePrefab/Player"); 
+
         //AddSceneBuildMap("scene_lobby", "Assets/Scenes/Scene_Lobby.unity");
 
     }

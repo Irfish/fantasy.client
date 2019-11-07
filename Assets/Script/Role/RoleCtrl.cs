@@ -5,22 +5,20 @@ using System;
 
 public class RoleCtrl : MonoBehaviour
 {
-    //[HideInInspector]
-    public Animator Animator;
-
-    //[HideInInspector]
-    public RoleCtrl LockEnemy;
-
-    //[HideInInspector]
+    public string roleName= "Role_MainPlayer_Cike";//默认
+    [HideInInspector]
+    public Animator Animator; //角色动画状态机
+    [HideInInspector]
+    public RoleCtrl LockEnemy;//敌人
+    [HideInInspector]
     public Action<RoleCtrl> OnRoleDie;
-
-    public EasyTouchMove easyTouchMove;
-
-    //[HideInInspector]
-    public RoleFSMManager CurrRoleFSMMgr = null;
-
-    public bool isMoveing = false;
-
+    [HideInInspector]
+    public EasyTouchMove easyTouchMove;//控制角色的摇杆
+    [HideInInspector]
+    public RoleFSMManager CurrRoleFSMMgr = null;//状态机控制器
+    [HideInInspector]
+    public bool isMoveing = false;//角色是否处于移动中
+    //角色对应的特效
     private Dictionary<string, GameObject> effectList = new Dictionary<string, GameObject>();
 
     // Start is called before the first frame update
@@ -32,9 +30,30 @@ public class RoleCtrl : MonoBehaviour
         {
             easyTouchMove = GameObject.Find("EasyTouchMove").GetComponent<EasyTouchMove>();
         }
-        else {
+        else
+        {
             AppDebug.Log("GameObject EasyTouchMove not found");
         }
+
+        if (Animator==null)
+        {
+            Transform t = transform.Find("Aanimation");
+
+            if (t != null)
+            {
+                Animator a = t.GetComponent<Animator>();
+
+                if (a != null)
+                {
+                    Animator = a;
+                }
+            }
+            else
+            {
+                AppDebug.Log("GameObject Aanimation not found");
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -44,7 +63,11 @@ public class RoleCtrl : MonoBehaviour
         {
             CurrRoleFSMMgr.OnUpdate();
         }
-        
+        else
+        {
+            AppDebug.Log("CurrRoleFSMMgr not set-------------------------->");
+        }
+ 
         if (easyTouchMove != null)
         {
             float hor = easyTouchMove.Horizontal;

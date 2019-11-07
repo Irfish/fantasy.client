@@ -1,23 +1,28 @@
-local transform
-local gameObject
-
 ScencePlayerPanel = {}
 local this = ScencePlayerPanel
 local ScencePlayer
-
-
+local transform
+local gameObject
 --启动事件
 function ScencePlayerPanel.Awake(obj)
     gameObject = obj
     transform = obj.transform
     ScencePlayer = gameObject:GetComponent('LuaBehaviour')
-    local obj= GameObject.Find("MainRole");
-    if obj then
-        this.RoleCtrl = obj:GetComponent("RoleCtrl");
-    else
-        logWarn("ScencePlayerPanel MainRole not found")
-    end
     this.InitPanel()
+end
+
+function ScencePlayerPanel.GetRoleCtrl()
+    if this.RoleCtrl then
+        return this.RoleCtrl
+    else
+        local obj = GameObject.Find("Role_MainPlayer_Cike");--RoleBornPoint
+        if obj then
+            this.RoleCtrl = obj:GetComponent('RoleCtrl');--obj:GetComponentInChildren('RoleCtrl');
+        else
+            logWarn("ScencePlayerPanel RoleBornPoint not found")
+        end
+        return this.RoleCtrl
+    end
 end
 
 --初始化面板

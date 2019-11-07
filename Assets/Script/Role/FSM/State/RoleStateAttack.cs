@@ -16,7 +16,7 @@ public class RoleStateAttack : RoleStateAbstract {
 
     public RoleStateAttack(RoleFSMManager roleFSMMgr) : base(roleFSMMgr)
     {
-        EffectName = "Role_MainPlayer_Cike_Effect_Phy_";
+        EffectName = roleFSMMgr.CurrRoleCtrl.roleName+"_Effect_Phy_";
     }
 
     /// <summary>

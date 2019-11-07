@@ -16,7 +16,7 @@ public class RoleStateSkill : RoleStateAbstract
 
     public RoleStateSkill(RoleFSMManager roleFSMMgr) : base(roleFSMMgr)
     {
-        EffectName = "Role_MainPlayer_Cike_Effect_Skill_";
+        EffectName = roleFSMMgr.CurrRoleCtrl.roleName + "_Effect_Skill_";
     }
 
     // Start is called before the first frame update

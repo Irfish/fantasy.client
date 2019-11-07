@@ -11,11 +11,11 @@ function ScencePlayerPanel.Awake(obj)
     gameObject = obj
     transform = obj.transform
     ScencePlayer = gameObject:GetComponent('LuaBehaviour')
-    local obj= GameObject.Find("MainRole");
+    local obj= GameObject.Find("RoleBornPoint");
     if obj then
-        this.RoleCtrl = obj:GetComponent("RoleCtrl");
+        this.RoleCtrl = obj:GetComponentInChildren('RoleCtrl');
     else
-        logWarn("ScencePlayerPanel MainRole not found")
+        logWarn("ScencePlayerPanel RoleBornPoint not found")
     end
     this.InitPanel()
 end

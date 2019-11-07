@@ -10,8 +10,11 @@ public class RoleCtrlWrap
 		L.RegFunction("ToIdle", ToIdle);
 		L.RegFunction("Fight", Fight);
 		L.RegFunction("Skill", Skill);
+		L.RegFunction("PlayEffect", PlayEffect);
+		L.RegFunction("StopEffect", StopEffect);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
+		L.RegVar("roleName", get_roleName, set_roleName);
 		L.RegVar("Animator", get_Animator, set_Animator);
 		L.RegVar("LockEnemy", get_LockEnemy, set_LockEnemy);
 		L.RegVar("OnRoleDie", get_OnRoleDie, set_OnRoleDie);
@@ -72,6 +75,40 @@ public class RoleCtrlWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int PlayEffect(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			RoleCtrl obj = (RoleCtrl)ToLua.CheckObject<RoleCtrl>(L, 1);
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.PlayEffect(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopEffect(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			RoleCtrl obj = (RoleCtrl)ToLua.CheckObject<RoleCtrl>(L, 1);
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.StopEffect(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int op_Equality(IntPtr L)
 	{
 		try
@@ -86,6 +123,25 @@ public class RoleCtrlWrap
 		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_roleName(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			string ret = obj.roleName;
+			LuaDLL.lua_pushstring(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index roleName on a nil value");
 		}
 	}
 
@@ -200,6 +256,25 @@ public class RoleCtrlWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isMoveing on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_roleName(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.roleName = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index roleName on a nil value");
 		}
 	}
 

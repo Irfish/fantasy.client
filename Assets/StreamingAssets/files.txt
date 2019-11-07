@@ -8,16 +8,18 @@ prompt.unity3d|8f5fc14a69c3c33094dd5de1d6a511a2
 prompt.unity3d.manifest|0edd9530c3b4cfed97891b7c7ce9334c
 prompt_asset.unity3d|d64c1488e26802e73790bed948ce3428
 prompt_asset.unity3d.manifest|2004a09777cc989b123b214d2a85a0b0
+role.unity3d|af17628417f808b17fdb2bf74fb46534
+role.unity3d.manifest|88c53feda9f6efa94e86c2fb16e4faed
 scencepiece.unity3d|b4fd0eb1a042ef692043f13c051592cd
 scencepiece.unity3d.manifest|58d7b2513bc48e8aff3603a613691cf2
 scenceplayer.unity3d|5a6d177ad15aa58d1645a8d1ba695f2f
 scenceplayer.unity3d.manifest|c370d606cabc0c5368270dca9d45c96f
-scenes.unity3d|b1c321a1825c41f7bc4f2b725227e440
-scenes.unity3d.manifest|117c0b5dee4bcbbe74a9efa0e36a2870
+scenes.unity3d|9edb0c829dd92f3cc9a5d01ea60d0432
+scenes.unity3d.manifest|d26dcdb8e54c5c42bddf7ada5db47c03
 shared_asset.unity3d|cd4fd8096720849031fb5375ca5dcd3d
 shared_asset.unity3d.manifest|ba260f2cd481c749c1192f6911b08dcb
-StreamingAssets|2508424d90da5400f500d03c733fd3dc
-StreamingAssets.manifest|8def3df913f323e270075040f07e856e
+StreamingAssets|d553feabfc68e368945beff464e64960
+StreamingAssets.manifest|b8e201aff6dd2761b4238ea6ca385734
 lua/Build.bat|796c40aa00eab69c48224476a2626994
 lua/event.lua|91c44063c7ad28c6007f454bf25e0cd2
 lua/eventlib.lua|be1d722b289665f05d7d3e06f4bec3a2
@@ -81,7 +83,7 @@ lua/Common/protocal.lua|397fb2f93c7d022a6f5352f7f1e08287
 lua/Controller/LobbyCtrl.lua|616aa46314364eb9db171865972fecd5
 lua/Controller/LoginCtrl.lua|6ef3ab054d0f80ae80a7801c3fd4e5c8
 lua/Controller/ScencePieceCtrl.lua|629b74aede891579be028f23f4ca3fcf
-lua/Controller/ScencePlayerCtrl.lua|540d701146ce558ab401d735e6c779ea
+lua/Controller/ScencePlayerCtrl.lua|38424f57904e388478d077ed36303078
 lua/jit/bc.lua|e3138b8406ce11168b39d072ad400c8f
 lua/jit/bcsave.lua|b5ced85a1cfaf6a0178c3a380b2e587b
 lua/jit/dis_arm.lua|4b53131209c47c8fd27abd6e7386e399
@@ -148,4 +150,4 @@ lua/UnityEngine/Vector4.lua|dbaa8d6c335b6ba48f4ec2c4a376bafa
 lua/View/LobbyPanel.lua|7082a048d5a497b85a6066d6d601ec65
 lua/View/LoginPanel.lua|d2c72e839fa2238f8db030a428a33f0a
 lua/View/ScencePiecePanel.lua|16cc03e507409738314e3f2c2d0d676b
-lua/View/ScencePlayerPanel.lua|11888862f62973a73ffc7e2a361c3f0a
+lua/View/ScencePlayerPanel.lua|d04372b4f5cdd547019635c063d7a9da
