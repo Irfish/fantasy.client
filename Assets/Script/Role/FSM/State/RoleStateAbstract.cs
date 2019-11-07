@@ -12,6 +12,8 @@ public class RoleStateAbstract  {
     /// </summary>
 	public RoleFSMManager CurrRoleFSMMgr { get; private set; }
 
+    public int ActionType { get; set; }
+
     /// <summary>
     /// 当前动画状态信息
     /// </summary>

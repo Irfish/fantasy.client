@@ -320,6 +320,7 @@
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaInterface_LuaInjectionStationWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaProfilerWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\ManagerWrap.cs" />
+    <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\RoleCtrlWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_AnimationBlendModeWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_AnimationClipWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_AnimationStateWrap.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_TrackedReferenceWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_TransformWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_GraphicWrap.cs" />
+    <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_ImageWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputFieldWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_MaskableGraphicWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_SelectableWrap.cs" />
@@ -1212,6 +1214,7 @@
     <Compile Include="Assets\Script\Entity\Player.cs" />
     <Compile Include="Assets\Script\Event\Event.cs" />
     <Compile Include="Assets\Script\Event\SocketEvent.cs" />
+    <Compile Include="Assets\Script\Manager\CameraManager.cs" />
     <Compile Include="Assets\Script\Manager\NetworkManager.cs" />
     <Compile Include="Assets\Script\Manager\UserManager.cs" />
     <Compile Include="Assets\Script\Net\Http.cs" />
@@ -1234,11 +1237,13 @@
     <Compile Include="Assets\Script\Role\FSM\State\RoleStateHurt.cs" />
     <Compile Include="Assets\Script\Role\FSM\State\RoleStateIdle.cs" />
     <Compile Include="Assets\Script\Role\FSM\State\RoleStateRun.cs" />
+    <Compile Include="Assets\Script\Role\FSM\State\RoleStateSkill.cs" />
     <Compile Include="Assets\Script\Role\RoleCtrl.cs" />
     <Compile Include="Assets\Script\Test\EasyTouchTest.cs" />
     <Compile Include="Assets\Script\Test\Test001.cs" />
     <Compile Include="Assets\Script\Utils\AppDebug.cs" />
     <Compile Include="Assets\Script\Utils\AppMemoryStream.cs" />
+    <Compile Include="Assets\Script\Utils\EasyTouchMove.cs" />
     <Compile Include="Assets\Script\Utils\FileTools.cs" />
     <Compile Include="Assets\Script\Utils\GameObjectExp.cs" />
     <Compile Include="Assets\Script\Utils\NetWorkMessageTools.cs" />

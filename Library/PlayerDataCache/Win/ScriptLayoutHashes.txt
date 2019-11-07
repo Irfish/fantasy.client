@@ -1,8 +1,8 @@
 Win
 PlayerPath?
-F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
+D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
 SceneListBegin?
-Assets/Scenes/Scene_Main.unity
+Assets/Scenes/Scene_main.unity
 Assets/Scenes/Test.unity
 Assets/Scenes/Scene_UI.unity
 Assets/Scenes/Scene_Lobby.unity
@@ -25,5 +25,5 @@ ae83e830e7a90c0aff918c4c2e520825 UnityEngine.UI.dll:UnityEngine.UI.GraphicRaycas
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:LuaFramework.Main
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Test001
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AppView
 5925fb5f1f21cc0ef859f76e03297d86 Assembly-CSharp.dll:.ETCJoystick
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.AppView

@@ -14,63 +14,80 @@ public class RoleCtrl : MonoBehaviour
     //[HideInInspector]
     public Action<RoleCtrl> OnRoleDie;
 
-    //[HideInInspector]
-    public CharacterController CharacterController;
+    public EasyTouchMove easyTouchMove;
 
     //[HideInInspector]
     public RoleFSMManager CurrRoleFSMMgr = null;
 
-
-    public float MoveSpeed = 0f;
+    public bool isMoveing = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject obj = GameObject.Find("EasyTouchMove");
+
+        if (obj)
+        {
+            easyTouchMove = GameObject.Find("EasyTouchMove").GetComponent<EasyTouchMove>();
+        }
+        else {
+            AppDebug.Log("GameObject EasyTouchMove not found");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (CurrRoleFSMMgr != null)
+        {
             CurrRoleFSMMgr.OnUpdate();
+        }
+        
+        if (easyTouchMove != null)
+        {
+            float hor = easyTouchMove.Horizontal;
+
+            float ver = easyTouchMove.Vertical;
+
+            Vector3 direction = new Vector3(hor, 0, ver);
+
+            if (direction != Vector3.zero)
+            {
+                CurrRoleFSMMgr.ChangeState(RoleState.Run);
+
+                isMoveing = true;
+                //控制转向
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 10);
+                //向前移动
+                transform.Translate(Vector3.forward * Time.deltaTime * 5);
+            }
+            else
+            {
+                isMoveing = false;
+            }
+        }
+        else
+        {
+            ToIdle();
+        }
     }
 
     public void ToIdle()
     {
         CurrRoleFSMMgr.ChangeState(RoleState.Idle);
-        MoveSpeed = 0;
+
+        isMoveing = false;
     }
 
-
-    public void OnMoveStart()
+    public void Fight(int fight)
     {
-        AppDebug.Log("MoveStart");
-        CurrRoleFSMMgr.ChangeState(RoleState.Run);
-        MoveSpeed = 1f;
+        CurrRoleFSMMgr.ChangeState(RoleState.Attack,fight);
     }
 
-    public void OnMove(Vector2 move)
+    public void Skill(int skill)
     {
-        AppDebug.Log("Move --> x" + move.x + " y:" + move.y);
-        CurrRoleFSMMgr.ChangeState(RoleState.Run);
-        MoveSpeed = 1f;
-    }
-
-    public void OnMoveSpeed(Vector2 move)
-    {
-        AppDebug.Log("MoveSpeed --> x" + move.x + " y:" + move.y);
-        CurrRoleFSMMgr.ChangeState(RoleState.Run);
-        if (move.x>0|| move.y>0) {
-            MoveSpeed = 1f;
-        }
-    }
-
-    public void OnMoveEnd()
-    {
-        AppDebug.Log("MoveEnd");
-        MoveSpeed = 0f;
-        CurrRoleFSMMgr.ChangeState(RoleState.Idle);
+        CurrRoleFSMMgr.ChangeState(RoleState.Skill, skill);
     }
 
 }
+

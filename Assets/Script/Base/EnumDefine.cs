@@ -50,7 +50,9 @@ public enum RoleState
     /// <summary>
     /// 死亡
     /// </summary>
-    Die = 5
+    Die = 5,
+
+    Skill = 5,
 }
 
 /// <summary>
@@ -65,7 +67,12 @@ public enum RoleAnimatorName
     Die,
     PhyAttack1,
     PhyAttack2,
-    PhyAttack3
+    PhyAttack3,
+    Skill1,
+    Skill2,
+    Skill3,
+    Skill4,
+    Skill5,
 }
 
 public enum ToAnimatorCondition
@@ -73,8 +80,9 @@ public enum ToAnimatorCondition
     ToIdleNormal,
     ToIdleFight,
     ToRun,
+    ToPhyAttack,
     ToHurt,
     ToDie,
-    ToPhyAttack,
+    ToSkill,
     CurrState
 }

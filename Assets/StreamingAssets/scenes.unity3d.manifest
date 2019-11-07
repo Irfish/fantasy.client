@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1780028482
+CRC: 2229643529
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 12786b1a84ad659179eb6467cc073c09
+    Hash: 4d50cf265050e2801f89403843e6e21c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 70759b09250b79ed0586a26eb60da0e5
+    Hash: e7ca522924f635a7e8887e13c2f95192
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -76,9 +76,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 38477dfabd316dd45912ef1afa7bd680, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 354aa74efb1b7424f9b142bc0073df53, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: c26c7a0dcd8138d4194e0a4435a4740c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 354aa74efb1b7424f9b142bc0073df53, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 124
@@ -104,7 +104,7 @@ ClassTypes:
 - Class: 258
   Script: {instanceID: 0}
 Assets:
-- Assets/Scenes/Scene_Main.unity
+- Assets/Scenes/Scene_main.unity
 - Assets/Scenes/Test.unity
 - Assets/Scenes/Scene_UI.unity
 - Assets/Scenes/Scene_Lobby.unity

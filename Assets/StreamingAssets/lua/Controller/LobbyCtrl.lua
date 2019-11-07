@@ -26,7 +26,7 @@ function LobbyCtrl.OnCreate(obj)
 end
 
 function LobbyCtrl.OnClickbtnGameType1(go)
-    scenceMgr:LoadSence(ScenceName.Main)
+    scenceMgr:LoadSence(ScenceName.XueDi)
 end
 
 function LobbyCtrl.OnClickbtnGameType2(go)

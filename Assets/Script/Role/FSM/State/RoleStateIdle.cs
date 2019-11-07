@@ -23,6 +23,7 @@ public class RoleStateIdle : RoleStateAbstract {
     public override void OnEnter()
     {
         base.OnEnter();
+
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetBool(ToAnimatorCondition.ToIdleNormal.ToString(), true);
     }
 
@@ -34,6 +35,7 @@ public class RoleStateIdle : RoleStateAbstract {
         base.OnUpdate();
 
         CurrRoleAnimatorStateInfo = CurrRoleFSMMgr.CurrRoleCtrl.Animator.GetCurrentAnimatorStateInfo(0);
+
         if (CurrRoleAnimatorStateInfo.IsName(RoleAnimatorName.Idle_Normal.ToString()))
         {
             CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.CurrState.ToString(), (int)RoleState.Idle);
@@ -46,6 +48,8 @@ public class RoleStateIdle : RoleStateAbstract {
     public override void OnLeave()
     {
         base.OnLeave();
+
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetBool(ToAnimatorCondition.ToIdleNormal.ToString(), false);
+
     }
 }

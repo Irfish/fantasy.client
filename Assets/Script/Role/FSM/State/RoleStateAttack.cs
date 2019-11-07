@@ -8,8 +8,9 @@ using UnityEngine;
 
 public class RoleStateAttack : RoleStateAbstract {
 
+    private string[] AttackList = new string[] { RoleAnimatorName.PhyAttack1.ToString(), RoleAnimatorName.PhyAttack2.ToString(), RoleAnimatorName.PhyAttack3.ToString() };
 
-	public RoleStateAttack(RoleFSMManager roleFSMMgr) : base(roleFSMMgr)
+    public RoleStateAttack(RoleFSMManager roleFSMMgr) : base(roleFSMMgr)
     {
 
     }
@@ -20,8 +21,9 @@ public class RoleStateAttack : RoleStateAbstract {
     public override void OnEnter()
     {
         base.OnEnter();
-        CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToPhyAttack.ToString(), 1);
 
+        CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToPhyAttack.ToString(), ActionType);
+        
         if (CurrRoleFSMMgr.CurrRoleCtrl.LockEnemy != null)
         {
             CurrRoleFSMMgr.CurrRoleCtrl.transform.LookAt(new Vector3(CurrRoleFSMMgr.CurrRoleCtrl.LockEnemy.transform.position.x, CurrRoleFSMMgr.CurrRoleCtrl.transform.position.y, CurrRoleFSMMgr.CurrRoleCtrl.LockEnemy.transform.position.z));
@@ -36,7 +38,8 @@ public class RoleStateAttack : RoleStateAbstract {
         base.OnUpdate();
 
         CurrRoleAnimatorStateInfo = CurrRoleFSMMgr.CurrRoleCtrl.Animator.GetCurrentAnimatorStateInfo(0);
-        if (CurrRoleAnimatorStateInfo.IsName(RoleAnimatorName.PhyAttack1.ToString()))
+
+        if (CurrRoleAnimatorStateInfo.IsName(AttackList[ActionType-1]))
         {
 			CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.CurrState.ToString(), (int)RoleState.Attack);
 
@@ -58,6 +61,8 @@ public class RoleStateAttack : RoleStateAbstract {
     public override void OnLeave()
     {
         base.OnLeave();
+
         CurrRoleFSMMgr.CurrRoleCtrl.Animator.SetInteger(ToAnimatorCondition.ToPhyAttack.ToString(), 0);
+
     }
 }

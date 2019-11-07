@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2955894064
+CRC: 2996734817
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 976b55c62632fc772434a150d6cbc7f2
+    Hash: 7ca3c131411e7c43ddd9c3437d491afe
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f552dfe68fe9024c92f722ca99cdc001
+    Hash: 112b943b323286f6a30e358ea04e5275
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -23,6 +23,10 @@ ClassTypes:
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 731df045343672840ab8f47d9b8fbb6c, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -32,6 +36,8 @@ ClassTypes:
 - Class: 222
   Script: {instanceID: 0}
 - Class: 224
+  Script: {instanceID: 0}
+- Class: 225
   Script: {instanceID: 0}
 Assets:
 - Assets/LuaFramework/UI/Builds/ScencePlayer/ScencePlayerPanel.prefab
