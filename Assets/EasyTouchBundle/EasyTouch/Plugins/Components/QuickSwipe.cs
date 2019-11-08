@@ -20,10 +20,9 @@ public class QuickSwipe : QuickBase {
 
 	[SerializeField] 
 	public OnSwipeAction onSwipeAction;
-	#endregion
-
-	#region enumeration
-	public enum ActionTriggering {InProgress,End}
+    #endregion
+        #region enumeration
+        public enum ActionTriggering {InProgress,End}
 	public enum SwipeDirection {Vertical, Horizontal, DiagonalRight,DiagonalLeft,Up,UpRight, Right,DownRight,Down,DownLeft, Left,UpLeft,All};
 	#endregion
 
@@ -83,8 +82,8 @@ public class QuickSwipe : QuickBase {
 
 	void On_SwipeEnd (Gesture gesture){
 			if (actionTriggering == ActionTriggering.End && isRightDirection(gesture) ){
-			onSwipeAction.Invoke( gesture);
-			if (enableSimpleAction){
+            onSwipeAction.Invoke( gesture);
+            if (enableSimpleAction){
 				DoAction(gesture);
 			}
 		}

@@ -21,12 +21,12 @@ function ScencePlayerCtrl.OnCreate(obj)
     gameObject = obj
     ScencePlayer = gameObject:GetComponent('LuaBehaviour')
     ScencePlayer:AddClick(ScencePlayerPanel.btnLobby, this.OnClickBtnLobby)
-    ScencePlayer:AddClick(ScencePlayerPanel.btnRoleFight, this.OnClickBtnRoleFight)
+    -- ScencePlayer:AddClick(ScencePlayerPanel.btnRoleFight, this.OnClickBtnRoleFight)
 
-    ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkill, this.OnClickBtnRoleSkill)
-    ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkil2, this.OnClickBtnRoleSkil2)
-    ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkil3, this.OnClickBtnRoleSkil3)
-    ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkil4, this.OnClickBtnRoleSkil4)
+    -- ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkill, this.OnClickBtnRoleSkill)
+    -- ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkil2, this.OnClickBtnRoleSkil2)
+    -- ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkil3, this.OnClickBtnRoleSkil3)
+    -- ScencePlayer:AddClick(ScencePlayerPanel.btnRoleSkil4, this.OnClickBtnRoleSkil4)
 end
 
 function ScencePlayerCtrl.OnClickBtnLobby(go)

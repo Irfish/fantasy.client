@@ -5,21 +5,52 @@ using System;
 
 public class RoleCtrl : MonoBehaviour
 {
-    public string roleName= "Role_MainPlayer_Cike";//默认
-    [HideInInspector]
-    public Animator Animator; //角色动画状态机
+    public string roleName= "Role_MainPlayer_Cike";//默    
     [HideInInspector]
     public RoleCtrl LockEnemy;//敌人
-    [HideInInspector]
-    public Action<RoleCtrl> OnRoleDie;
     [HideInInspector]
     public EasyTouchMove easyTouchMove;//控制角色的摇杆
     [HideInInspector]
     public RoleFSMManager CurrRoleFSMMgr = null;//状态机控制器
     [HideInInspector]
     public bool isMoveing = false;//角色是否处于移动中
+    [HideInInspector]
+    public CharacterController characterController;
+    [HideInInspector]
+    public Action<RoleCtrl> OnRoleDie;
+    
     //角色对应的特效
     private Dictionary<string, GameObject> effectList = new Dictionary<string, GameObject>();
+
+    private Animator animator;
+    public Animator Animator
+    {   
+        get
+        {
+            if (animator == null)
+            {
+                Transform t = transform.Find("Aanimation");
+
+                if (t != null)
+                {
+                    Animator a = t.GetComponent<Animator>();
+
+                    if (a != null)
+                    {
+                        animator = a;
+                    }
+                }
+                else
+                {
+                    AppDebug.Log("GameObject Aanimation not found");
+                }
+            }
+
+            return animator;
+        }
+    } //角色动画状态机
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,31 +60,17 @@ public class RoleCtrl : MonoBehaviour
         if (obj)
         {
             easyTouchMove = GameObject.Find("EasyTouchMove").GetComponent<EasyTouchMove>();
+
+            easyTouchMove.OnRoleFight = Fight;
+
+            easyTouchMove.OnRoleSkill = Skill;
         }
         else
         {
             AppDebug.Log("GameObject EasyTouchMove not found");
         }
 
-        if (Animator==null)
-        {
-            Transform t = transform.Find("Aanimation");
-
-            if (t != null)
-            {
-                Animator a = t.GetComponent<Animator>();
-
-                if (a != null)
-                {
-                    Animator = a;
-                }
-            }
-            else
-            {
-                AppDebug.Log("GameObject Aanimation not found");
-            }
-        }
-
+        characterController = transform.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -83,8 +100,18 @@ public class RoleCtrl : MonoBehaviour
                 isMoveing = true;
                 //控制转向
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 10);
+               
+                Vector3 dir = direction.normalized;
+
+                if (!characterController.isGrounded)//角色不在地面上，则施加垂直方向的重力，使其着地
+                {
+                    dir.y = dir.y - 9.8f; 
+                }
+
+                characterController.Move(dir * Time.deltaTime * 5);
+
                 //向前移动
-                transform.Translate(Vector3.forward * Time.deltaTime * 5);
+                //transform.Translate(Vector3.forward * Time.deltaTime * 5); //此方法无视障碍物
             }
             else
             {
@@ -122,7 +149,16 @@ public class RoleCtrl : MonoBehaviour
     {
         if (!effectList.ContainsKey(name))
         {
-            GameObject o = transform.Find(name).gameObject;
+            Transform t = transform.Find(name);
+
+            if (t == null)
+            {
+                AppDebug.Log("can not found gameoobject: " + name);
+
+                return;
+            }
+
+            GameObject o = t.gameObject;
 
             effectList[name] = o;
         }
@@ -136,7 +172,16 @@ public class RoleCtrl : MonoBehaviour
     {
         if (!effectList.ContainsKey(name))
         {
-            GameObject o = transform.Find(name).gameObject;
+            Transform t = transform.Find(name);
+
+            if (t == null)
+            {
+                AppDebug.Log("can not found gameoobject: "+ name);
+
+                return;
+            }
+
+            GameObject o = t.gameObject;
 
             effectList[name] = o;
         }

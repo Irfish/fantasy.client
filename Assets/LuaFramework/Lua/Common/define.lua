@@ -17,7 +17,8 @@ ScenceName={
     Lobby="Scene_Lobby",
     Main="Scene_Main",
     Piece="Scene_Piece",
-    XueDi="WorldScene_XueDi"
+    XueDi="WorldScene_XueDi",
+    DaShanGu="WorldScene_DaShanGu"
 }
 
 --协议类型

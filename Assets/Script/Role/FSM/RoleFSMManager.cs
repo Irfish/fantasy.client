@@ -8,10 +8,25 @@ using UnityEngine;
 
 public class RoleFSMManager  {
 
-	/// <summary>
+    private RoleCtrl currRoleCtrl;
+    /// <summary>
     /// 当前角色控制器
     /// </summary>
-    public RoleCtrl CurrRoleCtrl { get; private set; }
+    public RoleCtrl CurrRoleCtrl
+    {
+        private set
+        {
+            currRoleCtrl = value;
+        }
+        get
+        {
+            if (currRoleCtrl == null)
+            {
+                AppDebug.Log("currRoleCtrl not set");
+            }
+            return currRoleCtrl;
+        }
+    }
 
     /// <summary>
     /// 当前角色状态枚举
@@ -34,6 +49,8 @@ public class RoleFSMManager  {
 	public RoleFSMManager(RoleCtrl currRoleCtrl)
     {
         CurrRoleCtrl = currRoleCtrl;
+
+        AppDebug.Log("New RoleFSMManager:"+ currRoleCtrl.roleName);
 
         m_RoleStateDic = new Dictionary<RoleState, RoleStateAbstract>();
 

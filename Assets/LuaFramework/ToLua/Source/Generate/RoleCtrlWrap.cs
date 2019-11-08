@@ -15,12 +15,13 @@ public class RoleCtrlWrap
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("roleName", get_roleName, set_roleName);
-		L.RegVar("Animator", get_Animator, set_Animator);
 		L.RegVar("LockEnemy", get_LockEnemy, set_LockEnemy);
-		L.RegVar("OnRoleDie", get_OnRoleDie, set_OnRoleDie);
 		L.RegVar("easyTouchMove", get_easyTouchMove, set_easyTouchMove);
 		L.RegVar("CurrRoleFSMMgr", get_CurrRoleFSMMgr, set_CurrRoleFSMMgr);
 		L.RegVar("isMoveing", get_isMoveing, set_isMoveing);
+		L.RegVar("characterController", get_characterController, set_characterController);
+		L.RegVar("OnRoleDie", get_OnRoleDie, set_OnRoleDie);
+		L.RegVar("Animator", get_Animator, null);
 		L.EndClass();
 	}
 
@@ -146,25 +147,6 @@ public class RoleCtrlWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_Animator(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			RoleCtrl obj = (RoleCtrl)o;
-			UnityEngine.Animator ret = obj.Animator;
-			ToLua.Push(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Animator on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_LockEnemy(IntPtr L)
 	{
 		object o = null;
@@ -180,25 +162,6 @@ public class RoleCtrlWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index LockEnemy on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_OnRoleDie(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			RoleCtrl obj = (RoleCtrl)o;
-			System.Action<RoleCtrl> ret = obj.OnRoleDie;
-			ToLua.Push(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnRoleDie on a nil value");
 		}
 	}
 
@@ -260,6 +223,63 @@ public class RoleCtrlWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_characterController(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			UnityEngine.CharacterController ret = obj.characterController;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index characterController on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_OnRoleDie(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			System.Action<RoleCtrl> ret = obj.OnRoleDie;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnRoleDie on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Animator(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			UnityEngine.Animator ret = obj.Animator;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Animator on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_roleName(IntPtr L)
 	{
 		object o = null;
@@ -279,25 +299,6 @@ public class RoleCtrlWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_Animator(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			RoleCtrl obj = (RoleCtrl)o;
-			UnityEngine.Animator arg0 = (UnityEngine.Animator)ToLua.CheckObject<UnityEngine.Animator>(L, 2);
-			obj.Animator = arg0;
-			return 0;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Animator on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_LockEnemy(IntPtr L)
 	{
 		object o = null;
@@ -313,25 +314,6 @@ public class RoleCtrlWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index LockEnemy on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_OnRoleDie(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			RoleCtrl obj = (RoleCtrl)o;
-			System.Action<RoleCtrl> arg0 = (System.Action<RoleCtrl>)ToLua.CheckDelegate<System.Action<RoleCtrl>>(L, 2);
-			obj.OnRoleDie = arg0;
-			return 0;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnRoleDie on a nil value");
 		}
 	}
 
@@ -389,6 +371,44 @@ public class RoleCtrlWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isMoveing on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_characterController(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			UnityEngine.CharacterController arg0 = (UnityEngine.CharacterController)ToLua.CheckObject<UnityEngine.CharacterController>(L, 2);
+			obj.characterController = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index characterController on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_OnRoleDie(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			RoleCtrl obj = (RoleCtrl)o;
+			System.Action<RoleCtrl> arg0 = (System.Action<RoleCtrl>)ToLua.CheckDelegate<System.Action<RoleCtrl>>(L, 2);
+			obj.OnRoleDie = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnRoleDie on a nil value");
 		}
 	}
 }

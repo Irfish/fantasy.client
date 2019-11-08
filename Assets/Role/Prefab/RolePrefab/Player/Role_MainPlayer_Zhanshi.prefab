@@ -2183,7 +2183,7 @@ GameObject:
   - component: {fileID: 480610}
   - component: {fileID: 9544520}
   m_Layer: 0
-  m_Name: zhujiao_zhanshi_animation
+  m_Name: Aanimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

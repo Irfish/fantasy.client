@@ -15,9 +15,9 @@ function ScencePlayerPanel.GetRoleCtrl()
     if this.RoleCtrl then
         return this.RoleCtrl
     else
-        local obj = GameObject.Find("Role_MainPlayer_Cike");--RoleBornPoint
+        local obj = GameObject.Find("MainRole");
         if obj then
-            this.RoleCtrl = obj:GetComponent('RoleCtrl');--obj:GetComponentInChildren('RoleCtrl');
+            this.RoleCtrl = obj:GetComponent('RoleCtrl');
         else
             logWarn("ScencePlayerPanel RoleBornPoint not found")
         end
@@ -28,11 +28,11 @@ end
 --初始化面板
 function ScencePlayerPanel.InitPanel()
     this.btnLobby = transform:Find('Left/BtnLobby').gameObject
-    this.btnRoleFight = transform:Find('EasyTouch/Right/Fight').gameObject
-    this.btnRoleSkill = transform:Find("EasyTouch/Right/Skill1").gameObject
-    this.btnRoleSkil2 = transform:Find("EasyTouch/Right/Skill2").gameObject
-    this.btnRoleSkil3 = transform:Find("EasyTouch/Right/Skill3").gameObject
-    this.btnRoleSkil4 = transform:Find("EasyTouch/Right/Skill4").gameObject
+    -- this.btnRoleFight = transform:Find('EasyTouch/Right/Fight').gameObject
+    -- this.btnRoleSkill = transform:Find("EasyTouch/Right/Skill1").gameObject
+    -- this.btnRoleSkil2 = transform:Find("EasyTouch/Right/Skill2").gameObject
+    -- this.btnRoleSkil3 = transform:Find("EasyTouch/Right/Skill3").gameObject
+    -- this.btnRoleSkil4 = transform:Find("EasyTouch/Right/Skill4").gameObject
 end
 
 --单击事件

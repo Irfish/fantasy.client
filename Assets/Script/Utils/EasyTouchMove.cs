@@ -1,22 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class EasyTouchMove : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public RoleCtrl roleCtrl;
     //图标移动最大半径
     public float maxRadius = 50;
 
     public float speed = 0f;
-
     //初始化背景图标位置
     private Vector2 moveBackPos;
-
 
     private float horizontal = 0;
 
     private float vertical = 0;
+
+    public Action<int> OnRoleFight;
+
+    public Action<int> OnRoleSkill;
 
     public float Horizontal
     {
@@ -71,4 +75,32 @@ public class EasyTouchMove : MonoBehaviour, IDragHandler, IEndDragHandler
         transform.localPosition = Vector3.zero;
     }
 
+    public void OnClickBtnRoleFight()
+    {
+        if (OnRoleFight!=null)
+        {
+            OnRoleFight(2);
+        }
+    }
+
+    public void OnClickBtnRoleSkill1()
+    {
+        OnRoleSkill.Invoke(1);
+    }
+
+    public void OnClickBtnRoleSkill2()
+    {
+        OnRoleSkill.Invoke(3);
+    }
+
+    public void OnClickBtnRoleSkill3()
+    {
+        OnRoleSkill.Invoke(4);
+    }
+
+    public void OnClickBtnRoleSkill4()
+    {
+        OnRoleSkill.Invoke(5);
+    }
+    
 }

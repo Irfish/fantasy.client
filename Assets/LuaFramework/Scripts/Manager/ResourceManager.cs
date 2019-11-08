@@ -309,7 +309,10 @@ namespace LuaFramework {
 
                 stream = File.ReadAllBytes(uri);
                 bundle = AssetBundle.LoadFromMemory(stream); //关联数据的素材绑定
-                bundles.Add(abname, bundle);
+                if (abname!="role")//不做缓存
+                {
+                    bundles.Add(abname, bundle);
+                }
             } else {
                 bundles.TryGetValue(abname, out bundle);
             }

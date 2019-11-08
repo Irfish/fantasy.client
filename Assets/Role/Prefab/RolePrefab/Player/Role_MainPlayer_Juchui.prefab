@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 423848}
   - component: {fileID: 9516886}
   m_Layer: 0
-  m_Name: zhujiao_juchui_animation
+  m_Name: Aanimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

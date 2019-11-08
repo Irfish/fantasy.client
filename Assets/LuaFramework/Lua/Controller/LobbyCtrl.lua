@@ -30,7 +30,8 @@ function LobbyCtrl.OnClickbtnGameType1(go)
 end
 
 function LobbyCtrl.OnClickbtnGameType2(go)
-    scenceMgr:LoadSence(ScenceName.Main)
+--    scenceMgr:LoadSence(ScenceName.Main)
+    scenceMgr:LoadSence(ScenceName.DaShanGu)
 end
 
 function LobbyCtrl.OnClickbtnGameType3(go)

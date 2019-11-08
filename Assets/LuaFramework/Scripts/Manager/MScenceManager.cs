@@ -81,8 +81,8 @@ namespace LuaFramework
             yield return async;
 
             if (lastSencenName!= "Scene_UI")
-            {   
-                SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(lastSencenName));
+            {
+                SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(lastSencenName), UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
             }
 
             Util.CallMethod("Main", "OnLevelWasLoaded", currentSenceName, lastSencenName);

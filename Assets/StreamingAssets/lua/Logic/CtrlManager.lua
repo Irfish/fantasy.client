@@ -39,7 +39,11 @@ function CtrlManager.BindUiToScence()
     ScenceUIList[ScenceName.XueDi] = {
         CtrlNames.ScencePlayer
     }
-    
+
+    ScenceUIList[ScenceName.DaShanGu] = {
+        CtrlNames.ScencePlayer
+    }
+        
 end
 
 function CtrlManager.ShowScenceUI(scence)
