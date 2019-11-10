@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class EasyTouchMove : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public RoleCtrl roleCtrl;
     //图标移动最大半径
     public float maxRadius = 50;
 
@@ -77,10 +76,7 @@ public class EasyTouchMove : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnClickBtnRoleFight()
     {
-        if (OnRoleFight!=null)
-        {
-            OnRoleFight(2);
-        }
+        OnRoleFight.Invoke(2);
     }
 
     public void OnClickBtnRoleSkill1()

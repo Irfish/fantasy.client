@@ -2162,6 +2162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roleCtrl: {fileID: 0}
   roleBornpostion: {fileID: 0}
+  mainCameraRoot: {fileID: 0}
 --- !u!1 &130586923
 GameObject:
   m_ObjectHideFlags: 0
@@ -19024,7 +19025,6 @@ GameObject:
   m_Component:
   - component: {fileID: 950348024}
   - component: {fileID: 950348025}
-  - component: {fileID: 950348026}
   m_Layer: 0
   m_Name: MainCameraRoot
   m_TagString: Untagged
@@ -19043,6 +19043,7 @@ Transform:
   m_LocalPosition: {x: 32.06787, y: 1.315778, z: 28.99316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1896962550}
   - {fileID: 1285488482}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -19063,50 +19064,9 @@ MonoBehaviour:
   swipeDir: 0
   mainCamera: {fileID: 0}
   swipeVector: {x: 0, y: 0}
+  cameraRootOrigionRotion: {x: 0, y: 0, z: 0, w: 0}
+  cameraOrigionRotion: {x: 0, y: 0, z: 0, w: 0}
   verticalAngleLimit: 10
---- !u!114 &950348026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950348023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df757cf29e57b9449a27cd9dc4a9404a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quickActionName: QuickSwipee356549
-  isMultiTouch: 0
-  is2Finger: 0
-  isOnTouch: 0
-  enablePickOverUI: 0
-  resetPhysic: 0
-  directAction: 1
-  axesAction: 1
-  sensibility: 1
-  directCharacterController: {fileID: 0}
-  inverseAxisValue: 0
-  onSwipeAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 950348025}
-        m_MethodName: OnSwipeAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: HedgehogTeam.EasyTouch.QuickSwipe+OnSwipeAction, Assembly-CSharp,
-      Version=1.0.7251.32089, Culture=neutral, PublicKeyToken=null
-  allowSwipeStartOverMe: 1
-  actionTriggering: 0
-  swipeDirection: 1
-  enableSimpleAction: 1
 --- !u!1 &950515729
 GameObject:
   m_ObjectHideFlags: 0
@@ -30567,7 +30527,7 @@ GameObject:
   - component: {fileID: 1285488482}
   - component: {fileID: 1285488483}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30581,11 +30541,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285488481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04113388, y: 2, z: -5.5}
+  m_LocalPosition: {x: 0, y: 2, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 950348024}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1285488483
 Camera:
@@ -56829,6 +56789,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896567598}
   m_Mesh: {fileID: 4300002, guid: 5d7bb867b49bafc42a28147f09e96d46, type: 3}
+--- !u!1 &1896962549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896962550}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896962550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896962549}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: -5.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 950348024}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897940626
 GameObject:
   m_ObjectHideFlags: 0

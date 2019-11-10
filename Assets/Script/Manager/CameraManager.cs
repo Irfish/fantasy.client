@@ -23,30 +23,29 @@ public class CameraManager : MonoBehaviour
     [HideInInspector]
     public Vector2 swipeVector;
 
+    public Quaternion cameraRootOrigionRotion ;
+
+    public Quaternion cameraOrigionRotion;
+
     public float verticalAngleLimit=10f;
 
     private float currentAngle = 0f;//记录当前在x轴方向旋转的度数
     
     private void OnEnable()
     {
-        //EasyTouch.On_Swipe += OnSwipe;//会出现场景卸载之后，再次加载无法使用的问题？？？
+        EasyTouch.On_Swipe += OnSwipe;//会出现场景卸载之后，再次加载无法使用的问题？？？
+
+        EasyTouch.On_SwipeEnd += OnSwipeEnd;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject obj = GameObject.Find("RoleBornPoint");
+        cameraRootOrigionRotion = transform.rotation;
 
-        if (obj)
-        {
-            currentRole = obj.GetComponentInChildren<RoleCtrl>();  
-        }
-        else
-        {
-            AppDebug.Log("can not found role born point, please create an empty gameobject to be a role born point");
-        }
+        mainCamera = transform.Find("MainCamera");
 
-        mainCamera = transform.Find("Main Camera");
+        cameraOrigionRotion = mainCamera.rotation;
     }
 
     // Update is called once per frame
@@ -58,11 +57,22 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    public void OnSwipeAction(Gesture gesture)
-    {        
-        //transform.rotation = Quaternion.Lerp(transform.rotation, currentRole.transform.rotation, Time.deltaTime * 10f);
-        AppDebug.Log("gesture.type:"+ gesture.swipe.ToString());
+    public void OnSwipeEnd(Gesture gesture)
+    {
+        float a = 0f;
 
+        Vector3 v =new Vector3(0,1,0);
+
+        transform.rotation.ToAngleAxis(out a, out v);
+
+        if (v.y < 0)//顺时针
+        {
+            currentRole.cameraAngle = -a;
+        }
+        else
+        {
+            currentRole.cameraAngle = a;
+        }
     }
 
     public void OnSwipe(Gesture gesture)
@@ -73,15 +83,7 @@ public class CameraManager : MonoBehaviour
         {
             case SwipeDir.left:
             case SwipeDir.right:
-                //不使用Quaternion 经旋转
-                {
-                    //Vector3 direction = new Vector3();
-                    //direction.x = swipeVector.x;
-                    //direction.z = swipeVector.y;
-                    //direction.y = 0;
-                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction.normalized), Time.deltaTime * 10);
-                }
-
+              
                 float angleV = -1f;
 
                 if (swipeVector.x < 0)
@@ -94,7 +96,6 @@ public class CameraManager : MonoBehaviour
                 break;
 
             case SwipeDir.up://角度增大
-
             case SwipeDir.down://角度减小
 
                 float angleH = 1f;
@@ -123,8 +124,8 @@ public class CameraManager : MonoBehaviour
                     canDo = true;
                 }
 
-                if (canDo) {
-
+                if (canDo)
+                {
                     mainCamera.Rotate(new Vector3(1, 0, 0), angleH);
 
                     currentAngle += angleH;
@@ -162,5 +163,11 @@ public class CameraManager : MonoBehaviour
          return SwipeDir.idle;
      }
 
+    public void OnDisable()
+    {
+        EasyTouch.On_Swipe -= OnSwipe;
+
+        EasyTouch.On_SwipeEnd -= OnSwipeEnd;
+    }
 
 }

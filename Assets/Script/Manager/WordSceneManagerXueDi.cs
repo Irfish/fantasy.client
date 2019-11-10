@@ -13,6 +13,8 @@ public class WordSceneManagerXueDi : MonoBehaviour
     //角色出生点
     public Transform roleBornpostion;
 
+    public Transform mainCameraRoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class WordSceneManagerXueDi : MonoBehaviour
                 AppDebug.Log("can not found role born point, please create an empty gameobject to be a role born point");
             }
         }
+
+        mainCameraRoot = GameObject.Find("MainCameraRoot").transform;
 
         LoadPlayer();
 
@@ -68,6 +72,11 @@ public class WordSceneManagerXueDi : MonoBehaviour
         roleCtrl.roleName = roleName; 
 
         roleCtrl.CurrRoleFSMMgr = new RoleFSMManager(roleCtrl);
+
+        CameraManager cameraMgr = mainCameraRoot.gameObject.GetOrCreateComponent<CameraManager>();
+
+        cameraMgr.currentRole = roleCtrl;
+
     }
 
     // Update is called once per frame

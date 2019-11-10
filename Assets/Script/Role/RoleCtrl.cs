@@ -18,7 +18,9 @@ public class RoleCtrl : MonoBehaviour
     public CharacterController characterController;
     [HideInInspector]
     public Action<RoleCtrl> OnRoleDie;
-    
+
+    public float cameraAngle = 0f;
+
     //角色对应的特效
     private Dictionary<string, GameObject> effectList = new Dictionary<string, GameObject>();
 
@@ -49,9 +51,7 @@ public class RoleCtrl : MonoBehaviour
             return animator;
         }
     } //角色动画状态机
-
     
-
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +71,7 @@ public class RoleCtrl : MonoBehaviour
         }
 
         characterController = transform.GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
@@ -84,34 +85,38 @@ public class RoleCtrl : MonoBehaviour
         {
             AppDebug.Log("CurrRoleFSMMgr not set-------------------------->");
         }
- 
+        
         if (easyTouchMove != null)
         {
-            float hor = easyTouchMove.Horizontal;
-
-            float ver = easyTouchMove.Vertical;
-
-            Vector3 direction = new Vector3(hor, 0, ver);
-
-            if (direction != Vector3.zero)
+            if (easyTouchMove.Horizontal!=0 || easyTouchMove.Vertical!=0)
             {
-                CurrRoleFSMMgr.ChangeState(RoleState.Run);
 
                 isMoveing = true;
+
+                CurrRoleFSMMgr.ChangeState(RoleState.Run);
+
+                Vector3 direction = CheckDir(easyTouchMove.Horizontal, easyTouchMove.Vertical);
+
                 //控制转向
+
+                float a = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction));
+
+                AppDebug.Log("a:"+ a);
+
+                //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(a, Vector3.up), Time.deltaTime * 10);
+
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 10);
-               
+
                 Vector3 dir = direction.normalized;
 
                 if (!characterController.isGrounded)//角色不在地面上，则施加垂直方向的重力，使其着地
                 {
-                    dir.y = dir.y - 9.8f; 
+                    dir.y = dir.y - 9.8f;
                 }
 
                 characterController.Move(dir * Time.deltaTime * 5);
-
                 //向前移动
-                //transform.Translate(Vector3.forward * Time.deltaTime * 5); //此方法无视障碍物
+                //transform.Translate( Vector3.forward* Time.deltaTime * 5); //此方法无视障碍物
             }
             else
             {
@@ -122,6 +127,13 @@ public class RoleCtrl : MonoBehaviour
         {
             ToIdle();
         }
+    }
+
+    public Vector3 CheckDir(float Horizontal,float Vertical)
+    {
+        Vector3 direction = new Vector3(Horizontal, 0, Vertical);
+
+        return direction;
     }
 
     //保持站立状态
@@ -192,4 +204,3 @@ public class RoleCtrl : MonoBehaviour
     }
 
 }
-

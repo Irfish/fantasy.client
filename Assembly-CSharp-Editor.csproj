@@ -107,19 +107,19 @@
     <Compile Include="Assets\LuaFramework\ToLua\Injection\Editor\ToLuaInjectionHelper.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Injection\Editor\ToLuaText.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -349,6 +349,9 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
@@ -356,31 +359,31 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="CString">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/CString.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/CString.dll</HintPath>
     </Reference>
     <Reference Include="Debugger">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Debugger.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Debugger.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Google.Protobuf.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/LitJson.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/Plugin/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
