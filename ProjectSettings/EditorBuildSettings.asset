@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WorldScene/SceneMap/WorldScene_DaShanGu.unity
     guid: f96403e49583fdb499a7b7df4234af11
+  - enabled: 1
+    path: Assets/WorldScene/SceneMap/WorldScene_PingYuan.unity
+    guid: f443010d4ff751945937138c2ad22a99
   m_configObjects: {}

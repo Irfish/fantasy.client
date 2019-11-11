@@ -1,13 +1,14 @@
 Win
 PlayerPath?
-F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
+D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
 SceneListBegin?
-Assets/Scenes/Scene_Main.unity
+Assets/Scenes/Scene_main.unity
 Assets/Scenes/Test.unity
 Assets/Scenes/Scene_UI.unity
 Assets/Scenes/Scene_Lobby.unity
 Assets/Scenes/Scene_Piece.unity
 SceneListEnd?
+6d3931a68d36ef1435d9b1527e434f13 Assembly-CSharp.dll:HedgehogTeam.EasyTouch.EasyTouch
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
 4bc4346a71a8df53a6b106f68ef3a190 UnityEngine.UI.dll:UnityEngine.UI.CanvasScaler
 cc4274b586df3c02688bac01b88bd16c UnityEngine.UI.dll:UnityEngine.EventSystems.EventSystem

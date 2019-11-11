@@ -3,7 +3,7 @@ CRC: 3018045426
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2d5373024f90384f12001bb9282590f0
+    Hash: 38d630ea6c9df2c13d149e2759a9e55a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 392b34112ce82ea8fbcd8957e2cb0bbe
@@ -45,5 +45,5 @@ Assets:
 - Assets/LuaFramework/Examples/Builds/Prompt/PromptItem.prefab
 - Assets/LuaFramework/Examples/Builds/Prompt/PromptPanel.prefab
 Dependencies:
-- F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/prompt_asset.unity3d
-- F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/shared_asset.unity3d
+- D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/prompt_asset.unity3d
+- D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/shared_asset.unity3d

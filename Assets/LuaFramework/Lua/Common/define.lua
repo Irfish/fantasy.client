@@ -18,7 +18,8 @@ ScenceName={
     Main="Scene_Main",
     Piece="Scene_Piece",
     XueDi="WorldScene_XueDi",
-    DaShanGu="WorldScene_DaShanGu"
+    DaShanGu="WorldScene_DaShanGu",
+    PingYuan="WorldScene_PingYuan"
 }
 
 --协议类型

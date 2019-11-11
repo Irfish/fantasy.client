@@ -45,9 +45,9 @@ public class WordSceneManagerXueDi : MonoBehaviour
             
         ResourceManager resourceManager =  LuaHelper.GetResManager();
         //TOTO 此处会根据玩家学者的角色选择对应的名称（跟根据配置表配置）
-        //string roleName = "Role_MainPlayer_Cike"; //刺客
+        string roleName = "Role_MainPlayer_Cike"; //刺客
 
-        string roleName = "Role_MainPlayer_Fashi";//法师
+        //string roleName = "Role_MainPlayer_Fashi";//法师
 
         //string roleName = "Role_MainPlayer_Juchui";//肉塔
 
