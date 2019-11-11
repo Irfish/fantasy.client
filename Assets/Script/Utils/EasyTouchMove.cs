@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// 控制角色
+/// </summary>
 public class EasyTouchMove : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     //图标移动最大半径

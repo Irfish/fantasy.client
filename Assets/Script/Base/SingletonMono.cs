@@ -25,6 +25,11 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        OnInit();
+    }
+
     void Awake()
     {
         OnAwake();
@@ -45,6 +50,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
     {
         BeforeOnDestroy();
     }
+    
 
     protected  virtual  void OnInit() { }
 

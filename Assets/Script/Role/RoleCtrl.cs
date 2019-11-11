@@ -18,13 +18,12 @@ public class RoleCtrl : MonoBehaviour
     public CharacterController characterController;
     [HideInInspector]
     public Action<RoleCtrl> OnRoleDie;
-
-    public float cameraAngle = 0f;
-
+    
     //角色对应的特效
     private Dictionary<string, GameObject> effectList = new Dictionary<string, GameObject>();
 
     private Animator animator;
+
     public Animator Animator
     {   
         get
@@ -98,13 +97,6 @@ public class RoleCtrl : MonoBehaviour
                 Vector3 direction = CheckDir(easyTouchMove.Horizontal, easyTouchMove.Vertical);
 
                 //控制转向
-
-                float a = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction));
-
-                AppDebug.Log("a:"+ a);
-
-                //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(a, Vector3.up), Time.deltaTime * 10);
-
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 10);
 
                 Vector3 dir = direction.normalized;
@@ -115,8 +107,6 @@ public class RoleCtrl : MonoBehaviour
                 }
 
                 characterController.Move(dir * Time.deltaTime * 5);
-                //向前移动
-                //transform.Translate( Vector3.forward* Time.deltaTime * 5); //此方法无视障碍物
             }
             else
             {
@@ -127,13 +117,52 @@ public class RoleCtrl : MonoBehaviour
         {
             ToIdle();
         }
+
+        CameraAutoFloow();
     }
 
-    public Vector3 CheckDir(float Horizontal,float Vertical)
+    //摄像机自动跟随
+    private void CameraAutoFloow()
     {
-        Vector3 direction = new Vector3(Horizontal, 0, Vertical);
+        if (WorldCameraCtrl.Instance == null) return;
 
-        return direction;
+        WorldCameraCtrl.Instance.Init();
+
+        WorldCameraCtrl.Instance.transform.position = gameObject.transform.position;
+
+        WorldCameraCtrl.Instance.AutoLookAt(gameObject.transform.position);   
+    }
+
+    //游戏第三人称视角中,当摄像机角度发生变化时，需要根据摇杆的角度调整角色运动的方向，否则角色移动方向会出现错乱
+    public Vector3 CheckDir(float Horizontal, float Vertical)
+    {
+        float camreaAngle = WorldCameraCtrl.Instance.GetRotationAngle(); //摄像机绕y轴旋转的角度
+
+        Vector3 direction = new Vector3(Horizontal, 0, Vertical);//x z 平面 （摇杆方向向量，及角色移动方向向量）
+
+        Vector2 n = RotateVector(new Vector2(Horizontal, Vertical), camreaAngle);
+
+        Vector3 newDirection = new Vector3(n.x, 0, n.y);//x z 平面（摇杆方向向量，及角色移动方向向量）
+
+        return newDirection;
+    }
+
+    //旋转指定角度后的新向量
+    private Vector2 RotateVector(Vector2 v, float angle)
+    {
+        var x = v.x;
+
+        var y = v.y;
+
+        var sin = Math.Sin(Math.PI * angle / 180);
+
+        var cos = Math.Cos(Math.PI * angle / 180);
+
+        var newX = x * cos + y * sin;
+
+        var newY = x * -sin + y * cos;
+
+        return new Vector2((float)newX, (float)newY);
     }
 
     //保持站立状态

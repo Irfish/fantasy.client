@@ -2,16 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum SwipeDir
- { 
-     idle,   
-     left,
-     right,
-     up,
-     down
- }
-
-//摄像机为其子节点
+//摄像机为其子节点 （此类已经废弃）
 public class CameraManager : MonoBehaviour
 {
     [HideInInspector]
@@ -59,20 +50,7 @@ public class CameraManager : MonoBehaviour
 
     public void OnSwipeEnd(Gesture gesture)
     {
-        float a = 0f;
 
-        Vector3 v =new Vector3(0,1,0);
-
-        transform.rotation.ToAngleAxis(out a, out v);
-
-        if (v.y < 0)//顺时针
-        {
-            currentRole.cameraAngle = -a;
-        }
-        else
-        {
-            currentRole.cameraAngle = a;
-        }
     }
 
     public void OnSwipe(Gesture gesture)
