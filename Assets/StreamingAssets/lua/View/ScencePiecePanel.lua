@@ -14,6 +14,10 @@ function ScencePiecePanel.Awake(obj)
     this.InitPanel()
 end
 
+function ScencePiecePanel.Update()
+    
+end
+
 --初始化面板
 function ScencePiecePanel.InitPanel()
     this.btnLobby = transform:Find('BtnLobby').gameObject

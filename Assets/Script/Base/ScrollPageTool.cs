@@ -50,6 +50,11 @@ public class ScrollPageTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         InitManager(m_pageCount * 200 * 200, new Vector2(200, 200));
     }
 
+    public void RestToPage()
+    {
+        ChangePage(0,false);
+    }
+
     public void ResetPageName(int page,string name)
     {
         m_PageList[page] = name;
@@ -173,8 +178,17 @@ public class ScrollPageTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         m_nowPage = Mathf.Clamp(num, 0, maxPageTo0Start);
 
         if (pageNumText != null)
+        {
             //pageNumText.text = (m_nowPage + 1).ToString() + "/" + m_pageCount.ToString();
-            pageNumText.text = m_PageList[m_nowPage + 1];
+            if (m_PageList.ContainsKey(m_nowPage + 1))
+            {
+                pageNumText.text = m_PageList[m_nowPage + 1];
+            }
+            else
+            {
+                pageNumText.text = "";
+            }
+        }
 
         //only one page
         if (maxPageTo0Start == 0)

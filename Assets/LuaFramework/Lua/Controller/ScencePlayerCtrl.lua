@@ -15,7 +15,6 @@ end
 function ScencePlayerCtrl.Awake()
     panelMgr:CreatePanel('ScencePlayer', this.OnCreate)
 end
-
 --启动事件
 function ScencePlayerCtrl.OnCreate(obj)
     gameObject = obj

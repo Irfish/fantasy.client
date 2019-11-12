@@ -13,6 +13,10 @@ function LobbyPanel.Awake(obj)
     this.InitPanel()
 end
 
+function LobbyPanel.Update()
+    
+end
+
 --初始化面板
 function LobbyPanel.InitPanel()
     this.btnGameType1 = transform:Find('Bottom/BtnGameType1').gameObject

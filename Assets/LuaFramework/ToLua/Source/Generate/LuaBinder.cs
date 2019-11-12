@@ -60,6 +60,7 @@ public static class LuaBinder
 		UnityEngine_ResourcesWrap.Register(L);
 		UnityEngine_RectTransformWrap.Register(L);
 		UnityEngine_PlayerPrefsWrap.Register(L);
+		UnityEngine_SpriteWrap.Register(L);
 		UnityEngine_AudioBehaviourWrap.Register(L);
 		L.BeginModule("Networking");
 		UnityEngine_Networking_UnityWebRequestWrap.Register(L);

@@ -13,6 +13,10 @@ function LobbyPanel.Awake(obj)
     this.InitPanel()
 end
 
+function LobbyPanel.Update()
+    
+end
+
 --初始化面板
 function LobbyPanel.InitPanel()
     this.btnGameType1 = transform:Find('Bottom/BtnGameType1').gameObject
@@ -24,6 +28,7 @@ function LobbyPanel.InitPanel()
     this.btnRank = transform:Find('Left/BtnRank').gameObject
     this.gameSceneItem = transform:Find('PanelCenter/ScrollView/Viewport/Item').gameObject
     this.gameSceneItemParent = transform:Find('PanelCenter/ScrollView/Viewport/Content').gameObject
+    this.scrollView = transform:Find('PanelCenter/ScrollView').gameObject
 end
 --显示玩家信息
 function LobbyPanel.ShowPlayerInfo(player)

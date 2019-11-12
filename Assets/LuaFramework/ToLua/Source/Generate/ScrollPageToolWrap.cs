@@ -10,6 +10,7 @@ public class ScrollPageToolWrap
 		L.RegFunction("Start", Start);
 		L.RegFunction("InitPageList", InitPageList);
 		L.RegFunction("ResetPageCount", ResetPageCount);
+		L.RegFunction("RestToPage", RestToPage);
 		L.RegFunction("ResetPageName", ResetPageName);
 		L.RegFunction("InitManager", InitManager);
 		L.RegFunction("OnBeginDrag", OnBeginDrag);
@@ -70,6 +71,22 @@ public class ScrollPageToolWrap
 			ScrollPageTool obj = (ScrollPageTool)ToLua.CheckObject<ScrollPageTool>(L, 1);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.ResetPageCount(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RestToPage(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			ScrollPageTool obj = (ScrollPageTool)ToLua.CheckObject<ScrollPageTool>(L, 1);
+			obj.RestToPage();
 			return 0;
 		}
 		catch (Exception e)

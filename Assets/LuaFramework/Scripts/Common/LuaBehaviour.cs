@@ -22,10 +22,16 @@ namespace LuaFramework {
             Util.CallMethod(name, "Start");
         }
 
+        protected void Update()
+        {
+            Util.CallMethod(name, "Update");
+        }
+
         protected void OnClick() {
             Util.CallMethod(name, "OnClick");
         }
 
+        
         protected void OnClickEvent(GameObject go) {
             Util.CallMethod(name, "OnClick", go);
         }

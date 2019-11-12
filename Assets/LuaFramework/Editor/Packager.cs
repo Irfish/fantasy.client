@@ -183,9 +183,10 @@ public class Packager {
         AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Shared");
 
         AddBuildMap("scenes" + AppConst.ExtName, "*.unity", "Assets/Scenes/");
-
-        AddBuildMap("role" + AppConst.ExtName, "*.prefab", "Assets/Role/Prefab/RolePrefab/Player"); 
-
+        //角色
+        AddBuildMap("role" + AppConst.ExtName, "*.prefab", "Assets/Role/Prefab/RolePrefab/Player");
+        //游戏类型
+        AddBuildMap("game_type" + AppConst.ExtName, "*.png", "Assets/UI/UISource/GameLevel/GameLevelDetail");
         //AddSceneBuildMap("scene_lobby", "Assets/Scenes/Scene_Lobby.unity");
 
     }

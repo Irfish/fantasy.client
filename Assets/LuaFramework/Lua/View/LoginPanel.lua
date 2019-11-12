@@ -13,6 +13,10 @@ function LoginPanel.Awake(obj)
     this.InitPanel()
 end
 
+function LoginPanel.Update()
+    
+end
+
 --初始化面板
 function LoginPanel.InitPanel()
     this.btnLogin = transform:Find('Account/BtnLogin').gameObject

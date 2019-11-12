@@ -378,5 +378,14 @@ namespace LuaFramework {
         public static WWWForm GetWwwFrom() {
             return new WWWForm();
         }
+
+        public static Sprite LoadSpriteImage(string abName ,string name)
+        {
+            Sprite prefab = LuaHelper.GetResManager().LoadAsset<Sprite>(abName, name);
+
+            if (prefab == null) return null;
+            
+            return prefab;
+        }
     }
 }

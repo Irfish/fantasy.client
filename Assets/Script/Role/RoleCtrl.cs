@@ -119,6 +119,15 @@ public class RoleCtrl : MonoBehaviour
         }
 
         CameraAutoFloow();
+
+        MiniMapFollow();
+    }
+
+    private void MiniMapFollow()
+    {
+        if (MinimapFollow.Instance==null) return;
+
+        MinimapFollow.Instance.Follow(gameObject.transform.position);
     }
 
     //摄像机自动跟随

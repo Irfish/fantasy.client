@@ -369,6 +369,7 @@
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_SleepTimeoutWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_SpaceWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_SphereColliderWrap.cs" />
+    <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_SpriteWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Texture2DWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_TextureWrap.cs" />
     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_TimeWrap.cs" />
@@ -1206,6 +1207,7 @@
     <Compile Include="Assets\Plugin\Best HTTP (Pro)\BestHTTP\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Plugin\Best HTTP (Pro)\BestHTTP\WebSocket\WebSocketResponse.cs" />
     <Compile Include="Assets\Plugin\Best HTTP (Pro)\BestHTTP\WebSocket\WebSocketStatusCodes.cs" />
+    <Compile Include="Assets\Resources\Camera\MinimapFollow.cs" />
     <Compile Include="Assets\Script\Base\EnumDefine.cs" />
     <Compile Include="Assets\Script\Base\ScrollPageTool.cs" />
     <Compile Include="Assets\Script\Base\Singleton.cs" />

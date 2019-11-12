@@ -11,29 +11,16 @@ function ScencePlayerPanel.Awake(obj)
     this.InitPanel()
 end
 
-function ScencePlayerPanel.GetRoleCtrl()
-    if this.RoleCtrl then
-        return this.RoleCtrl
-    else
-        local obj = GameObject.Find("MainRole");
-        if obj then
-            this.RoleCtrl = obj:GetComponent('RoleCtrl');
-        else
-            logWarn("ScencePlayerPanel RoleBornPoint not found")
-        end
-        return this.RoleCtrl
-    end
-end
-
 --初始化面板
 function ScencePlayerPanel.InitPanel()
     this.btnLobby = transform:Find('Left/BtnLobby').gameObject
-    -- this.btnRoleFight = transform:Find('EasyTouch/Right/Fight').gameObject
-    -- this.btnRoleSkill = transform:Find("EasyTouch/Right/Skill1").gameObject
-    -- this.btnRoleSkil2 = transform:Find("EasyTouch/Right/Skill2").gameObject
-    -- this.btnRoleSkil3 = transform:Find("EasyTouch/Right/Skill3").gameObject
-    -- this.btnRoleSkil4 = transform:Find("EasyTouch/Right/Skill4").gameObject
+    this.miniMapCamera = transform:Find('Right/MiniMapCamera')
 end
+
+function ScencePlayerPanel.Update()
+   
+end
+
 
 --单击事件
 function ScencePlayerPanel.OnDestroy()

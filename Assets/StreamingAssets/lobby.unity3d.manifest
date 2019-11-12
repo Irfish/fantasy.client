@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1529601422
+CRC: 3168751760
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1d4fe13bbf682806ab614743cbbd1474
+    Hash: 9b7a4f5ee72ce31f21da489f58922091
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6248deb44e639bfcf12789973d246692
@@ -49,4 +49,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/LuaFramework/UI/Builds/Lobby/LobbyPanel.prefab
-Dependencies: []
+Dependencies:
+- F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/game_type.unity3d

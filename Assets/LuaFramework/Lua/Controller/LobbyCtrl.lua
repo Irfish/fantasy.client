@@ -31,8 +31,8 @@ function LobbyCtrl.OnCreate(obj)
     this.scrollPageTool = LobbyPanel.scrollView:GetComponent('ScrollPageTool')
     --默认选择
     local gameList = {
-        {name = 'WorldScene_DaShanGu', imgId = '2',describe="绿野仙踪"},
-        {name = 'WorldScene_PingYuan', imgId = '3',describe="幽林冥都"}
+        {name = 'WorldScene_DaShanGu', img = 'gameLevel1',describe="绿野仙踪"},
+        {name = 'WorldScene_PingYuan', img = 'gameLevel2',describe="幽林冥都"}
     }
     this.ReLoadItem(gameList)
 end
@@ -54,6 +54,11 @@ function LobbyCtrl.ReLoadItem(list)
         hidCount = hasCount - count
     end
 
+    for j = 1, hasCount do
+        local go = itmeList[j]
+        go:SetActive(false)
+    end
+
     local firstLoadCount = hasCount
     if hidCount > 0 then
         firstLoadCount = count
@@ -63,24 +68,22 @@ function LobbyCtrl.ReLoadItem(list)
     --重新赋值
     for j = 1, firstLoadCount do
         local go = itmeList[j]
-        go.name = list[j].name .. '_' .. list[j].imgId
+        go.name = list[j].name .. '_' .. list[j].img
+        local image = go:GetComponent("Image") 
+        image.sprite = Util.LoadSpriteImage("game_type",list[j].img)
         go:SetActive(true)
         index = j
     end
-    --将多余的item隐藏
-    if hidCount > 0 then
-        for j = index + 1, hasCount do
-            local go = itmeList[j]
-            go:SetActive(false)
-        end
-    end
+
     --新建
     for i = index + 1, index + newCount do
         local go = newObject(LobbyPanel.gameSceneItem)
-        go.name = list[i].name .. '_' .. list[i].imgId
+        go.name = list[i].name .. '_' .. list[i].img
         go.transform:SetParent(LobbyPanel.gameSceneItemParent.transform)
         go.transform.localScale = Vector3.one
         go.transform.localPosition = Vector3.zero
+        local image = go:GetComponent("Image") 
+        image.sprite = Util.LoadSpriteImage("game_type",list[i].img)
         go:SetActive(true)
         Lobby:AddClick(go, this.OnClickItem)
         table.insert(itmeList, go)
@@ -89,6 +92,7 @@ function LobbyCtrl.ReLoadItem(list)
 end
 --初始化ScrollView
 function LobbyCtrl.ResetScrollViewName(list)
+    this.scrollPageTool:RestToPage()
     for i=1,#list do
         this.scrollPageTool:ResetPageName(i,list[i].describe)
     end
@@ -104,22 +108,22 @@ end
 --养成类型
 function LobbyCtrl.OnClickbtnGameType1(go)
     local gameList = {
-        {name = 'WorldScene_DaShanGu', imgId = '2',describe="绿野仙踪"},
-        {name = 'WorldScene_PingYuan', imgId = '3',describe="幽林冥都"}
+        {name = 'WorldScene_DaShanGu', img = 'gameLevel1',describe="绿野仙踪"},
+        {name = 'WorldScene_PingYuan', img = 'gameLevel2',describe="幽林冥都"}
     }
     this.ReLoadItem(gameList)
 end
 --对战类型
 function LobbyCtrl.OnClickbtnGameType2(go)
     local gameList = {
-        {name = 'WorldScene_XueDi', imgId = '4',describe="银雪幻境"}
+        {name = 'WorldScene_XueDi', img = 'gameLevel3',describe="银雪幻境"}
     }
     this.ReLoadItem(gameList)
 end
 --休闲类型
 function LobbyCtrl.OnClickbtnGameType3(go)
     local gameList = {
-        {name = 'Scene_Piece', imgId = '1',describe="菜鸡工厂"},
+        {name = 'Scene_Piece', img = 'gameLevel1',describe="菜鸡工厂"},
     }
     this.ReLoadItem(gameList)
 end
