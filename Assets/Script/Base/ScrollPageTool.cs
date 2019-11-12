@@ -6,9 +6,7 @@ using System.Collections.Generic;
 
 public class ScrollPageTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
-
-
-
+    
     public Button pageLastButton;
     public Button pageNextButton;
     public Text pageNumText;
@@ -36,14 +34,28 @@ public class ScrollPageTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     public void Start()
     {
         InitPageList();
-        InitManager(3*200*200, new Vector2(200,200));
+
     }
 
     public void InitPageList()
     {
-        m_PageList[1] = "银雪幻境";
-        m_PageList[2] = "绿野仙踪";
-        m_PageList[3] = "幽林冥都";
+        //m_PageList[1] = "银雪幻境";
+        //m_PageList[2] = "绿野仙踪";
+        //m_PageList[3] = "幽林冥都";
+    }
+
+    public void ResetPageCount(int pageCount)
+    {
+        m_pageCount = pageCount;
+        InitManager(m_pageCount * 200 * 200, new Vector2(200, 200));
+    }
+
+    public void ResetPageName(int page,string name)
+    {
+        m_PageList[page] = name;
+        if (m_nowPage+1== page) {
+            pageNumText.text = m_PageList[m_nowPage + 1];
+        }
     }
 
     public bool SetButtonStatus
@@ -190,7 +202,6 @@ public class ScrollPageTool : MonoBehaviour, IBeginDragHandler, IEndDragHandler
             pageLastButton.interactable = true;
         if (m_nowPage < maxPageTo0Start && (!pageNextButton.interactable))
             pageNextButton.interactable = true;
-
 
     }
 

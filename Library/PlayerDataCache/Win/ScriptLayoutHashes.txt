@@ -1,8 +1,8 @@
 Win
 PlayerPath?
-D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
+F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/scenes.unity3d
 SceneListBegin?
-Assets/Scenes/Scene_main.unity
+Assets/Scenes/Scene_Main.unity
 Assets/Scenes/Test.unity
 Assets/Scenes/Scene_UI.unity
 Assets/Scenes/Scene_Lobby.unity

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2529723892
+CRC: 1610630782
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e301e7918e15379d63d8093d36a80e37
+    Hash: 9c49b711129bc5207e62dcd900e636a6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1c9cb7817d976b90af1c6df2570bab1b
@@ -106,7 +106,7 @@ ClassTypes:
 - Class: 258
   Script: {instanceID: 0}
 Assets:
-- Assets/Scenes/Scene_main.unity
+- Assets/Scenes/Scene_Main.unity
 - Assets/Scenes/Test.unity
 - Assets/Scenes/Scene_UI.unity
 - Assets/Scenes/Scene_Lobby.unity

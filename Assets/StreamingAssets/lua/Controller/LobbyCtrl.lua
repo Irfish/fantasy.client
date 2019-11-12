@@ -6,6 +6,7 @@ local this = LobbyCtrl
 local Lobby
 local transform
 local gameObject
+local itmeList
 
 --构建函数
 function LobbyCtrl.New()
@@ -23,23 +24,119 @@ function LobbyCtrl.OnCreate(obj)
     Lobby:AddClick(LobbyPanel.btnGameType1, this.OnClickbtnGameType1)
     Lobby:AddClick(LobbyPanel.btnGameType2, this.OnClickbtnGameType2)
     Lobby:AddClick(LobbyPanel.btnGameType3, this.OnClickbtnGameType3)
+    Lobby:AddClick(LobbyPanel.btnFantasy, this.OnClickBtnFantasy)
+    Lobby:AddClick(LobbyPanel.btnTask, this.OnClickBtnTask)
+    Lobby:AddClick(LobbyPanel.btnChat, this.OnClickBtnChat)
+    Lobby:AddClick(LobbyPanel.btnRank, this.OnClickBtnRank)
+    --默认选择
+    local gameList = {
+        {name = 'Scene_Piece', imgId = '1'},
+        {name = 'WorldScene_DaShanGu', imgId = '2'},
+        {name = 'WorldScene_PingYuan', imgId = '3'}
+    }
+    this.ReLoadItem(gameList)
 end
+--加载游戏种类列表
+function LobbyCtrl.ReLoadItem(list)
+    if (not list) or #list == 0 then
+        return
+    end
+    if not itmeList then
+        itmeList = {}
+    end
+    local count = #list --总数
+    local hasCount = #itmeList --已经存在的item
+    local newCount = 0 --新增加的item
+    local hidCount = 0 --需要隐藏的item
+    if count > hasCount then
+        newCount = count - hasCount
+    else
+        hidCount = hasCount - count
+    end
 
+    local firstLoadCount = hasCount
+    if hidCount > 0 then
+        firstLoadCount = count
+    end
+
+    local index = 0
+    --重新赋值
+    for j = 1, firstLoadCount do
+        local go = itmeList[j]
+        go.name = list[j].name .. '_' .. list[j].imgId
+        go:SetActive(true)
+        index = j
+    end
+    --将多余的item隐藏
+    if hidCount > 0 then
+        for j = index + 1, hasCount do
+            local go = itmeList[j]
+            go:SetActive(false)
+        end
+    end
+    --新建
+    for i = index + 1, index + newCount do
+        log("i="..i.." index="..index.." #list="..#list)
+        local go = newObject(LobbyPanel.gameSceneItem)
+        go.name = list[i].name .. '_' .. list[i].imgId
+        go.transform:SetParent(LobbyPanel.gameSceneItemParent.transform)
+        go.transform.localScale = Vector3.one
+        go.transform.localPosition = Vector3.zero
+        go:SetActive(true)
+        Lobby:AddClick(go, this.OnClickItem)
+        table.insert(itmeList, go)
+    end
+end
+--点击进入场景
+function LobbyCtrl.OnClickItem(go)
+    local name = go.name
+    local s = Split(name, '_')
+    local sceneName = s[1] .. '_' .. s[2]
+    scenceMgr:LoadSence(sceneName)
+end
+--养成类型
 function LobbyCtrl.OnClickbtnGameType1(go)
     --scenceMgr:LoadSence(ScenceName.XueDi)
+    --scenceMgr:LoadSence(ScenceName.PingYuan)
+    local gameList = {
+        {name = 'Scene_Piece', imgId = '1'},
+        {name = 'WorldScene_DaShanGu', imgId = '2'},
+        {name = 'WorldScene_PingYuan', imgId = '3'}
+    }
+    this.ReLoadItem(gameList)
+end
+--对战类型
+function LobbyCtrl.OnClickbtnGameType2(go)
+    --scenceMgr:LoadSence(ScenceName.Main)
+    --scenceMgr:LoadSence(ScenceName.DaShanGu)
+    local gameList = {
+        {name = 'WorldScene_PingYuan', imgId = '3'}
+    }
+    this.ReLoadItem(gameList)
+end
+--休闲类型
+function LobbyCtrl.OnClickbtnGameType3(go)
+    --scenceMgr:LoadSence(ScenceName.Piece)
+    local gameList = {
+        {name = 'Scene_Piece', imgId = '4'}
+    }
+    this.ReLoadItem(gameList)
+end
+--进入幻境
+function LobbyCtrl.OnClickBtnFantasy(go)
     scenceMgr:LoadSence(ScenceName.PingYuan)
 end
-
-function LobbyCtrl.OnClickbtnGameType2(go)
---    scenceMgr:LoadSence(ScenceName.Main)
-    scenceMgr:LoadSence(ScenceName.DaShanGu)
+--任务
+function LobbyCtrl.OnClickBtnTask(go)
 end
-
-function LobbyCtrl.OnClickbtnGameType3(go)
-    scenceMgr:LoadSence(ScenceName.Piece)
+--聊天
+function LobbyCtrl.OnClickBtnChat(go)
 end
-
+--排行
+function LobbyCtrl.OnClickBtnRank(go)
+end
 --关闭事件
 function LobbyCtrl.Close()
+    itmeList = nil
     panelMgr:ClosePanel('Lobby')
 end

@@ -185,6 +185,7 @@ public static class CustomSettings
         _GT(typeof(PlayerPrefs)),
         _GT(typeof(Image)),
         _GT(typeof(RoleCtrl)),
+        _GT(typeof(ScrollPageTool)),
     };
     
 

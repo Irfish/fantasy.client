@@ -7,6 +7,7 @@ public class RoleCtrlWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(RoleCtrl), typeof(UnityEngine.MonoBehaviour));
+		L.RegFunction("CheckDir", CheckDir);
 		L.RegFunction("ToIdle", ToIdle);
 		L.RegFunction("Fight", Fight);
 		L.RegFunction("Skill", Skill);
@@ -23,6 +24,25 @@ public class RoleCtrlWrap
 		L.RegVar("OnRoleDie", get_OnRoleDie, set_OnRoleDie);
 		L.RegVar("Animator", get_Animator, null);
 		L.EndClass();
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CheckDir(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			RoleCtrl obj = (RoleCtrl)ToLua.CheckObject<RoleCtrl>(L, 1);
+			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
+			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
+			UnityEngine.Vector3 o = obj.CheckDir(arg0, arg1);
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

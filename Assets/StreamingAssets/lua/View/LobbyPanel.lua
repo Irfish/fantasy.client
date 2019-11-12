@@ -18,6 +18,15 @@ function LobbyPanel.InitPanel()
     this.btnGameType1 = transform:Find('Bottom/BtnGameType1').gameObject
     this.btnGameType2 = transform:Find('Bottom/BtnGameType2').gameObject
     this.btnGameType3 = transform:Find('Bottom/BtnGameType3').gameObject
+    this.btnFantasy = transform:Find('Right/Fantasy/BtnFantasy').gameObject
+    this.btnTask = transform:Find('Left/BtnTask').gameObject
+    this.btnChat = transform:Find('Left/BtnChat').gameObject
+    this.btnRank = transform:Find('Left/BtnRank').gameObject
+    this.gameSceneItem = transform:Find('PanelCenter/ScrollView/Viewport/Item').gameObject
+    this.gameSceneItemParent = transform:Find('PanelCenter/ScrollView/Viewport/Content').gameObject
+end
+--显示玩家信息
+function LobbyPanel.ShowPlayerInfo(player)
 
 end
 
