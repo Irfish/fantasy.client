@@ -3,7 +3,7 @@ CRC: 1509886884
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7aa04f13a2f811841ed5f91705ff3f80
+    Hash: 75a11fdc9641085d022eed53e2417391
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2358c20ee14fe1f40bd83bf3704da5eb
@@ -40,4 +40,4 @@ ClassTypes:
 Assets:
 - Assets/LuaFramework/Examples/Builds/Message/MessagePanel.prefab
 Dependencies:
-- F:/unity/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/shared_asset.unity3d
+- D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/shared_asset.unity3d

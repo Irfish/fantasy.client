@@ -54,6 +54,11 @@ function LobbyCtrl.ReLoadItem(list)
         hidCount = hasCount - count
     end
 
+    for j = 1, hasCount do
+        local go = itmeList[j]
+        go:SetActive(false)
+    end
+
     local firstLoadCount = hasCount
     if hidCount > 0 then
         firstLoadCount = count
@@ -69,13 +74,7 @@ function LobbyCtrl.ReLoadItem(list)
         go:SetActive(true)
         index = j
     end
-    --将多余的item隐藏
-    if hidCount > 0 then
-        for j = index + 1, hasCount do
-            local go = itmeList[j]
-            go:SetActive(false)
-        end
-    end
+
     --新建
     for i = index + 1, index + newCount do
         local go = newObject(LobbyPanel.gameSceneItem)
@@ -93,6 +92,7 @@ function LobbyCtrl.ReLoadItem(list)
 end
 --初始化ScrollView
 function LobbyCtrl.ResetScrollViewName(list)
+    this.scrollPageTool:RestToPage()
     for i=1,#list do
         this.scrollPageTool:ResetPageName(i,list[i].describe)
     end

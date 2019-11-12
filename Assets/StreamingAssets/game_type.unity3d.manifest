@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3143457438
+CRC: 3422593977
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 49ac2d29215e358954e15845d111ea3b
+    Hash: 7d6dd9ff3ec79a3d0055acb620e79180
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,7 +14,8 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/UI/UISource/GameLevel/GameLevelDetail/gameLevel3.png
-- Assets/UI/UISource/GameLevel/GameLevelDetail/gameLevel2.png
-- Assets/UI/UISource/GameLevel/GameLevelDetail/gameLevel1.png
+- Assets/UI/UISource/GameLevel/GameLevelDetail/game_001.png
+- Assets/UI/UISource/GameLevel/GameLevelDetail/game_004.png
+- Assets/UI/UISource/GameLevel/GameLevelDetail/game_002.png
+- Assets/UI/UISource/GameLevel/GameLevelDetail/game_003.png
 Dependencies: []
