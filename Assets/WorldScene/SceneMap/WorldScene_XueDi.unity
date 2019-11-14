@@ -15,18 +15,18 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.9264706, g: 1, b: 0.9939148, a: 1}
+  m_FogColor: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.05
   m_LinearFogStart: 10
-  m_LinearFogEnd: 30
+  m_LinearFogEnd: 50
   m_AmbientSkyColor: {r: 0.3036311, g: 0.5834457, b: 0.70149255, a: 1}
   m_AmbientEquatorColor: {r: 0.3036311, g: 0.5834457, b: 0.70149255, a: 1}
   m_AmbientGroundColor: {r: 0.3036311, g: 0.5834457, b: 0.70149255, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0a6f1f1f579f96c4da0541bae5eee4b6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.4112505, g: 0.4251888, b: 0.59920806, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -65,13 +65,13 @@ LightmapSettings:
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
-    m_TextureCompression: 0
+    m_TextureCompression: 1
     m_FinalGather: 1
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
     m_MixedBakeMode: 1
-    m_BakeBackend: 0
+    m_BakeBackend: 1
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
@@ -88,7 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000001, guid: 23e241eaf49331d4cb45654c2ce539a8,
+  m_LightingDataAsset: {fileID: 112000000, guid: 23e241eaf49331d4cb45654c2ce539a8,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &5
@@ -218,13 +218,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16586155}
-  m_LocalRotation: {x: -0.4810368, y: -0.21767241, z: -0.4961982, w: 0.68920946}
+  m_LocalRotation: {x: -0.55562353, y: -0.3273214, z: -0.41096428, w: 0.6444002}
   m_LocalPosition: {x: -20.274801, y: 0.22179794, z: -15.28598}
   m_LocalScale: {x: 1.4576062, y: 1.4964784, z: 1}
   m_Children: []
   m_Father: {fileID: 687385237}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -80.104004, y: 11.694, z: -74.895004}
 --- !u!111 &16586157
 Animation:
   m_ObjectHideFlags: 0
@@ -66610,3 +66610,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc6e96739f352c142b9d6ab16bfbaa87, type: 3}
+--- !u!1 &6810143527185186931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6810143525918899987, guid: fc6e96739f352c142b9d6ab16bfbaa87,
+    type: 3}
+  m_PrefabInstance: {fileID: 6810143527185186930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!45 &6810143527185186932
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810143527185186931}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 0a6f1f1f579f96c4da0541bae5eee4b6, type: 2}
