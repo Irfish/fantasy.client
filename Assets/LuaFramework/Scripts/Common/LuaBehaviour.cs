@@ -11,20 +11,14 @@ namespace LuaFramework {
         private Dictionary<string, LuaFunction> buttons = new Dictionary<string, LuaFunction>();
         private Camera uiCamera;
         private Canvas canvas;
-
         protected void Awake() {
             Util.CallMethod(name, "Awake", gameObject);
-            uiCamera = transform.parent.GetComponent<Camera>();
-            canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+            uiCamera = GameObject.FindWithTag("GuiCamera").GetComponent<Camera>();//transform.parent.GetComponent<Camera>();
+            canvas = GameObject.Find("UIRootCanvas").GetComponent<Canvas>();//Canvas
         }
 
         protected void Start() {
             Util.CallMethod(name, "Start");
-        }
-
-        protected void Update()
-        {
-            Util.CallMethod(name, "Update");
         }
 
         protected void OnClick() {

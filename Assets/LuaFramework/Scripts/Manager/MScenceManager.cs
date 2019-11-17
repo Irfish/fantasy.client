@@ -39,7 +39,7 @@ namespace LuaFramework
 
                 if (uiloading == null)
                 {
-                    uiloading = GameObject.Find("UILoading").GetComponent<AppView>();
+                    uiloading = GameObject.FindWithTag("UILoading").GetComponent<AppView>();
                 }
 
                 uiloading.gameObject.SetActive(true);
@@ -65,7 +65,7 @@ namespace LuaFramework
 
             if (uiloading == null)
             {
-                uiloading = GameObject.Find("UILoading").GetComponent<AppView>();
+                uiloading = GameObject.FindWithTag("UILoading").GetComponent<AppView>();
             }
 
             uiloading.gameObject.SetActive(false);

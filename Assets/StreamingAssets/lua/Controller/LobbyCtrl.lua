@@ -31,8 +31,8 @@ function LobbyCtrl.OnCreate(obj)
     this.scrollPageTool = LobbyPanel.scrollView:GetComponent('ScrollPageTool')
     --默认选择
     local gameList = {
-        {name = 'WorldScene_DaShanGu', img = 'gameLevel1',describe="绿野仙踪"},
-        {name = 'WorldScene_PingYuan', img = 'gameLevel2',describe="幽林冥都"}
+        {name = 'WorldScene_DaShanGu', img = 'game_002',describe="绿野仙踪"},
+        {name = 'WorldScene_PingYuan', img = 'game_003',describe="幽林冥都"}
     }
     this.ReLoadItem(gameList)
 end
@@ -108,22 +108,22 @@ end
 --养成类型
 function LobbyCtrl.OnClickbtnGameType1(go)
     local gameList = {
-        {name = 'WorldScene_DaShanGu', img = 'gameLevel1',describe="绿野仙踪"},
-        {name = 'WorldScene_PingYuan', img = 'gameLevel2',describe="幽林冥都"}
+        {name = 'WorldScene_DaShanGu', img = 'game_002',describe="绿野仙踪"},
+        {name = 'WorldScene_PingYuan', img = 'game_003',describe="幽林冥都"}
     }
     this.ReLoadItem(gameList)
 end
 --对战类型
 function LobbyCtrl.OnClickbtnGameType2(go)
     local gameList = {
-        {name = 'WorldScene_XueDi', img = 'gameLevel3',describe="银雪幻境"}
+        {name = 'WorldScene_XueDi', img = 'game_001',describe="银雪幻境"},
     }
     this.ReLoadItem(gameList)
 end
 --休闲类型
 function LobbyCtrl.OnClickbtnGameType3(go)
     local gameList = {
-        {name = 'Scene_Piece', img = 'gameLevel1',describe="菜鸡工厂"},
+        {name = 'Scene_Piece', img = 'game_004',describe="菜鸡工厂"},
     }
     this.ReLoadItem(gameList)
 end

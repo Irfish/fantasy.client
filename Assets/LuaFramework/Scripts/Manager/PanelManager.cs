@@ -8,10 +8,23 @@ namespace LuaFramework {
     public class PanelManager : Manager {
         private Transform parent;
 
-        Transform Parent {
+        Transform UIRootParent {
             get {
                 if (parent == null) {
-                    GameObject go = GameObject.FindWithTag("GuiCamera");
+                    GameObject go = GameObject.FindWithTag("UIRoot");//GuiCamera
+                    if (go != null) parent = go.transform;
+                }
+                return parent;
+            }
+        }
+
+        Transform UILoadingParent
+        {
+            get
+            {
+                if (parent == null)
+                {
+                    GameObject go = GameObject.FindWithTag("UILoading");
                     if (go != null) parent = go.transform;
                 }
                 return parent;
@@ -25,7 +38,7 @@ namespace LuaFramework {
         public void CreatePanel(string name, LuaFunction func = null) {
             string assetName = name + "Panel";
             string abName = name.ToLower() + AppConst.ExtName;
-            if (Parent.Find(name) != null) return;
+            if (UIRootParent.Find(name) != null) return;
 
 #if ASYNC_MODE
             ResManager.LoadPrefab(abName, assetName, delegate(UnityEngine.Object[] objs) {
@@ -50,8 +63,8 @@ namespace LuaFramework {
 
             GameObject go = Instantiate(prefab) as GameObject;
             go.name = assetName;
-            go.layer = LayerMask.NameToLayer("Default");
-            go.transform.SetParent(Parent);
+            go.layer = LayerMask.NameToLayer("UI");
+            go.transform.SetParent(UIRootParent);
             go.transform.localScale = Vector3.one;
             go.transform.localPosition = Vector3.zero;
             go.AddComponent<LuaBehaviour>();
@@ -66,7 +79,7 @@ namespace LuaFramework {
         /// <param name="name"></param>
         public void ClosePanel(string name) {
             var panelName = name + "Panel";
-            var panelObj = Parent.Find(panelName);
+            var panelObj = UIRootParent.Find(panelName);
             if (panelObj == null) {
                 Debug.LogWarning("ClosePanel: error:>> " + name);
                 return;

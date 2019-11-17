@@ -73,6 +73,7 @@ function ScencePieceCtrl.OnClickBoard(go)
     piece:GetComponent('RectTransform').anchoredPosition = v --需要校准坐标
     --piece:GetComponent('Image'):
     piece:SetActive(true)
+    piece.transform.localScale = Vector3.one
 end
 
 --关闭事件

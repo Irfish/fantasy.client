@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1829561640
+CRC: 2444498637
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -31,7 +31,8 @@ AssetBundleManifest:
       Dependencies: {}
     Info_8:
       Name: scenes.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: lobby.unity3d
     Info_9:
       Name: role.unity3d
       Dependencies: {}

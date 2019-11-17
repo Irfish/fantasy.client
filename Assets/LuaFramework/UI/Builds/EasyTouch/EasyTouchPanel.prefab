@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5370154441218745518}
   - component: {fileID: 5370154441218745517}
   - component: {fileID: 5370154441218745516}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnRank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5370154441249352851}
   - component: {fileID: 5370154441249352861}
   - component: {fileID: 5370154441249352860}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 5370154441266979081}
   - component: {fileID: 5370154441266979083}
   - component: {fileID: 5370154441266979082}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 5370154441269688356}
   - component: {fileID: 5370154441269688379}
   - component: {fileID: 5370154441269688378}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnChat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 5370154441628100297}
   - component: {fileID: 5370154441628100296}
   - component: {fileID: 5370154441628100303}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: JoystickLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -550, y: -250}
+  m_AnchoredPosition: {x: 150, y: 150}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &5370154441628100297
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 5370154441823543248}
   - component: {fileID: 5370154441823543250}
   - component: {fileID: 5370154441823543249}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 5370154441833134371}
   - component: {fileID: 5370154441833134370}
   - component: {fileID: 5370154441833134369}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnLobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 5370154442192986010}
   - component: {fileID: 5370154442192986009}
   - component: {fileID: 5370154442192986008}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnTask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,7 +960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5370154442366885500}
   - component: {fileID: 5370154442366885501}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EasyTouchPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5370154442366885491}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -984,10 +984,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1340, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5370154442366885501
 CanvasRenderer:
@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 5370154442652091730}
   - component: {fileID: 5370154442652091740}
   - component: {fileID: 5370154442652091731}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -620, y: 335}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5370154442723630025
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 5370154442879619843}
   - component: {fileID: 5370154442879619842}
   - component: {fileID: 5370154442879619852}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EasyTouchMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5370154442946435787}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,6 +1277,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -620, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

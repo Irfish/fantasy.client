@@ -14,9 +14,8 @@ public class RoleCtrl : MonoBehaviour
     public RoleFSMManager CurrRoleFSMMgr = null;//状态机控制器
     [HideInInspector]
     public bool isMoveing = false;//角色是否处于移动中
-    [HideInInspector]
+    [SerializeField]
     public CharacterController characterController;
-    [HideInInspector]
     public Action<RoleCtrl> OnRoleDie;
     
     //角色对应的特效
