@@ -36,6 +36,7 @@ GameObject = UnityEngine.GameObject
 Util = LuaFramework.Util
 AppConst = LuaFramework.AppConst
 ByteBuffer = LuaFramework.ByteBuffer
+PlayerPrefs = UnityEngine.PlayerPrefs
 
 LuaHelper = LuaFramework.LuaHelper
 resMgr = LuaHelper.GetResManager()

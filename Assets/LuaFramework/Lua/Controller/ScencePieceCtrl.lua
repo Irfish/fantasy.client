@@ -1,4 +1,9 @@
 require 'Common/define'
+require "3rd/pblua/login_pb"
+require "3rd/pblua/message_pb"
+require "3rd/pblua/user_authentication_pb"
+
+
 local json = require 'cjson'
 ScencePieceCtrl = {}
 local this = ScencePieceCtrl
@@ -31,8 +36,8 @@ end
 --校验坐标
 function ScencePieceCtrl.checkP(p)
     --应为UI的中心点与board的中心点一致
-    local board_x = 708 / 2 --board 宽 的一般
-    local board_y = 710 / 2 --board 高 的一般
+    local board_x = 708 / 2 --board 宽 的一半
+    local board_y = 710 / 2 --board 高 的一半
     local step_x = 37 --item 宽
     local step_y = 36 --item 高
     --如果网格有程序生成则不需要 offset
@@ -74,6 +79,14 @@ function ScencePieceCtrl.OnClickBoard(go)
     --piece:GetComponent('Image'):
     piece:SetActive(true)
     piece.transform.localScale = Vector3.one
+
+    local cts = user_authentication_pb.CtsUserAuthentication();
+    cts.userId =PlayerPrefs.GetInt("UserId")
+    cts.token=PlayerPrefs.GetString("Token")
+    cts.tokenExpireTime=PlayerPrefs.GetInt("TokenExpireTime")
+    local msg = ByteBuffer.New();
+    msg:WriteBuffer(cts:SerializeToString());
+    networkMgr:SendToGw(msg,2);
 end
 
 --关闭事件

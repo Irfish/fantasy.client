@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using System;
 using System.Net;
+
 namespace fantasy.net
 {
     /// <summary>
@@ -125,7 +126,6 @@ namespace fantasy.net
                 m_IsConnected = true;
 
                 fantasy.e.Event.Instance.Dispatch("OnTcpConnected", null);
-
             }
             else
             {

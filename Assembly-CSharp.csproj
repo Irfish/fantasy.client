@@ -189,6 +189,8 @@
     <Compile Include="Assets\LuaFramework\Scripts\Manager\TimerManager.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Network\ByteBuffer.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Network\Converter.cs" />
+    <Compile Include="Assets\LuaFramework\Scripts\Network\MSocketClient.cs" />
+    <Compile Include="Assets\LuaFramework\Scripts\Network\Parser.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Network\Protocal.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\Network\SocketClient.cs" />
     <Compile Include="Assets\LuaFramework\Scripts\ObjectPool\GameObjectPool.cs" />
