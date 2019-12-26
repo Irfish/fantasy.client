@@ -74,8 +74,6 @@ public class Parser
 
         writer.WriteInt(msgId);
 
-        writer.WriteInt(msgData.Length);
-
         writer.WriteBytes(msgData);
 
         ByteBuffer buffer = new ByteBuffer(writer.ToBytes());

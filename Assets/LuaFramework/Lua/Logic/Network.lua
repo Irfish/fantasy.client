@@ -60,11 +60,11 @@ function Network.OnMessage(buffer)
     logWarn('OnMessage-------->>>'..protocal);
     if protocal==1 then
         local msg = error_notice_pb.StcErrorNotice();
-        msg:ParseFromString(data);--无法解析？？？
+        msg:ParseFromString(data);
         logWarn('error_notice_pb: protocal:>'..protocal..' msg:>'..msg.info);
     else
         local msg = user_authentication_pb.StcUserAuthentication();
-        msg:ParseFromString(data);--无法解析？？？
+        msg:ParseFromString(data);
         logWarn('user_authentication_pb: protocal:>'..protocal..' msg:>'..msg.result);
     end
 	-- ----------------------------------------------------
@@ -72,76 +72,7 @@ function Network.OnMessage(buffer)
     if ctrl ~= nil then
         ctrl:Awake();
     end
-    logWarn('OnMessage-------->>>');
-end
-
-
-
---二进制登录--
-function Network.TestLoginBinary(buffer)
-	local protocal = buffer:ReadByte();
-	local str = buffer:ReadString();
-	log('TestLoginBinary: protocal:>'..protocal..' str:>'..str);
-end
-
---PBLUA登录--
-function Network.TestLoginPblua(buffer)
-	local protocal = buffer:ReadByte();
-	local data = buffer:ReadBuffer();
-
-    local msg = login_pb.LoginResponse();
-    msg:ParseFromString(data);
-	log('TestLoginPblua: protocal:>'..protocal..' msg:>'..msg.id);
-end
-
---PBC登录--
-function Network.TestLoginPbc(buffer)
-	local protocal = buffer:ReadByte();
-	local data = buffer:ReadBuffer();
-
-    local path = Util.DataPath.."lua/3rd/pbc/addressbook.pb";
-
-    local addr = io.open(path, "rb")
-    local buffer = addr:read "*a"
-    addr:close()
-    protobuf.register(buffer)
-    local decode = protobuf.decode("tutorial.Person" , data)
-
-    print(decode.name)
-    print(decode.id)
-    for _,v in ipairs(decode.phone) do
-        print("\t"..v.number, v.type)
-    end
-	log('TestLoginPbc: protocal:>'..protocal);
-end
-
---SPROTO登录--
-function Network.TestLoginSproto(buffer)
-	local protocal = buffer:ReadByte();
-	local code = buffer:ReadBuffer();
-
-    local sp = sproto.parse [[
-    .Person {
-        name 0 : string
-        id 1 : integer
-        email 2 : string
-
-        .PhoneNumber {
-            number 0 : string
-            type 1 : integer
-        }
-
-        phone 3 : *PhoneNumber
-    }
-
-    .AddressBook {
-        person 0 : *Person(id)
-        others 1 : *Person
-    }
-    ]]
-    local addr = sp:decode("AddressBook", code)
-    print_r(addr)
-	log('TestLoginSproto: protocal:>'..protocal);
+    
 end
 
 --卸载网络监听--
