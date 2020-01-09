@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 902906060
+CRC: 386159705
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e1d1dc7b1d2bfbcbb0fa71627f934e4e
+    Hash: 0d20ca73b94b012b4e6f4d198b72d065
   TypeTreeHash:
     serializedVersion: 2
     Hash: 27d31371d0bac193086ddaa2c364801c
@@ -109,5 +109,4 @@ Assets:
 - Assets/Scenes/Scene_UI.unity
 - Assets/Scenes/Scene_Lobby.unity
 - Assets/Scenes/Scene_Piece.unity
-Dependencies:
-- D:/git/fantacy/server/src/github.com/Irfish/fantasy.client/Assets/StreamingAssets/lobby.unity3d
+Dependencies: []

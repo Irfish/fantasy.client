@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 988661806
+CRC: 1793251197
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 43f956aa7f0df8d7ebdc44d0b57ddd60
+    Hash: 82805cbed3d9b3a2f6f6fd18d8b2855e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5b064d6269d17b98ff68234b75592a2b
@@ -52,5 +52,6 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
+- Assets/LuaFramework/UI/Builds/Lobby/RoomListPanel.prefab
 - Assets/LuaFramework/UI/Builds/Lobby/LobbyPanel.prefab
 Dependencies: []

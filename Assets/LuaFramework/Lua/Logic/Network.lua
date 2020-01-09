@@ -65,7 +65,8 @@ function Network.OnMessage(buffer)
     else
         local msg = user_authentication_pb.StcUserAuthentication();
         msg:ParseFromString(data);
-        logWarn('user_authentication_pb: protocal:>'..protocal..' msg:>'..msg.result);
+        PlayerPrefs.SetString("SessionId",msg.sessionId);
+        logWarn('user_authentication_pb: protocal:>'..protocal..' msg:>'..msg.result.." sessionId:"..msg.sessionId);
     end
 	-- ----------------------------------------------------
     local ctrl = CtrlManager.GetCtrl(CtrlNames.Message);

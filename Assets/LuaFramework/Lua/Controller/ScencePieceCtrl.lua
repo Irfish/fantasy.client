@@ -2,6 +2,8 @@ require 'Common/define'
 require "3rd/pblua/login_pb"
 require "3rd/pblua/message_pb"
 require "3rd/pblua/user_authentication_pb"
+require "3rd/pblua/create_room_pb"
+
 
 
 local json = require 'cjson'
@@ -27,10 +29,19 @@ function ScencePieceCtrl.OnCreate(obj)
     ScencePiece = gameObject:GetComponent('LuaBehaviour')
     ScencePiece:AddClick(ScencePiecePanel.btnLobby, this.OnClickBtnLobby)
     ScencePiece:AddClick(ScencePiecePanel.board, this.OnClickBoard)
+    ScencePiece:AddClick(ScencePiecePanel.btnReady, this.OnClickBtnReady)
 end
 
 function ScencePieceCtrl.OnClickBtnLobby(go)
     scenceMgr:LoadSence(ScenceName.Lobby)
+end
+
+function ScencePieceCtrl.OnClickBtnReady(go)
+    local cts = create_room_pb.CtsCreateRoom()
+    cts.userId = PlayerPrefs.GetInt("UserId")
+    local msg = ByteBuffer.New();
+    msg:WriteBuffer(cts:SerializeToString());
+    networkMgr:SendToGame(msg,8);
 end
 
 --校验坐标

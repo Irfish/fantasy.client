@@ -111,13 +111,17 @@ namespace LuaFramework {
 
         private void SendToService(Header header, byte[] data,int msgId)
         {
-            header.SessionId = PlayerPrefs.GetInt("SessionId");
+            header.SessionId = long.Parse(PlayerPrefs.GetString("SessionId","0"));
+
+            Debug.Log("header.SessionId:"+header.SessionId);
 
             header.UserId = PlayerPrefs.GetInt("UserId");
 
             header.Token = PlayerPrefs.GetString("Token");
 
             header.TokenExpiredTime = PlayerPrefs.GetInt("TokenExpireTime");
+
+            header.Id = msgId;
 
             Pb.Message msg = new Pb.Message();
 

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 334317558}
   - component: {fileID: 334317557}
   m_Layer: 5
-  m_Name: BtnOperate
+  m_Name: BtnReady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

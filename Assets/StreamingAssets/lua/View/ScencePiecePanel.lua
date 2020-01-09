@@ -23,6 +23,7 @@ function ScencePiecePanel.InitPanel()
     this.btnLobby = transform:Find('BtnLobby').gameObject
     this.pieceItem = transform:Find('Piece/FireItem').gameObject
     this.board = transform:Find('Piece/Board').gameObject
+    this.btnReady = transform:Find('PlayerRight/BtnReady').gameObject
 end
 
 --单击事件
