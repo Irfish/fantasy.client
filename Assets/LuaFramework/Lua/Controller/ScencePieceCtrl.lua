@@ -3,7 +3,7 @@ require "3rd/pblua/login_pb"
 require "3rd/pblua/message_pb"
 require "3rd/pblua/user_authentication_pb"
 require "3rd/pblua/create_room_pb"
-
+Event = require 'events'
 
 
 local json = require 'cjson'
@@ -21,6 +21,8 @@ end
 
 function ScencePieceCtrl.Awake()
     panelMgr:CreatePanel('ScencePiece', this.OnCreate)
+    Event.AddListener(MessageDefine.StcUserAuthentication, this.OnStcUserAuthentication); 
+    Event.AddListener(MessageDefine.StcCreateRoom, this.OnStcCreateRoom); 
 end
 
 --启动事件
@@ -41,7 +43,13 @@ function ScencePieceCtrl.OnClickBtnReady(go)
     cts.userId = PlayerPrefs.GetInt("UserId")
     local msg = ByteBuffer.New();
     msg:WriteBuffer(cts:SerializeToString());
-    networkMgr:SendToGame(msg,8);
+    networkMgr:SendToGame(msg,tonumber(MessageDefine.CtsCreateRoom));
+end
+
+function ScencePieceCtrl.OnStcCreateRoom(data)
+    local msg = create_room_pb.StcCreateRoom();
+    msg:ParseFromString(data);
+    logWarn(' OnStcCreateRoom -> userId: '..msg.userId.." roomId:"..msg.roomId);
 end
 
 --校验坐标
@@ -97,10 +105,19 @@ function ScencePieceCtrl.OnClickBoard(go)
     cts.tokenExpireTime=PlayerPrefs.GetInt("TokenExpireTime")
     local msg = ByteBuffer.New();
     msg:WriteBuffer(cts:SerializeToString());
-    networkMgr:SendToGw(msg,2);
+    networkMgr:SendToGw(msg,tonumber(MessageDefine.CtsUserAuthentication));
+end
+
+function ScencePieceCtrl.OnStcUserAuthentication(data)
+    local msg = user_authentication_pb.StcUserAuthentication();
+    msg:ParseFromString(data);
+    PlayerPrefs.SetString("SessionId",msg.sessionId);
+    logWarn(' OnStcUserAuthentication -> result: '..msg.result.." sessionId:"..msg.sessionId);
 end
 
 --关闭事件
 function ScencePieceCtrl.Close()
+    Event.RemoveListener(MessageDefine.StcUserAuthentication); 
+    Event.RemoveListener(MessageDefine.StcCreateRoom); 
     panelMgr:ClosePanel('ScencePiece')
 end

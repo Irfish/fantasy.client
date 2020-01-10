@@ -77,43 +77,36 @@ namespace LuaFramework {
             SocketClient.SendMessage(buffer);
         }
 
-
         public void SendToGw(ByteBuffer buffer,int msgId)
         {
-            Header h = new Header();
-
-            h.ServiceId0 = (int)SERVICE.Gw;
-
-            ByteBuffer readBuffer = new ByteBuffer(buffer.ToBytes());
-            
-            SendToService(h, readBuffer.ReadBytes(), msgId);
-
-            buffer.Close();
-
-            readBuffer.Close();
-
+            SendMessage(buffer, msgId, (int)SERVICE.Gw);
         }
 
         public void SendToGame(ByteBuffer buffer, int msgId)
         {
-            Header h = new Header();
-
-            h.ServiceId0 = (int)SERVICE.G001;
-
-            ByteBuffer readBuffer = new ByteBuffer(buffer.ToBytes());
-
-            SendToService(h, readBuffer.ReadBytes(), msgId);
-
-            buffer.Close();
-
-            readBuffer.Close();
+            SendMessage(buffer,msgId, (int)SERVICE.G001);
         }
 
-        private void SendToService(Header header, byte[] data,int msgId)
+        public void SendMessage(ByteBuffer buffer, int msgId, int serviceId)
         {
-            header.SessionId = long.Parse(PlayerPrefs.GetString("SessionId","0"));
+            Header h = new Header();
 
-            Debug.Log("header.SessionId:"+header.SessionId);
+            h.ServiceId0 = serviceId;
+
+            SendToService(h, buffer, msgId);
+
+            buffer.Close();
+        }
+
+        private void SendToService(Header header, ByteBuffer buffer, int msgId)
+        {
+            ByteBuffer readBuffer = new ByteBuffer(buffer.ToBytes());
+
+            byte[] data = readBuffer.ReadBytes();
+
+            readBuffer.Close();
+
+            header.SessionId = long.Parse(PlayerPrefs.GetString("SessionId","0"));
 
             header.UserId = PlayerPrefs.GetInt("UserId");
 
@@ -148,6 +141,7 @@ namespace LuaFramework {
             int protoId = MessageDefine.GetProtoIdByProtoType(msg.GetType());
 
             SocketClient.SendMsg(protoId, msg.ToByteArray());
+
         }
 
 

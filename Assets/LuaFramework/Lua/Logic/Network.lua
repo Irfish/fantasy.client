@@ -63,17 +63,13 @@ function Network.OnMessage(buffer)
         msg:ParseFromString(data);
         logWarn('error_notice_pb: protocal:>'..protocal..' msg:>'..msg.info);
     else
-        local msg = user_authentication_pb.StcUserAuthentication();
-        msg:ParseFromString(data);
-        PlayerPrefs.SetString("SessionId",msg.sessionId);
-        logWarn('user_authentication_pb: protocal:>'..protocal..' msg:>'..msg.result.." sessionId:"..msg.sessionId);
+        Event.Brocast(tostring(protocal),data)
     end
 	-- ----------------------------------------------------
     local ctrl = CtrlManager.GetCtrl(CtrlNames.Message);
     if ctrl ~= nil then
         ctrl:Awake();
     end
-    
 end
 
 --卸载网络监听--

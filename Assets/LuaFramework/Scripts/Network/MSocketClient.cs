@@ -144,25 +144,8 @@ public class MSocketClient
 
                             lock (m_ReceiveQueue)
                             {
-                                //m_ReceiveQueue.Enqueue(body);
-                                Parser.DecodeMessage(body);
-                                //{
-                                //    byte[] b = new byte[body.Length - 2];
-
-                                //    ushort protoCode = 0;
-
-                                //    using (AppMemoryStream ms = new AppMemoryStream(body))
-                                //    {
-                                //        protoCode = ms.ReadUShort();
-
-                                //        ms.Read(b, 0, b.Length);
-                                //    }
-
-                                //    ByteBuffer buffer = new ByteBuffer(b);
-
-                                //    NetworkManager.AddEvent(protoCode, buffer);
-                                //}
-
+                                //m_ReceiveQueue.Enqueue(body); 
+                                Parser.DecodeMessage(body); //通讯频繁时可能会卡顿 ？？？  需修改 ---> 先入队列  定时冲队列里取出消息
                             }
 
                             int remainLen = (int)m_MemoryStream.Length - currentMessageLen;
